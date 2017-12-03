@@ -58,22 +58,23 @@ extension WBMainViewController {
     }
     
     private func setupChildrenController () {
-        let array :[[String:Any]] = [
-            ["clsName":"WBHomeVC","title":"首页","imageName":"home","visitordInfo":["imageName":"","message":"关注一些人回这里看看有什么惊喜"]],
-            ["clsName":"WBMessageVC","title":"消息","imageName":"message_center","visitordInfo":["imageName":"visitordiscover_image_message","message":"登录后别人评论你的微博,发给你消息,你可以从这收到"]],
-            ["clsName":"xx","title":"xx","imageName":"xx" ],
-            
-            ["clsName":"WBDiscoverVC","title":"发现","imageName":"discover","visitordInfo":["imageName":"visitordiscover_image_message","message":"登录之后最新最热的微博都在这里展示"]],
-
-            ["clsName":"WBHomeVC","title":"我","imageName":"profile","visitordInfo":["imageName":"visitordiscover_image_profile","message":"登录之后,个人信息都会展示咋这里哦"]]
-        ]
-//        (array as NSArray).write(toFile: "/Users/JiWuChao/Desktop/plist/demo.plist", atomically: true)
-//
-        let data = try!JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
-        (data as NSData).write(toFile: "/Users/JiWuChao/Desktop/plist/demo.json", atomically: true)
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDir as NSString ).appendingPathComponent("main.json")
+        var data = NSData(contentsOfFile: jsonPath)
+        if data == nil {
+            let path = Bundle.main.path(forResource: "main.json", ofType: nil)
+            data = NSData(contentsOfFile: path!)
+        }
         
+
+        guard let array = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String:Any]]
+        else {
+            return
+        }
+        
+ 
         var arrayVM = [UIViewController]()
-        for dic in array {
+        for dic in array! {
             arrayVM.append(controllers(dict: dic))
         }
         viewControllers = arrayVM
