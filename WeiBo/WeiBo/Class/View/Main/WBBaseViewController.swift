@@ -40,7 +40,7 @@ class WBBaseViewController: UIViewController {
 
 extension WBBaseViewController {
     
-   @objc func setupUI()  {
+   private func setupUI()  {
         view.backgroundColor = UIColor.cz_random()
         setupNav()
     userLogon ? setupTableView() : setupVisitorView()
@@ -48,7 +48,7 @@ extension WBBaseViewController {
     }
     
     // 设置表格试图
-    private func setupTableView () {
+   @objc func setupTableView () {
         tableView = UITableView(frame: view.bounds, style: .plain)
         view.insertSubview(tableView!, belowSubview: (navigationController?.navigationBar)!)
         // 设置数据源和代理
@@ -66,12 +66,20 @@ extension WBBaseViewController {
         let visitorView = WBVisitorView(frame: view.bounds)
         visitorView.visitordInfo = visitordInfo
         view.addSubview(visitorView)
+        //添加访客试图的事件
+        visitorView.loginBtn.addTarget(self, action: #selector(login), for: .touchUpInside)
+        visitorView.registerBtn.addTarget(self, action: #selector(register), for: .touchUpInside)
         
+        // 设置导航条按钮
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(register))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(login))
     }
     
     
     private func setupNav() {
-   navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray]
+        navigationController?.navigationBar.backgroundColor = UIColor.cz_color(withHex: 0xF6F6F6);
+        navigationController?.navigationBar.tintColor = UIColor.orange; navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray]
     }
     
    
@@ -112,3 +120,14 @@ extension WBBaseViewController : UITableViewDelegate, UITableViewDataSource {
         
     }
 }
+
+extension WBBaseViewController {
+    @objc private func login () {
+        print("登录")
+    }
+    @objc private func register() {
+        print("注册")
+    }
+}
+
+

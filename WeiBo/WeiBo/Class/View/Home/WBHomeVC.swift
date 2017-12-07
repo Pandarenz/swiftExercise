@@ -60,14 +60,13 @@ extension WBHomeVC {
 }
 
 extension WBHomeVC {
- 
-    override func setupUI() {
-        super.setupUI()
-       
+    override func setupTableView() {
+        super.setupTableView()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", font: 16, target: self, action: #selector (showFriends))
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
-        
     }
+    
+   
 }
 
 

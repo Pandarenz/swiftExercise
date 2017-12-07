@@ -11,6 +11,12 @@ import SnapKit
 
 
 class WBVisitorView: UIView {
+     lazy var registerBtn :UIButton = UIButton.cz_textButton("注册", fontSize: 16, normalColor: UIColor.orange, highlightedColor: UIColor.black, backgroundImageName:  "common_button_white_disable")
+    
+     lazy var loginBtn :UIButton = UIButton.cz_textButton("登录", fontSize: 16, normalColor: UIColor.orange, highlightedColor: UIColor.black, backgroundImageName:  "common_button_white_disable")
+    
+    
+    
     //访客视图的信息字典
     var visitordInfo:[String:String]?{
         didSet {
@@ -57,9 +63,7 @@ class WBVisitorView: UIView {
         color: UIColor.darkGray)
 //        tipLbl as? UILabel .numberOfCount = 0
     
-    private lazy var registerBtn :UIButton = UIButton.cz_textButton("注册", fontSize: 16, normalColor: UIColor.orange, highlightedColor: UIColor.black, backgroundImageName:  "common_button_white_disable")
     
-     private lazy var loginBtn :UIButton = UIButton.cz_textButton("登录", fontSize: 16, normalColor: UIColor.orange, highlightedColor: UIColor.black, backgroundImageName:  "common_button_white_disable")
     
     
 }
