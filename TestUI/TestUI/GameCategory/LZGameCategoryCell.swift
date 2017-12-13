@@ -11,7 +11,12 @@ import UIKit
 import SnapKit
 
 class LZGameCategoryCell: UICollectionViewCell {
-
+    
+    override convenience init(frame: CGRect) {
+        self.init(frame: frame)
+        setupUI()
+    }
+    
     public var title:String? {
         didSet {
             label?.text = title
@@ -19,11 +24,7 @@ class LZGameCategoryCell: UICollectionViewCell {
     }
     private let label:UILabel?
     
-    override convenience init(frame: CGRect) {
-        
-        self.init(frame: frame)
-        setupUI()
-    }
+   
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
