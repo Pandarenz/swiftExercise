@@ -54,7 +54,9 @@ class PhotoListCell: UITableViewCell {
             make.edges.equalTo(self)
         })
         backGView = UIView()
+        
         mainImg?.addSubview(backGView!)
+        mainImg?.bringSubview(toFront: backGView!)
         backGView?.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.2)
         backGView?.snp.makeConstraints({ (make) in
             make.trailing.leading.bottom.equalTo(self)
