@@ -8,13 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    var dataSource:[Photo] = [Photo]()
+    var coverView = PhotoListView(frame: UIScreen.main.bounds)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(coverView)
+        coverView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
+        
         let dataServer = DataServer()
         dataServer.fetchPopularPhoto {[weak self] (success, photos, error) in
             print(photos)
+            self?.dataSource = photos
+            self?.coverView.dataSource = photos
         }
         
     }

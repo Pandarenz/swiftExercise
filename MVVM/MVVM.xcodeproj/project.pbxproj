@@ -17,6 +17,9 @@
 		04348A0D1FE5787C006BADD0 /* content.json in Resources */ = {isa = PBXBuildFile; fileRef = 04348A0C1FE5787C006BADD0 /* content.json */; };
 		04348A121FE5794B006BADD0 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04348A111FE5794B006BADD0 /* DataService.swift */; };
 		04348A171FE57C5B006BADD0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04348A161FE57C5B006BADD0 /* Photo.swift */; };
+		04348A1B1FE585F9006BADD0 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04348A1A1FE585F9006BADD0 /* PhotoViewModel.swift */; };
+		04348A1D1FE58625006BADD0 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04348A1C1FE58625006BADD0 /* PhotoListView.swift */; };
+		04348A1F1FE58946006BADD0 /* PhotoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04348A1E1FE58946006BADD0 /* PhotoListCell.swift */; };
 		7851295E2B2C1423EA4AD7C7 /* Pods_MVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC61D9432A742FF43F6827B7 /* Pods_MVVM.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +57,9 @@
 		04348A0C1FE5787C006BADD0 /* content.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = content.json; sourceTree = "<group>"; };
 		04348A111FE5794B006BADD0 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		04348A161FE57C5B006BADD0 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		04348A1A1FE585F9006BADD0 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		04348A1C1FE58625006BADD0 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
+		04348A1E1FE58946006BADD0 /* PhotoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListCell.swift; sourceTree = "<group>"; };
 		7DEF61263CB5898940433BE1 /* Pods-MVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVM/Pods-MVVM.release.xcconfig"; sourceTree = "<group>"; };
 		EEA5353946A3F6C5F085C662 /* Pods-MVVM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVM/Pods-MVVM.debug.xcconfig"; sourceTree = "<group>"; };
 		FC61D9432A742FF43F6827B7 /* Pods_MVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +116,8 @@
 		043489DD1FE56603006BADD0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				04348A191FE585E8006BADD0 /* ViewModel */,
+				04348A181FE585D7006BADD0 /* View */,
 				04348A131FE57AFB006BADD0 /* Model */,
 				04348A0E1FE578E7006BADD0 /* Service */,
 				043489DE1FE56603006BADD0 /* AppDelegate.swift */,
@@ -155,6 +163,23 @@
 				04348A161FE57C5B006BADD0 /* Photo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		04348A181FE585D7006BADD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04348A1C1FE58625006BADD0 /* PhotoListView.swift */,
+				04348A1E1FE58946006BADD0 /* PhotoListCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04348A191FE585E8006BADD0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				04348A1A1FE585F9006BADD0 /* PhotoViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9ED12A608372FCE02C636940 /* Frameworks */ = {
@@ -372,6 +397,9 @@
 				04348A121FE5794B006BADD0 /* DataService.swift in Sources */,
 				043489E11FE56603006BADD0 /* ViewController.swift in Sources */,
 				043489DF1FE56603006BADD0 /* AppDelegate.swift in Sources */,
+				04348A1B1FE585F9006BADD0 /* PhotoViewModel.swift in Sources */,
+				04348A1F1FE58946006BADD0 /* PhotoListCell.swift in Sources */,
+				04348A1D1FE58625006BADD0 /* PhotoListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

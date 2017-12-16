@@ -10,7 +10,6 @@ import Foundation
 
 struct Photos:Codable {
     let photos:[Photo]
-    
 }
 
 struct Photo:Codable {

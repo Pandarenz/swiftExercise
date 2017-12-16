@@ -23,7 +23,6 @@ protocol DataServerProtocol {
 class DataServer: DataServerProtocol {
     func fetchPopularPhoto(complate: @escaping (Bool, [Photo], RequestError?) -> ()) {
         DispatchQueue.global().async {
-            sleep(2)
             let path = Bundle.main.path(forResource: "content", ofType: "json")
             let data = try! Data(contentsOf: URL.init(fileURLWithPath: path!))
             let decoder = JSONDecoder()
