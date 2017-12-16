@@ -154,3 +154,140 @@ class SomeSubClass: SomeSuperClass, SomeProtocol2 {
     }
 }
 
+/*
+ 协议作为类型
+ 尽管协议本身并未实现任何功能，但是协议可以被当做一个成熟的类型来使用。
+ 
+ 协议可以像其他普通类型一样使用，使用场景如下：
+ 
+ 作为函数、方法或构造器中的参数类型或返回值类型
+ 作为常量、变量或属性的类型
+ 作为数组、字典或其他容器中的元素类型
+ 注意
+ 协议是一种类型，因此协议类型的名称应与其他类型（例如 Int，Double，String）的写法相同，使用大写字母开头的驼峰式写法，例如（FullyNamed 和 RandomNumberGenerator）。
+ 下面是将协议作为类型使用的例子：
+
+ 
+ */
+
+class Dice {
+    let sides:Int
+    let generator :RandomNumberGenerator
+    init(sides:Int,generator:RandomNumberGenerator) {
+        self.sides = sides
+        self.generator = generator
+    }
+    
+    func roll() -> Int {
+        return Int(generator.random() * Double(sides)) + 1
+    }
+    
+}
+
+
+var d6 = Dice(sides: 6, generator: LinearCongruentialGenerator())
+
+for _ in 1...5 {
+    print("Random dice roll is \(d6.roll())")
+}
+
+
+
+/*
+ 委托（代理）模式
+ 委托是一种设计模式，它允许类或结构体将一些需要它们负责的功能委托给其他类型的实例。委托模式的实现很简单：定义协议来封装那些需要被委托的功能，这样就能确保遵循协议的类型能提供这些功能。委托模式可以用来响应特定的动作，或者接收外部数据源提供的数据，而无需关心外部数据源的类型。
+ 
+ 下面的例子定义了两个基于骰子游戏的协议：
+ 
+ */
+
+protocol DiceGame {//可以被任意涉及骰子的游戏遵循
+    var dice:Dice {get}
+    func play()
+}
+
+protocol DiceGameDelegate {//可以被任意类型遵循，用来追踪 DiceGame 的游戏过程。
+    func gameDidstart(_ game:DiceGame)
+    func game(_ game: DiceGame,didStartNewTurnWithDiceRoll diceRoll:Int)
+    func gameDidEnd(_ game:DiceGame)
+}
+
+
+class SnakesAndLadders: DiceGame {
+    let finalSquare = 25
+    let dice: Dice = Dice(sides: 6, generator: LinearCongruentialGenerator())
+    var square = 0
+    var board:[Int]
+    init() {
+//        board = [Int](count: finalSquare + 1, repeatedValue: 0)
+        board = Array(repeating: 0, count: finalSquare + 1)
+        board[03] = +08
+        board[06] = +11
+        board[09] = +09
+        board[10] = +02
+        board[14] = -10
+        board[19] = -11
+        board[22] = -02
+        board[24] = -08
+
+    }
+    
+    var delegate : DiceGameDelegate?
+    func play() {
+        square = 0
+        delegate?.gameDidstart(self)
+        gameLoop:
+            while square != finalSquare {
+                let diceRoll = dice.roll()
+                delegate?.game(self, didStartNewTurnWithDiceRoll: diceRoll)
+                switch square + diceRoll {
+                case finalSquare:
+                    break gameLoop
+                case let newSquare where newSquare > finalSquare:
+                    continue gameLoop
+                default:
+                    square += diceRoll
+                    square += board[square]
+                }
+        }
+        delegate?.gameDidEnd(self)
+    }
+}
+
+
+class DiceGameTracter:DiceGameDelegate {
+    var numberOfTurns = 0
+    func gameDidstart(_ game: DiceGame) {
+        
+        numberOfTurns = 0
+        if game is SnakesAndLadders {
+             print("Started a new game of Snakes and Ladders")
+        }
+        print("The game is using a \(game.dice.sides)-sided dice")
+    }
+    func game(_ game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int) {
+        numberOfTurns += 1
+        print("Rolled a \(diceRoll)")
+    }
+    func gameDidEnd(_ game: DiceGame) {
+        print("The game lasted for \(numberOfTurns) turns")
+    }
+    
+}
+
+
+let tracker = DiceGameTracter()
+let game = SnakesAndLadders()
+game.delegate = tracker
+game.play()
+
+
+
+
+
+
+
+
+
+
+
