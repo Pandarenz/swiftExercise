@@ -9,6 +9,12 @@
 import Foundation
 
 import UIKit
+//optional public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+
+protocol PhotoListViewDelegate {
+    func listViewDidSelectCell(_ listView:PhotoListView ,selectIndex:IndexPath)
+}
+
 
 class PhotoListView: UIView {
 
@@ -18,10 +24,13 @@ class PhotoListView: UIView {
     
     var dataSource:[Photo] = [Photo]() {
         didSet {
-            tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
+    var delegate :PhotoListViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -65,7 +74,7 @@ extension PhotoListView:UITableViewDelegate,UITableViewDataSource {
     }
     //UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        delegate?.listViewDidSelectCell(self, selectIndex: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

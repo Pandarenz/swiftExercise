@@ -26,7 +26,11 @@ class DataServer: DataServerProtocol {
             let path = Bundle.main.path(forResource: "content", ofType: "json")
             let data = try! Data(contentsOf: URL.init(fileURLWithPath: path!))
             let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
+            if #available(iOS 10.0, *) {
+                decoder.dateDecodingStrategy = .iso8601
+            } else {
+                // Fallback on earlier versions
+            }
             let photos =  try!decoder.decode(Photos.self, from: data)
                 complate(true, photos.photos, nil)
             
