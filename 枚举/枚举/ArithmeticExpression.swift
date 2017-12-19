@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//indirect 递归
+//indirect 来表示该成员可递归
 enum ArithmeticExpression {
     case number(Int)
     indirect case addition(ArithmeticExpression,ArithmeticExpression)

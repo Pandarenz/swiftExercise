@@ -46,13 +46,12 @@ class ViewController: UIViewController {
             print("UPC:\(nub),\(fas),\(protect),\(check)")
         case .qrCode(let pre):
             print("QR code:\(pre)")
- 
-    }
+     }
     }
     // 3 原始值
     func rawValue() {
         let earths = Original.mars.rawValue
-        print(earths)
+        print( "earths-->:\(earths)")
         
     }
     // 4 递归
