@@ -23,11 +23,18 @@ enum ImageViewFactory {
     }
         private func createImageView(image:UIImage,cornerRadius:CGFloat,interactionEnabled:Bool,contentMode:UIViewContentMode,sizeToFit:Bool) -> UIImageView {
             let imageView = UIImageView()
-            
-            
+            imageView.image = image
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.layer.cornerRadius = cornerRadius
+            imageView.clipsToBounds = true
+            imageView.isUserInteractionEnabled = interactionEnabled
+            imageView.contentMode = contentMode
+            if sizeToFit {
+                imageView.sizeToFit()
+            }
             return imageView
             
         }
     
-    }
+    
 }

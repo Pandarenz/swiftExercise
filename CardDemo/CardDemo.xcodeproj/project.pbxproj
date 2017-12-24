@@ -7,17 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0432097D1FEFE2B70095FBE8 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432097C1FEFE2B70095FBE8 /* BottomView.swift */; };
+		0432097F1FEFE6050095FBE8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432097E1FEFE6050095FBE8 /* Card.swift */; };
 		0455DB4A1FE92296003BD431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455DB491FE92296003BD431 /* AppDelegate.swift */; };
 		0455DB4C1FE92296003BD431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455DB4B1FE92296003BD431 /* ViewController.swift */; };
 		0455DB4F1FE92296003BD431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0455DB4D1FE92296003BD431 /* Main.storyboard */; };
 		0455DB511FE92296003BD431 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0455DB501FE92296003BD431 /* Assets.xcassets */; };
 		0455DB541FE92296003BD431 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0455DB521FE92296003BD431 /* LaunchScreen.storyboard */; };
+		0495D0971FED834800E204A6 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0495D0961FED834800E204A6 /* CardView.swift */; };
+		0495D09A1FED85DA00E204A6 /* Pods_CardDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0495D09B1FED85DA00E204A6 /* Pods_CardDemo.framework */; };
 		04A684B61FE923B700382140 /* LabelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A684B51FE923B700382140 /* LabelFactory.swift */; };
 		04A684B91FE93D8800382140 /* ImageViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A684B81FE93D8800382140 /* ImageViewFactory.swift */; };
 		04A684BB1FE93FE600382140 /* ButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A684BA1FE93FE600382140 /* ButtonFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0432097C1FEFE2B70095FBE8 /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		0432097E1FEFE6050095FBE8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		0455DB461FE92296003BD431 /* CardDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0455DB491FE92296003BD431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0455DB4B1FE92296003BD431 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,9 +31,15 @@
 		0455DB501FE92296003BD431 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0455DB531FE92296003BD431 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0455DB551FE92296003BD431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0495D0961FED834800E204A6 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		0495D0991FED846400E204A6 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0495D09B1FED85DA00E204A6 /* Pods_CardDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CardDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A684B51FE923B700382140 /* LabelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFactory.swift; sourceTree = "<group>"; };
 		04A684B81FE93D8800382140 /* ImageViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewFactory.swift; sourceTree = "<group>"; };
 		04A684BA1FE93FE600382140 /* ButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFactory.swift; sourceTree = "<group>"; };
+		2425187939C789F1044C6E87 /* Pods-CardDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CardDemo/Pods-CardDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		A995028E24347DAEB51D8BE9 /* Pods_CardDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD287228F9A7AEF2825BB5A6 /* Pods-CardDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CardDemo/Pods-CardDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0495D09A1FED85DA00E204A6 /* Pods_CardDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +59,8 @@
 			children = (
 				0455DB481FE92296003BD431 /* CardDemo */,
 				0455DB471FE92296003BD431 /* Products */,
+				755E4EC3A7214BCA6012C104 /* Pods */,
+				6EB75986B48149E4F328717D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +75,7 @@
 		0455DB481FE92296003BD431 /* CardDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0495D0931FED82A700E204A6 /* View */,
 				04A684B71FE93D7200382140 /* Factory */,
 				0455DB491FE92296003BD431 /* AppDelegate.swift */,
 				0455DB4B1FE92296003BD431 /* ViewController.swift */,
@@ -69,6 +85,16 @@
 				0455DB551FE92296003BD431 /* Info.plist */,
 			);
 			path = CardDemo;
+			sourceTree = "<group>";
+		};
+		0495D0931FED82A700E204A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0495D0961FED834800E204A6 /* CardView.swift */,
+				0432097C1FEFE2B70095FBE8 /* BottomView.swift */,
+				0432097E1FEFE6050095FBE8 /* Card.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		04A684B71FE93D7200382140 /* Factory */ = {
@@ -81,6 +107,25 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		6EB75986B48149E4F328717D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0495D09B1FED85DA00E204A6 /* Pods_CardDemo.framework */,
+				0495D0991FED846400E204A6 /* SnapKit.framework */,
+				A995028E24347DAEB51D8BE9 /* Pods_CardDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		755E4EC3A7214BCA6012C104 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2425187939C789F1044C6E87 /* Pods-CardDemo.debug.xcconfig */,
+				CD287228F9A7AEF2825BB5A6 /* Pods-CardDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,9 +133,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0455DB581FE92296003BD431 /* Build configuration list for PBXNativeTarget "CardDemo" */;
 			buildPhases = (
+				56EB99EDBE8B709D6372952D /* [CP] Check Pods Manifest.lock */,
 				0455DB421FE92296003BD431 /* Sources */,
 				0455DB431FE92296003BD431 /* Frameworks */,
 				0455DB441FE92296003BD431 /* Resources */,
+				C3CAA1E12E07AA79F747E135 /* [CP] Embed Pods Frameworks */,
+				4DE71AE17675252866B99A5D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,6 +196,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4DE71AE17675252866B99A5D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CardDemo/Pods-CardDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56EB99EDBE8B709D6372952D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CardDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3CAA1E12E07AA79F747E135 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CardDemo/Pods-CardDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CardDemo/Pods-CardDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0455DB421FE92296003BD431 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -157,7 +259,10 @@
 				04A684BB1FE93FE600382140 /* ButtonFactory.swift in Sources */,
 				0455DB4C1FE92296003BD431 /* ViewController.swift in Sources */,
 				0455DB4A1FE92296003BD431 /* AppDelegate.swift in Sources */,
+				0432097D1FEFE2B70095FBE8 /* BottomView.swift in Sources */,
+				0495D0971FED834800E204A6 /* CardView.swift in Sources */,
 				04A684B91FE93D8800382140 /* ImageViewFactory.swift in Sources */,
+				0432097F1FEFE6050095FBE8 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +397,7 @@
 		};
 		0455DB591FE92296003BD431 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2425187939C789F1044C6E87 /* Pods-CardDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -306,6 +412,7 @@
 		};
 		0455DB5A1FE92296003BD431 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD287228F9A7AEF2825BB5A6 /* Pods-CardDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
