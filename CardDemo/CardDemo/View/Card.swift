@@ -12,7 +12,7 @@ class Card: UIView ,BottomViewDelegate{
    
     
     lazy var cardView : CardView = {
-      let card = CardView()
+      let card = CardView(frame: UIScreen.main.bounds)
 //        card.backgroundColor = UIColor.red;
     card.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(swipeCard(sender:))))
         return card

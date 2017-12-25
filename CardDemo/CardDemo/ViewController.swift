@@ -17,10 +17,7 @@ class ViewController: UIViewController {
         card.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
-        
     }
-
-  
 
 }
 
