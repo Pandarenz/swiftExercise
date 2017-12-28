@@ -13,14 +13,12 @@ class Card: UIView ,BottomViewDelegate{
     
     lazy var cardView : CardView = {
       let card = CardView(frame: UIScreen.main.bounds)
-//        card.backgroundColor = UIColor.red;
     card.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(swipeCard(sender:))))
         return card
     }()
     
     let buttonsContainer: BottomView = {
         let c = BottomView()
-//        c.delegate = (self as! BottomViewDelegate)
         return c
     }()
     
@@ -36,10 +34,11 @@ class Card: UIView ,BottomViewDelegate{
     func setupUI() {
         addSubview(cardView)
         addSubview(buttonsContainer)
+        buttonsContainer.delegate = self
         cardView.snp.makeConstraints { (make) in
             make.width.equalTo(self.snp.width).multipliedBy(0.85)
             make.height.equalTo(self.snp.height).multipliedBy(0.7)
-            make.top.equalTo(self.snp.top).offset(20)
+            make.top.equalTo(self.snp.top).offset(40)
             make.centerX.equalTo(self)
         }
         buttonsContainer.snp.makeConstraints { (make) in

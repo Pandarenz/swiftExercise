@@ -9,6 +9,7 @@
 import UIKit
 
 protocol BottomViewDelegate {
+    
     func BottomViewLikeBtnClikced(bottom:BottomView)
     func BottomViewPassBtnClicke(bottom:BottomView)
     func BottomViewSuperLikeBtnClicke(bottom:BottomView)
@@ -30,66 +31,71 @@ class BottomView: UIView {
   
 
     lazy var likeButton: UIButton = {
-//        let b = ButtonFactory.buttonWithImage(image: #imageLiteral(resourceName: "like"), cornerRadius: 0, target: self, selector: #selector(like), sizeToFit: true).new
-//        return b
+ 
         let bt = UIButton()
+        bt.addTarget(self, action: #selector(like), for: .touchUpInside)
+        bt.setImage(#imageLiteral(resourceName: "like"), for: .normal)
+        bt.setImage(#imageLiteral(resourceName: "like"), for: .highlighted)
+        bt.layer.masksToBounds = true
         return bt;
     }()
     
     lazy var passButton: UIButton = {
-//        let b = ButtonFactory.buttonWithImage(image: #imageLiteral(resourceName: "pass"), cornerRadius: 0, target: self, selector: #selector(pass), sizeToFit: true).new
-//        return b
         let bt = UIButton()
+        bt.addTarget(self, action: #selector(pass), for: .touchUpInside)
+        bt.setImage(#imageLiteral(resourceName: "pass"), for: .normal)
+        bt.setImage(#imageLiteral(resourceName: "pass"), for: .highlighted)
+        bt.layer.masksToBounds = true
         return bt;
     }()
     
     lazy var superLikeButton: UIButton = {
-//        let b = ButtonFactory.buttonWithImage(image: #imageLiteral(resourceName: "superlike"), cornerRadius: 0, target: self, selector: #selector(superLike), sizeToFit: true).new
-//        return b
         let bt = UIButton()
+        bt.addTarget(self, action: #selector(superLike), for: .touchUpInside)
+        bt.setImage(#imageLiteral(resourceName: "superlike"), for: .normal)
+        bt.setImage(#imageLiteral(resourceName: "superlike"), for: .highlighted)
         return bt;
     }()
     
-    lazy var container: UIStackView = {
-        let c = UIStackView(arrangedSubviews: [
-            self.likeButton, self.passButton, self.superLikeButton
-            ])
-//        c.translatesAutoresizingMaskIntoConstraints = false
-        c.spacing = 20
-        c.distribution = .fillEqually
-        return c
-    }()
     
     func setupUI()  {
-        addSubview(self.likeButton)
-        addSubview(self.passButton)
-        addSubview(self.superLikeButton)
         
-        likeButton.snp.makeConstraints { (make) in
-            make.width.equalTo(self.snp.width)
+        addSubview(self.passButton)
+        self.passButton.snp.makeConstraints { (make) in
+            make.width.height.equalTo(55)
+            make.center.equalTo(self)
         }
+        addSubview(self.likeButton)
+        self.likeButton.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self)
+            make.width.height.equalTo(passButton)
+            make.trailing.equalTo(passButton.snp.leading).offset(-30)
+            
+        }
+        
+        addSubview(self.superLikeButton)
+        self.superLikeButton.snp.makeConstraints { (make) in
+            make.centerY.equalTo(self)
+            make.width.height.equalTo(passButton)
+            make.leading.equalTo(passButton.snp.trailing).offset(30)
+        }
+        
     }
-    
-    
-    
 }
+
 
 
 extension BottomView {
     
     @objc func like() {
-        print("like print")
          delegate?.BottomViewLikeBtnClikced(bottom: self)
     }
     
     @objc func pass() {
-        
-        print("pass print")
         delegate?.BottomViewPassBtnClicke(bottom: self)
     }
     
     @objc func superLike() {
-        print("super like print")
         delegate?.BottomViewSuperLikeBtnClicke(bottom: self)
     }
 }
