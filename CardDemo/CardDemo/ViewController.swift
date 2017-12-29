@@ -9,15 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         let card = Card()
+ 
         view.addSubview(card)
         card.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
-    }
-
+        
+ }
 }
-

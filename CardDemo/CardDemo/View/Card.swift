@@ -49,7 +49,7 @@ class Card: UIView ,BottomViewDelegate{
     }
     
     @objc func swipeCard(sender: UIPanGestureRecognizer) {
-//        sender.swipeView(tinderCard)
+        sender.swipeView(view: cardView)
     }
     
 }

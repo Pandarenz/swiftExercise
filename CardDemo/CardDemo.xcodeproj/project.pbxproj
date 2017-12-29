@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0432097D1FEFE2B70095FBE8 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432097C1FEFE2B70095FBE8 /* BottomView.swift */; };
 		0432097F1FEFE6050095FBE8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432097E1FEFE6050095FBE8 /* Card.swift */; };
+		0432E7A41FF5FCCB007995C4 /* Swipeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0432E7A31FF5FCCB007995C4 /* Swipeable.swift */; };
 		0455DB4A1FE92296003BD431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455DB491FE92296003BD431 /* AppDelegate.swift */; };
 		0455DB4C1FE92296003BD431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455DB4B1FE92296003BD431 /* ViewController.swift */; };
 		0455DB4F1FE92296003BD431 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0455DB4D1FE92296003BD431 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		0432097C1FEFE2B70095FBE8 /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		0432097E1FEFE6050095FBE8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		0432E7A31FF5FCCB007995C4 /* Swipeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipeable.swift; sourceTree = "<group>"; };
 		0455DB461FE92296003BD431 /* CardDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0455DB491FE92296003BD431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0455DB4B1FE92296003BD431 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0432E7A21FF5FCB1007995C4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0432E7A31FF5FCCB007995C4 /* Swipeable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		0455DB3D1FE92296003BD431 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +85,7 @@
 		0455DB481FE92296003BD431 /* CardDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0432E7A21FF5FCB1007995C4 /* Protocol */,
 				0495D0931FED82A700E204A6 /* View */,
 				04A684B71FE93D7200382140 /* Factory */,
 				0455DB491FE92296003BD431 /* AppDelegate.swift */,
@@ -259,6 +270,7 @@
 				04A684BB1FE93FE600382140 /* ButtonFactory.swift in Sources */,
 				0455DB4C1FE92296003BD431 /* ViewController.swift in Sources */,
 				0455DB4A1FE92296003BD431 /* AppDelegate.swift in Sources */,
+				0432E7A41FF5FCCB007995C4 /* Swipeable.swift in Sources */,
 				0432097D1FEFE2B70095FBE8 /* BottomView.swift in Sources */,
 				0495D0971FED834800E204A6 /* CardView.swift in Sources */,
 				04A684B91FE93D8800382140 /* ImageViewFactory.swift in Sources */,
