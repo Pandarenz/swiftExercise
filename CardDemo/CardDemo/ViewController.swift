@@ -13,10 +13,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let card = Card()
- 
+        
         view.addSubview(card)
         card.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
+        }
+        let arr = ["1","2","3","4","5","6","7","8","9","10",]
+        var iter = arr.makeIterator()
+        while let name = iter.next() {
+            print(name)
         }
         
  }
