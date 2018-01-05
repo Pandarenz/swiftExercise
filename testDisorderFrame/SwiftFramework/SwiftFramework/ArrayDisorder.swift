@@ -23,16 +23,3 @@ public class ArrayDisorder: NSObject {
     }
 }
 
-//- (NSArray *)disorder {
-//    NSMutableArray * tmp = self.mutableCopy;
-//    NSInteger count = tmp.count;
-//    while (count > 0) {
-//        NSInteger index = arc4random() % count;
-//        id value = tmp[index];
-//        tmp[index] = tmp[count - 1];
-//        tmp[count - 1] = value;
-//        count --;
-//    }
-//    return tmp.copy;
-//}
-

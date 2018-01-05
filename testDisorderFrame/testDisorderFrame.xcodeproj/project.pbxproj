@@ -12,10 +12,17 @@
 		044B01CD2000083F00B34C9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044B01CB2000083F00B34C9D /* Main.storyboard */; };
 		044B01CF2000083F00B34C9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044B01CE2000083F00B34C9D /* Assets.xcassets */; };
 		044B01D22000083F00B34C9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044B01D02000083F00B34C9D /* LaunchScreen.storyboard */; };
-		044B0208200026A800B34C9D /* SwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044B0207200026A800B34C9D /* SwiftFramework.framework */; };
-		044B02092000276100B34C9D /* SwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 044B0207200026A800B34C9D /* SwiftFramework.framework */; };
-		044B020A2000276100B34C9D /* SwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 044B0207200026A800B34C9D /* SwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		044B021220002A8700B34C9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 044B020D20002A8700B34C9D /* SwiftFramework.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0426DB851FFFAF2500E7B5B9;
+			remoteInfo = SwiftFramework;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		044B01E320000E4600B34C9D /* Embed Frameworks */ = {
@@ -24,7 +31,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				044B020A2000276100B34C9D /* SwiftFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -39,7 +45,7 @@
 		044B01CE2000083F00B34C9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		044B01D12000083F00B34C9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		044B01D32000083F00B34C9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		044B0207200026A800B34C9D /* SwiftFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftFramework.framework; sourceTree = "<group>"; };
+		044B020D20002A8700B34C9D /* SwiftFramework.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftFramework.xcodeproj; path = SwiftFramework/SwiftFramework.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,8 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				044B0208200026A800B34C9D /* SwiftFramework.framework in Frameworks */,
-				044B02092000276100B34C9D /* SwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +62,7 @@
 		044B01BB2000083F00B34C9D = {
 			isa = PBXGroup;
 			children = (
+				044B020D20002A8700B34C9D /* SwiftFramework.xcodeproj */,
 				044B01C62000083F00B34C9D /* testDisorderFrame */,
 				044B01C52000083F00B34C9D /* Products */,
 			);
@@ -74,7 +79,6 @@
 		044B01C62000083F00B34C9D /* testDisorderFrame */ = {
 			isa = PBXGroup;
 			children = (
-				044B0207200026A800B34C9D /* SwiftFramework.framework */,
 				044B01C72000083F00B34C9D /* AppDelegate.swift */,
 				044B01C92000083F00B34C9D /* ViewController.swift */,
 				044B01CB2000083F00B34C9D /* Main.storyboard */,
@@ -83,6 +87,14 @@
 				044B01D32000083F00B34C9D /* Info.plist */,
 			);
 			path = testDisorderFrame;
+			sourceTree = "<group>";
+		};
+		044B020E20002A8700B34C9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				044B021320002A8700B34C9D /* SwiftFramework.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,12 +145,28 @@
 			mainGroup = 044B01BB2000083F00B34C9D;
 			productRefGroup = 044B01C52000083F00B34C9D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 044B020E20002A8700B34C9D /* Products */;
+					ProjectRef = 044B020D20002A8700B34C9D /* SwiftFramework.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				044B01C32000083F00B34C9D /* testDisorderFrame */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		044B021320002A8700B34C9D /* SwiftFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftFramework.framework;
+			remoteRef = 044B021220002A8700B34C9D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		044B01C22000083F00B34C9D /* Resources */ = {
