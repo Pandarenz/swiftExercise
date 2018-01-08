@@ -1,0 +1,5 @@
+version: "Apple Swift version 4.0.3 (swiftlang-900.0.74.1 clang-900.0.39.2)"
+options: "22fd2ed800f170cb744bea77d009870c"
+build_time: [1515419298, 710782000]
+inputs:
+  "/Users/JiWuChao/MyGit/swiftE/testArrayDisorderDemo/ArrayDisorderSDK/ArrayDisorderSDK/ArrayDisorder.swift": [1515238629, 0]

@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/JiWuChao/Library/Developer/Xcode/DerivedData/testArrayDisorderDemo-eeihnnaznztmjtasxwmdcitnopaz/Build/Products/Debug-iphonesimulator/ArrayDisorderSDK.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "ArrayDisorderSDK-Swift.h",
+          'external-contents': "/Users/JiWuChao/Library/Developer/Xcode/DerivedData/testArrayDisorderDemo-eeihnnaznztmjtasxwmdcitnopaz/Build/Products/Debug-iphonesimulator/ArrayDisorderSDK.framework/Headers/ArrayDisorderSDK-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "ArrayDisorderSDK.h",
+          'external-contents': "/Users/JiWuChao/MyGit/swiftE/testArrayDisorderDemo/ArrayDisorderSDK/ArrayDisorderSDK/ArrayDisorderSDK.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/JiWuChao/Library/Developer/Xcode/DerivedData/testArrayDisorderDemo-eeihnnaznztmjtasxwmdcitnopaz/Build/Products/Debug-iphonesimulator/ArrayDisorderSDK.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/JiWuChao/MyGit/swiftE/testArrayDisorderDemo/ArrayDisorderSDK/build/ArrayDisorderSDK.build/Debug-iphonesimulator/ArrayDisorderSDK.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
