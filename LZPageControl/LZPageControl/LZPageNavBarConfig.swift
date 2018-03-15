@@ -52,6 +52,8 @@ class LZPageNavBarConfig {
     var isShowCover : Bool = false
     /// 遮盖背景颜色
     var coverBgColor : UIColor = UIColor.lightGray
+    //遮盖的alpha值
+    var coverAlpha : CGFloat = 0.7
     /// 文字&遮盖间隙
     var coverMargin : CGFloat = 5
     /// 遮盖的高度
