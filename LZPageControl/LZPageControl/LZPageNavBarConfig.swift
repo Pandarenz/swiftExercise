@@ -68,6 +68,9 @@ class LZPageNavBarConfig {
     var hasLeftBarItem : Bool = false
     //是否有右边的bar
     var hasRigtBarItem :Bool = false
+    var leftBarItem : UIView?
+    var rightBarItem : UIView?
+    
     
 
 }

@@ -36,6 +36,7 @@ class LZPageNavBar: UIView {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.scrollsToTop = false
+        scrollView.backgroundColor = UIColor.lightGray
         return scrollView
     }()
     
@@ -66,6 +67,7 @@ class LZPageNavBar: UIView {
         self.titles = titles
         self.config = config
         super.init(frame: frame)
+        setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -78,7 +80,54 @@ extension LZPageNavBar {
     
   fileprivate  func setupUI() {
         //1 滚动视图
+    
+    if (config.leftBarItem != nil ) && (config.rightBarItem != nil) {
+        
+        config.leftBarItem?.frame = CGRect(x: 0, y: self.bounds.origin.y, width: (config.leftBarItem?.frame.width)!, height: (config.leftBarItem?.frame.height)!)
+        addSubview(config.leftBarItem!)
+        let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
+        config.leftBarItem?.addGestureRecognizer(leftTap)
+        
+        scrollView.frame = CGRect(x: (config.leftBarItem?.frame.width)! + (config.leftBarItem?.frame.origin.x)!, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.rightBarItem!.frame.width, height: self.bounds.height)
+        
         addSubview(scrollView)
+        
+        config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
+        addSubview(config.rightBarItem!)
+        
+        let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
+        config.rightBarItem?.addGestureRecognizer(rightTap)
+
+    }
+    
+    if (config.leftBarItem != nil) && (config.rightBarItem == nil) {
+        
+        config.leftBarItem?.frame = CGRect(x: 0, y: self.bounds.origin.y, width: (config.leftBarItem?.frame.width)!, height: (config.leftBarItem?.frame.height)!)
+        addSubview(config.leftBarItem!)
+        
+        let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
+        config.leftBarItem?.addGestureRecognizer(leftTap)
+        
+        
+        
+        scrollView.frame = CGRect(x: (config.leftBarItem?.frame.width)! + (config.leftBarItem?.frame.origin.x)!, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width , height: self.bounds.height)
+        addSubview(scrollView)
+        
+    }
+    
+    if (config.leftBarItem == nil) && (config.rightBarItem != nil) {
+ 
+        scrollView.frame = CGRect(x: 0, y: self.bounds.origin.y, width: self.bounds.width - config.rightBarItem!.frame.width, height: self.bounds.height)
+        
+        addSubview(scrollView)
+        
+        config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
+        addSubview(config.rightBarItem!)
+        let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
+        config.rightBarItem?.addGestureRecognizer(rightTap)
+    }
+    
+    
         //2 添加底部分割线
         addSubview(splitLine)
         //3 添加所有标题的label
@@ -190,6 +239,7 @@ extension LZPageNavBar {
 
 
 extension LZPageNavBar {
+    
     @objc fileprivate func titleLblClick(_ tap :UITapGestureRecognizer) {
         //1 当前的Lbl
         guard let currentLbl = tap.view as? UILabel else {
@@ -246,9 +296,16 @@ extension LZPageNavBar {
         
     }
     
+    @objc func leftBarItemClick(tap:UITapGestureRecognizer) {
+        delegate?.pageNavBarDidSelectedLeftBar(pageNavBar: self)
+    }
+    
+    @objc func rightBarItemClick(tap:UITapGestureRecognizer) {
+        delegate?.pageNavBarDidSelectedRightBar(pageNavBar: self)
+    }
 }
 
-
+//对外方法
 extension LZPageNavBar {
 
     func scrollFromIndexToIndex(fromIndex fIndex :Int , toIndex tIndex:Int , withProgress progress:CGFloat) {
@@ -276,13 +333,51 @@ extension LZPageNavBar {
         
         // 5 放大的比例
         
+        
+        if config.isNeedScale {
+            let scaleData = (config.scaleRange - 1.0) * progress
+            fromLbl.transform = CGAffineTransform(scaleX: config.scaleRange - scaleData, y: config.scaleRange - scaleData)
+            toLbl.transform = CGAffineTransform(scaleX: 1.0 + scaleData, y: 1.0 + scaleData)
+        }
+        
+        //6 计算cover的滚动
+        
+        if config.isShowCover {
+            coverView.frame.size.width = config.canScrollEnable ? (fromLbl.frame.width + 2 * config.coverMargin + moveTotalW * progress) :(fromLbl.frame.width + moveTotalW * progress)
+            coverView.frame.origin.x = config.canScrollEnable ? (fromLbl.frame.origin.x - config.coverMargin + moveTotalX * progress) : (fromLbl.frame.origin.x + moveTotalX * progress)
+        }
+        
+        
     }
     
     
     func currentViewDidEndScroll()  {
+        // 1 不需要滚动的情况下 则不需要调整中间的位置
+        guard config.canScrollEnable else {
+            return
+        }
+        // 2 获取目标Label
+        let toLbl = titleLabels[currentIndex]
+        // 3 计算和中间位置的偏移量
+        var offsetX = toLbl.center.x - scrollView.bounds.width * 0.5
+        if offsetX < 0 {
+            offsetX = 0
+        }
+        
+        let maxOffset = scrollView.contentSize.width - scrollView.bounds.width
+        
+        if offsetX > maxOffset {
+            offsetX = maxOffset
+        }
+        
+        //4 滚动scrollerView
+        scrollView.setContentOffset(CGPoint(x:offsetX,y:0), animated:true)
         
     }
-    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        scrollView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+//    }
 }
 
 
