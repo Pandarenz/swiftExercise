@@ -15,10 +15,13 @@ protocol LZPageControlDelegate {
 
 
 protocol LZPageControlDataSource  {
+    //titles
     func pageControlTitles(control:LZPageControl) -> [String]
+    
+    
+    
     func pageControlContentViews(control:LZPageControl) -> [UIView]
 }
-
 
 
 class LZPageControl: UIView {
@@ -38,7 +41,8 @@ class LZPageControl: UIView {
    lazy var navBar : LZPageNavBar = {
         let bar = LZPageNavBar(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 44), config: config)
         bar.backgroundColor = UIColor.red
-        bar.delegate = self as? LZPageNavBarDelegate
+        bar.delegate = self
+        bar.dataSource = self
         bar.reloadData()
         return bar
     }()
@@ -69,33 +73,21 @@ class LZPageControl: UIView {
         container.reloadData()
     }
     
-   
-    
     
 }
 
 extension LZPageControl :LZPageNavBarDelegate {
   
-    
     func pageNavBar(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, didSelectedIndex index: Int) {
         container.scrollToIndexToIndex(fromIndex: oIndex, toIndex: index)
     }
-    
-    func pageNavBarDidSelectedLeftBar(pageNavBar: LZPageNavBar) {
-        
-    }
-    
-    func pageNavBarDidSelectedRightBar(pageNavBar: LZPageNavBar) {
-        
-    }
-    
+}
+
+extension LZPageControl :LZPageNavDataSource {
     func pageNavBarTitles(pageNavBar: LZPageNavBar) -> [String] {
         return ["第一个","第2个","第3个","第4个","第5个","第6个"]
     }
-    
 }
-
-
 
 
 

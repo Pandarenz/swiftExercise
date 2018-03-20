@@ -8,28 +8,42 @@
 
 import UIKit
 
-
 protocol LZPageNavBarDelegate : class {
     //选中了某一个title
     func pageNavBar(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,didSelectedIndex index:Int)
+   
     //选中了左边的bar
-    func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
+     func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
     //选中了右边的bar
-    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar)
+      func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar)
     
-    func pageNavBarTitles(pageNavBar:LZPageNavBar) -> [String]
+}
+
+extension LZPageNavBarDelegate {
+   func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar) {
+    
+    }
+    
+    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar) {
+        
+    }
     
 }
 
 
+protocol LZPageNavDataSource :class {
+    //返回title数组
+    func pageNavBarTitles(pageNavBar:LZPageNavBar) -> [String]
+}
 
 
 class LZPageNavBar: UIView {
 
     weak var delegate : LZPageNavBarDelegate?
-    
+    weak var dataSource :LZPageNavDataSource?
     fileprivate var titles :[String]?
     fileprivate var config : LZPageNavBarConfig
+    
     fileprivate var currentIndex :Int = 0
     
     fileprivate lazy var titleLabels:[UILabel] = [UILabel]()
@@ -318,7 +332,7 @@ extension LZPageNavBar {
 
     
     func reloadData()  {
-        self.titles = delegate?.pageNavBarTitles(pageNavBar: self)
+        self.titles = dataSource?.pageNavBarTitles(pageNavBar: self)
         self.setupUI()
     }
     

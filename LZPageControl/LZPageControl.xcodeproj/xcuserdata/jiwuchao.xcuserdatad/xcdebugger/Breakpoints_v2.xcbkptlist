@@ -10,107 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LZPageControl/LZPageNavBar.swift"
-            timestampString = "543218124.567077"
+            timestampString = "543219565.541774"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "setupUI()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LZPageControl.LZPageNavBar.(setupUI in _D0A1ACFD67E99A027E7A8DD46D1E6CEA)() -&gt; ()"
-                  moduleName = "LZPageControl"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jiwuchao/myGit/SwiftExercise/LZPageControl/LZPageControl/LZPageNavBar.swift"
-                  timestampString = "543218124.7703381"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "376">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LZPageControl.LZPageNavBar.(setupUI in _D0A1ACFD67E99A027E7A8DD46D1E6CEA)() -&gt; ()"
-                  moduleName = "LZPageControl"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jiwuchao/myGit/SwiftExercise/LZPageControl/LZPageControl/LZPageNavBar.swift"
-                  timestampString = "543218124.7731479"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "10720">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LZPageControl/LZPageNavBar.swift"
-            timestampString = "543218124.567397"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "setupUI()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LZPageControl.LZPageNavBar.(setupUI in _D0A1ACFD67E99A027E7A8DD46D1E6CEA)() -&gt; ()"
-                  moduleName = "LZPageControl"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jiwuchao/myGit/SwiftExercise/LZPageControl/LZPageControl/LZPageNavBar.swift"
-                  timestampString = "543149955.434564"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "2064">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LZPageControl.LZPageNavBar.(setupUI in _D0A1ACFD67E99A027E7A8DD46D1E6CEA)() -&gt; ()"
-                  moduleName = "LZPageControl"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jiwuchao/myGit/SwiftExercise/LZPageControl/LZPageControl/LZPageNavBar.swift"
-                  timestampString = "543149955.436849"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "13402">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LZPageControl/LZPageNavBar.swift"
-            timestampString = "543218124.5676759"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,43 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LZPageControl/LZPageNavBar.swift"
-            timestampString = "543218124.567933"
+            timestampString = "543219565.541882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "setupUI()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LZPageControl/LZPageNavBar.swift"
-            timestampString = "543218124.568141"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "setupUI()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LZPageControl/LZPageNavBar.swift"
-            timestampString = "543218124.568364"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
             landmarkName = "titleLblClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LZPageControl/LZPageContainer.swift"
-            timestampString = "543218124.569277"
+            timestampString = "543219565.542009"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
