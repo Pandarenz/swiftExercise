@@ -11,11 +11,14 @@ import UIKit
 
 protocol LZPageNavBarDelegate : class {
     //选中了某一个title
-    func pageNavBar(pageNavBar:LZPageNavBar ,didSelectedIndex index:Int)
+    func pageNavBar(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,didSelectedIndex index:Int)
     //选中了左边的bar
     func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
     //选中了右边的bar
     func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar)
+    
+    func pageNavBarTitles(pageNavBar:LZPageNavBar) -> [String]
+    
 }
 
 
@@ -63,11 +66,10 @@ class LZPageNavBar: UIView {
     }()
     
     
-    init(frame: CGRect,titles:[String],config : LZPageNavBarConfig) {
-        self.titles = titles
+    init(frame: CGRect,config : LZPageNavBarConfig) {
         self.config = config
         super.init(frame: frame)
-        setupUI()
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -127,6 +129,11 @@ extension LZPageNavBar {
         config.rightBarItem?.addGestureRecognizer(rightTap)
     }
     
+    if (config.leftBarItem == nil) && (config.rightBarItem == nil)  {
+        scrollView.frame = CGRect(x: 0, y: self.bounds.origin.y, width: self.bounds.width , height: self.bounds.height)
+        
+        addSubview(scrollView)
+    }
     
         //2 添加底部分割线
         addSubview(splitLine)
@@ -261,7 +268,8 @@ extension LZPageNavBar {
         // 5 保存最新的lbl下标
         currentIndex = currentLbl.tag
         // 6 代理通知
-        delegate?.pageNavBar(pageNavBar: self, didSelectedIndex: currentIndex)
+//        delegate?.pageNavBar(pageNavBar: self, didSelectedIndex: currentIndex)
+        delegate?.pageNavBar(pageNavBar: self, oldIndex: oldLbl.tag, didSelectedIndex: currentIndex)
         // 7 居中显示
         
         currentViewDidEndScroll()
@@ -308,11 +316,26 @@ extension LZPageNavBar {
 //对外方法
 extension LZPageNavBar {
 
+    
+    func reloadData()  {
+        self.titles = delegate?.pageNavBarTitles(pageNavBar: self)
+        self.setupUI()
+    }
+    
+    
     func scrollFromIndexToIndex(fromIndex fIndex :Int , toIndex tIndex:Int , withProgress progress:CGFloat) {
         
         // 1 取出from / to
+        if fIndex >= titleLabels.count {
+            return
+        }
         let fromLbl = titleLabels[fIndex]
-        let toLbl = titleLabels[tIndex]
+        
+        if tIndex >= titleLabels.count {
+            return
+        }
+         let toLbl = titleLabels[tIndex]
+       
         
         // 2 渐变
         
