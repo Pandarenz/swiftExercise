@@ -11,6 +11,11 @@ import UIKit
 import Foundation
 
 class LZPageNavBarConfig {
+    
+    var navFrame:CGRect = CGRect.zero
+    
+    var navBarBackgroundColor:UIColor = UIColor.white
+    
     //title的view是否可以左右滚动
     var canScrollEnable :Bool = false
     //MARK:颜色

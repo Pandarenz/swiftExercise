@@ -94,9 +94,19 @@ extension LZPageContainer {
     // 从第几个滚动到第几个
     func scrollToIndexToIndex(fromIndex fIndex:Int, toIndex tIndex:Int)  {
         isClickedEv = true
+        
+        if !cache.hasCache(subIndex: tIndex) {
+            let view = dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: tIndex)
+            if view != nil{
+                addChildren(childrenView: view!, atIndex: tIndex, superView: scrollView)
+            } else {
+                fatalError("dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: tIndex) return nil ")
+            }
+        }
+        
         scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(tIndex), y: 0), animated: true)
     }
-    
+    // 刷新列表
     func reloadData() {
         childrenCount = (dataSource?.pageContainerChildrenCount(pageContainer: self))!
         updateContenSize()
@@ -111,7 +121,6 @@ extension LZPageContainer {
             }
         }
     }
-    
     
 }
 
@@ -147,7 +156,7 @@ extension LZPageContainer:UIScrollViewDelegate {
             // 2.计算sourceIndex
             fromIndex = Int(currentOffsetX / scrollViewW)
             
-            // 3.计算targetInde
+            // 3.计算targetIndex
             toIndex = fromIndex + 1
             if toIndex >= childrenCount {
                 toIndex = childrenCount - 1

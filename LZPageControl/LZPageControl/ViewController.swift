@@ -9,30 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        setupUI()
-        setPageControlView()
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func setPageControlView() {
-        let pageC = LZPageControl(frame: self.view.bounds)
-        pageC.backgroundColor = UIColor.blue
-        view.addSubview(pageC)
-    }
-    
-    
-    
-    func setupUI() {
-        
-        let leftBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+   lazy var config:LZPageNavBarConfig = {
+        let leftBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 40))
             leftBtn.backgroundColor = UIColor.lightGray
             leftBtn.setTitle("left", for: .normal)
             leftBtn.setTitleColor(UIColor.white, for: .normal)
@@ -41,11 +20,13 @@ class ViewController: UIViewController {
             rightBtn.backgroundColor = UIColor.lightGray
             rightBtn.setTitle("right", for: .normal)
             rightBtn.setTitleColor(UIColor.white, for: .normal)
-            rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         let config = LZPageNavBarConfig()
+        config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
+        config.navBarBackgroundColor = UIColor.lightGray
         config.isShowCover = false
         config.isShowTrackLine = true
-        config.canScrollEnable = true
+        config.canScrollEnable = false
         config.trackLineColor = UIColor.blue
         config.isNeedScale = true
         config.isShowCover = true
@@ -53,43 +34,63 @@ class ViewController: UIViewController {
         config.titleMargin = 30
 //        config.leftBarItem = leftBtn
         config.rightBarItem = rightBtn
-        let titleFrame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 44)
-        let navBar : LZPageNavBar = {
-            let bar = LZPageNavBar(frame: titleFrame, config: config)
-            bar.backgroundColor = UIColor.red
-            bar.delegate = self as LZPageNavBarDelegate
-            bar.reloadData()
-            return bar
-        }()
-        view.addSubview(navBar)
-        
-    }
-
-}
-
-
-extension ViewController :LZPageNavBarDelegate {
-    func pageNavBar(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, didSelectedIndex index: Int) {
-         print("选中了第\(index + 1)个")
-    }
+        return config
+    }()
+    var titles:[String] = ["第1个","第2个"]
     
-//    func pageNavBar(pageNavBar: LZPageNavBar, didSelectedIndex index: Int) {
-//        print("选中了第\(index + 1)个")
-//    }
+    var pageControl:LZPageControl = LZPageControl(frame: CGRect.zero, config: LZPageNavBarConfig())
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setPageControlView()
+    }
+
+    func setPageControlView() {
+         pageControl = LZPageControl(frame: self.view.bounds, config: config)
+        pageControl.backgroundColor = UIColor.blue
+        pageControl.delegate = self
+        pageControl.dataSource = self
+        view.addSubview(pageControl)
+        pageControl.reloadData()
+    }
+ 
+    
+    
+    
+    
+    override func viewWillLayoutSubviews() {
+        pageControl.frame = self.view.bounds
+    }
 //
-    func pageNavBarDidSelectedLeftBar(pageNavBar: LZPageNavBar) {
-        print("点击了左边按钮")
+}
+
+
+
+
+
+extension ViewController :LZPageControlDelegate {
+    func pageControlDidselectedLeftBar(control: LZPageControl) {
+          print("点击了左边")
     }
     
-    
-    func pageNavBarDidSelectedRightBar(pageNavBar: LZPageNavBar) {
-        print("点击了右边按钮")
+    func pageControlDidselectedRightBar(control: LZPageControl) {
+        print("点击了右边")
     }
     
-    func pageNavBarTitles(pageNavBar: LZPageNavBar) -> [String] {
-        return ["第1个","第2个","第3个","第4个23easdsadasdasd"];
+    func pageControl(control: LZPageControl, scrolToIndex: Int) {
+        print("scrolToIndex: Int:\(scrolToIndex)")
+    }
+    
+    func pageControl(control: LZPageControl, showViewFromIndex fIndex: Int, toIndex tIndex: Int) {
+        print("showViewFromIndex:\(fIndex) toIndex :\(tIndex)")
     }
     
 }
 
+extension ViewController :LZPageControlDataSource {
+    func pageControlTitles(control: LZPageControl) -> [String] {
+        return self.titles;
+    }
+}
 

@@ -8,106 +8,109 @@
 
 import UIKit
 
-protocol LZPageControlDelegate {
+protocol LZPageControlDelegate:class {
     func pageControl(control:LZPageControl,scrolToIndex:Int)
-    func pageControl(control:LZPageControl) -> [LZPageNavBarProtocol]
+    func pageControlDidselectedLeftBar(control:LZPageControl)
+    func pageControlDidselectedRightBar(control:LZPageControl)
+    
+    func pageControl(control:LZPageControl,showViewFromIndex fIndex:Int, toIndex tIndex:Int )
+    
 }
 
 
-protocol LZPageControlDataSource  {
+protocol LZPageControlDataSource:class  {
     //titles
     func pageControlTitles(control:LZPageControl) -> [String]
     
     
-    
-    func pageControlContentViews(control:LZPageControl) -> [UIView]
 }
 
 
 class LZPageControl: UIView {
-   lazy var config:LZPageNavBarConfig = {
-    let config = LZPageNavBarConfig()
-        config.isShowTrackLine = true
-        config.canScrollEnable = true
-        config.trackLineColor = UIColor.blue
-        config.isNeedScale = false
-        config.isShowCover = false
-        config.coverBgColor = UIColor.orange
-        config.titleMargin = 30
     
-    return config
-    }()
-    
-   lazy var navBar : LZPageNavBar = {
-        let bar = LZPageNavBar(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 44), config: config)
-        bar.backgroundColor = UIColor.red
-        bar.delegate = self
-        bar.dataSource = self
-        bar.reloadData()
-        return bar
-    }()
-    
-    lazy var container :LZPageContainer = {
-        let container = LZPageContainer(frame: CGRect(x: 0, y: navBar.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar.frame.maxY))
-        container.delegate = self
-        container.dataSource = self
-       return container
-    }()
-    
-    var delegate:LZPageControlDelegate?
-    var dataSource:LZPageControlDataSource?
-
-    
-    override init(frame: CGRect) {
+   weak var delegate : LZPageControlDelegate?
+   weak var dataSource : LZPageControlDataSource?
+   fileprivate var config:LZPageNavBarConfig = LZPageNavBarConfig()
+   var navBar : LZPageNavBar?
+   var container :LZPageContainer?
+ 
+    init(frame: CGRect,config : LZPageNavBarConfig) {
+        self.config = config
         super.init(frame: frame)
+        self.backgroundColor = self.config.navBarBackgroundColor
         setupUI()
+     }
+   
+    func reloadData()  {
+        self.navBar?.reloadData()
+        self.container?.reloadData()
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupUI()  {
-        addSubview(navBar)
-        addSubview(container)
-        container.reloadData()
+   fileprivate func setupUI()  {
+        navBar = LZPageNavBar(frame: config.navFrame, config: config)
+        navBar!.delegate = self
+        navBar!.dataSource = self
+        addSubview(navBar!)
+        container = LZPageContainer(frame: CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY))
+        container!.delegate = self
+        container!.dataSource = self
+        addSubview(container!)
+
     }
     
+   fileprivate func titlesArray() -> [String]? {
+        let titles = dataSource?.pageControlTitles(control: self)
+        return titles
+    }
     
 }
 
 extension LZPageControl :LZPageNavBarDelegate {
-  
     func pageNavBar(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, didSelectedIndex index: Int) {
-        container.scrollToIndexToIndex(fromIndex: oIndex, toIndex: index)
+         container!.scrollToIndexToIndex(fromIndex: oIndex, toIndex: index)
+    }
+    func pageNavBarDidSelectedLeftBar(pageNavBar: LZPageNavBar) {
+        delegate?.pageControlDidselectedLeftBar(control: self)
+    }
+    func pageNavBarDidSelectedRightBar(pageNavBar: LZPageNavBar) {
+        delegate?.pageControlDidselectedRightBar(control: self)
     }
 }
 
 extension LZPageControl :LZPageNavDataSource {
+    
     func pageNavBarTitles(pageNavBar: LZPageNavBar) -> [String] {
-        return ["第一个","第2个","第3个","第4个","第5个","第6个"]
+        if titlesArray() == nil {
+            return [String]()
+        }
+        return titlesArray()!
     }
 }
 
 
 
+
 extension LZPageControl:LZPageContainerDelegate {
+    
     func pageContainer(pageContainer: LZPageContainer, didShowViewAtIndex index: Int) {
-        
+//        delegate?.pageControl(control: self, showViewFromIndex: fIndex, toIndex: tIndex)
     }
     
     func pageContainer(pageContainer: LZPageContainer, scrolFromIndex fIndex: Int, toIndex tIndex: Int, progress: CGFloat) {
-        navBar.scrollFromIndexToIndex(fromIndex: fIndex, toIndex: tIndex, withProgress: progress)
+        navBar!.scrollFromIndexToIndex(fromIndex: fIndex, toIndex: tIndex, withProgress: progress)
     }
     func pageContainerDidStop() {
-        navBar.currentViewDidEndScroll()
+        navBar!.currentViewDidEndScroll()
     }
     
 }
 
 extension LZPageControl :LZPageContainerDataSource {
     func pageContainerChildrenCount(pageContainer: LZPageContainer) -> Int {
-        return 6
+        return (titlesArray()?.count)!
     }
     
     func pageContainerChildren(pageContainer: LZPageContainer, viewAtIndex atIndex: Int) -> UIView {

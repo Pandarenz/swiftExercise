@@ -13,9 +13,9 @@ protocol LZPageNavBarDelegate : class {
     func pageNavBar(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,didSelectedIndex index:Int)
    
     //选中了左边的bar
-     func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
+    func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
     //选中了右边的bar
-      func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar)
+    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar)
     
 }
 
@@ -53,7 +53,7 @@ class LZPageNavBar: UIView {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.scrollsToTop = false
-        scrollView.backgroundColor = UIColor.lightGray
+        scrollView.backgroundColor = config.navBarBackgroundColor
         return scrollView
     }()
     
@@ -83,7 +83,7 @@ class LZPageNavBar: UIView {
     init(frame: CGRect,config : LZPageNavBarConfig) {
         self.config = config
         super.init(frame: frame)
-
+        self.backgroundColor = self.config.navBarBackgroundColor
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -156,19 +156,25 @@ extension LZPageNavBar {
         //4 设置Lbl的位置
          setupTitleLblPosition()
         // 5 设置底部的滚动条
-    if config.isShowTrackLine {
+        if config.isShowTrackLine {
             setupTrackLine()
         }
     
         if config.isShowCover {
             setupCoverView()
         }
-    
-    
+ 
     }
     
     
     fileprivate func setupTitleLbls()  {
+        
+        if titleLabels.count > 0 {
+            for (_,lbl) in (titleLabels.enumerated()) {
+                lbl.removeFromSuperview()
+            }
+            titleLabels.removeAll()
+        }
         for (index,title) in (titles?.enumerated())! {
             let lbl = UILabel()
             lbl.tag = index
@@ -216,10 +222,7 @@ extension LZPageNavBar {
             if index == 0 {
                 let scale = config.isNeedScale ? config.scaleRange : 1.0
                 lbl.transform = CGAffineTransform(scaleX: scale, y: scale)
-                
             }
-            
-            
         }
         
         if config.canScrollEnable {
@@ -411,10 +414,7 @@ extension LZPageNavBar {
         scrollView.setContentOffset(CGPoint(x:offsetX,y:0), animated:true)
         
     }
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        scrollView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
-//    }
+ 
 }
 
 
