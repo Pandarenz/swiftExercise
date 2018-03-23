@@ -162,8 +162,7 @@ extension LZPageNavBar {
         }
  
     }
-    
-    
+        
     fileprivate func setupTitleLbls()  {
         if titleLabels.count > 0 {
             for (_,lbl) in (titleLabels.enumerated()) {
