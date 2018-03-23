@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 protocol LZPageNavBarDelegate : class {
     //选中了某一个title
     func pageNavBar(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,didSelectedIndex index:Int)
@@ -360,9 +361,9 @@ extension LZPageNavBar {
         
         // 2 渐变
         
-        fromLbl.textColor = config.normalColor
+        fromLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.normalColor, endColor: config.selectedColor)
         
-        toLbl.textColor = config.selectedColor
+        toLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.selectedColor, endColor: config.normalColor)
         
         // 3 更新当前的index
         currentIndex = tIndex

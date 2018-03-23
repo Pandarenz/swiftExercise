@@ -32,6 +32,7 @@ class ViewController: UIViewController {
             config.isTrackDivide = true
             config.trackLineColor = UIColor.red
             config.coverBgColor = UIColor.orange
+            config.isShowCover = true
             config.titleMargin = 10
             config.firstTitleLeftMargin = 10
             config.lastTitleFightMargin = 0
