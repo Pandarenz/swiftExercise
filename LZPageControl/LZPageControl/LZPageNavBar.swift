@@ -104,11 +104,11 @@ extension LZPageNavBar {
         let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
         config.leftBarItem?.addGestureRecognizer(leftTap)
         
-        scrollView.frame = CGRect(x: (config.leftBarItem?.frame.width)! + (config.leftBarItem?.frame.origin.x)!, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.rightBarItem!.frame.width, height: self.bounds.height)
+        scrollView.frame = CGRect(x: (config.leftBarItem?.frame.maxX)! + config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.rightBarItem!.frame.width - config.firstTitleLeftMargin - config.lastTitleFightMargin, height: self.bounds.height)
         
         addSubview(scrollView)
         
-        config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
+        config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX + config.lastTitleFightMargin  , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
         addSubview(config.rightBarItem!)
         
         let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
@@ -124,25 +124,25 @@ extension LZPageNavBar {
         let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
         config.leftBarItem?.addGestureRecognizer(leftTap)
         
-        scrollView.frame = CGRect(x: (config.leftBarItem?.frame.width)! + (config.leftBarItem?.frame.origin.x)!, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width , height: self.bounds.height)
+        scrollView.frame = CGRect(x: (config.leftBarItem?.frame.maxX)! + config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.firstTitleLeftMargin - config.lastTitleFightMargin, height: self.bounds.height)
         addSubview(scrollView)
         
     }
     
     if (config.leftBarItem == nil) && (config.rightBarItem != nil) {
  
-        scrollView.frame = CGRect(x: 0, y: self.bounds.origin.y, width: self.bounds.width - config.rightBarItem!.frame.width, height: self.bounds.height)
+        scrollView.frame = CGRect(x: config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.rightBarItem!.frame.width - config.lastTitleFightMargin - config.firstTitleLeftMargin, height: self.bounds.height)
         
         addSubview(scrollView)
         
-        config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
+        config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX + config.lastTitleFightMargin , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
         addSubview(config.rightBarItem!)
         let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
         config.rightBarItem?.addGestureRecognizer(rightTap)
     }
     
     if (config.leftBarItem == nil) && (config.rightBarItem == nil)  {
-        scrollView.frame = CGRect(x: 0, y: self.bounds.origin.y, width: self.bounds.width , height: self.bounds.height)
+        scrollView.frame = CGRect(x: config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.firstTitleLeftMargin - config.lastTitleFightMargin , height: self.bounds.height)
         addSubview(scrollView)
     }
     
@@ -200,7 +200,6 @@ extension LZPageNavBar {
             if config.canScrollEnable {
                 let rect =  getTitleLblFrame(title: lbl.text!, font: config.font)
                 titleW = rect.width
-                
                 if index == 0 {
                     titleX = config.titleMargin * 0.5
                 } else {
@@ -316,14 +315,14 @@ extension LZPageNavBar {
             } else {
                 trackLine.frame.size.width = currentLbl.frame.width
             }
-            UIView.animate(withDuration: 0.15, animations: {
+            UIView.animate(withDuration: 0.1, animations: {
                 self.trackLine.center.x = currentLbl.center.x
             })
         }
         // 遮盖位置移动
         if config.isShowCover {
             self.coverView.frame.size.width = currentLbl.frame.width
-            UIView.animate(withDuration: 0.15, animations: {
+            UIView.animate(withDuration: 0.1, animations: {
                 self.coverView.center.x = currentLbl.center.x
             })
         }

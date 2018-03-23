@@ -33,8 +33,8 @@ class ViewController: UIViewController {
             config.trackLineColor = UIColor.red
             config.coverBgColor = UIColor.orange
             config.titleMargin = 10
-            config.firstTitleLeftMargin = 20
-            config.coverRadius = 0
+            config.firstTitleLeftMargin = 10
+            config.lastTitleFightMargin = 0
             config.leftBarItem = leftBtn
             config.rightBarItem = rightBtn
             config.selectedColor = UIColor.red

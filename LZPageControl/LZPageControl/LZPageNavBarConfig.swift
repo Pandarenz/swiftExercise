@@ -36,8 +36,9 @@ class LZPageNavBarConfig {
     /// titleView的高度
     var titleHeight : CGFloat = 44
     //第一个title 距离左边的距离
-    var firstTitleLeftMargin :CGFloat = 20
-    
+    var firstTitleLeftMargin : CGFloat = 0
+    //最后一个title 距离右边的距离
+    var lastTitleFightMargin : CGFloat = 0
     
     //MARK:底部滚动条
     
@@ -70,7 +71,7 @@ class LZPageNavBarConfig {
     var coverH : CGFloat = 25
     
     /// 设置圆角大小
-    var coverRadius : CGFloat = 12
+    var coverRadius : CGFloat = 0
     
     //MARK:左右BarItem
     
