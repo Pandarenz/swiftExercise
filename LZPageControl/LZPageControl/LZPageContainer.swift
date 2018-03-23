@@ -92,7 +92,7 @@ class LZPageContainer: UIView {
 extension LZPageContainer {
     
     // 从第几个滚动到第几个
-    func scrollToIndexToIndex(fromIndex fIndex:Int, toIndex tIndex:Int)  {
+    func scrollToIndexToIndex(fromIndex fIndex:Int, toIndex tIndex:Int, withAnimated animated:Bool)  {
         isClickedEv = true
         
         if !cache.hasCache(subIndex: tIndex) {
@@ -104,7 +104,7 @@ extension LZPageContainer {
             }
         }
         
-        scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(tIndex), y: 0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(tIndex), y: 0), animated: animated)
     }
     // 刷新列表
     func reloadData() {

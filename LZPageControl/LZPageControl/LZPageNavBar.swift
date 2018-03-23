@@ -399,7 +399,6 @@ extension LZPageNavBar {
             coverView.frame.size.width = config.canScrollEnable ? (fromLbl.frame.width + 2 * config.coverMargin + moveTotalW * progress) :(fromLbl.frame.width + moveTotalW * progress)
             coverView.frame.origin.x = config.canScrollEnable ? (fromLbl.frame.origin.x - config.coverMargin + moveTotalX * progress) : (fromLbl.frame.origin.x + moveTotalX * progress)
         }
-        
     }
     
     

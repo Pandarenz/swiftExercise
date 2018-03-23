@@ -70,7 +70,8 @@ class LZPageControl: UIView {
 
 extension LZPageControl :LZPageNavBarDelegate {
     func pageNavBar(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, didSelectedIndex index: Int) {
-         container!.scrollToIndexToIndex(fromIndex: oIndex, toIndex: index)
+        let ani = abs(index - oIndex) > 1
+        container!.scrollToIndexToIndex(fromIndex: oIndex, toIndex: index, withAnimated: !ani)
     }
     func pageNavBarDidSelectedLeftBar(pageNavBar: LZPageNavBar) {
         delegate?.pageControlDidselectedLeftBar(control: self)
