@@ -152,11 +152,10 @@ extension LZPageNavBar {
         setupTitleLbls()
         // 设置Lbl的位置
         setupTitleLblPosition()
-        // 5 设置底部的滚动条
+        // 设置底部的滚动条
         if config.isShowTrackLine {
             setupTrackLine()
         }
-    
         if config.isShowCover {
             setupCoverView()
         }
@@ -165,7 +164,6 @@ extension LZPageNavBar {
     
     
     fileprivate func setupTitleLbls()  {
-        
         if titleLabels.count > 0 {
             for (_,lbl) in (titleLabels.enumerated()) {
                 lbl.removeFromSuperview()
@@ -268,7 +266,7 @@ extension LZPageNavBar {
         
     }
     
-    func getTitleLblFrame(title:String ,font:UIFont) -> CGRect {
+    fileprivate  func getTitleLblFrame(title:String ,font:UIFont) -> CGRect {
         let rect = (title as NSString).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0.0), options:.truncatesLastVisibleLine, attributes: [NSAttributedStringKey.font:font], context: nil)
         return rect
     }
@@ -309,9 +307,6 @@ extension LZPageNavBar {
         }
         // 调整trackLine
         if config.isShowTrackLine {
-//            self.trackLine.frame.size.width = currentLbl.frame.width
-            
-            
             if !config.canScrollEnable {
                 if config.isTrackDivide {
                     trackLine.frame.size.width = currentLbl.frame.width
@@ -321,7 +316,6 @@ extension LZPageNavBar {
             } else {
                 trackLine.frame.size.width = currentLbl.frame.width
             }
-            
             UIView.animate(withDuration: 0.15, animations: {
                 self.trackLine.center.x = currentLbl.center.x
             })
@@ -333,7 +327,6 @@ extension LZPageNavBar {
                 self.coverView.center.x = currentLbl.center.x
             })
         }
-
     }
     
     @objc func leftBarItemClick(tap:UITapGestureRecognizer) {
@@ -348,12 +341,10 @@ extension LZPageNavBar {
 //对外方法
 extension LZPageNavBar {
 
-    
     func reloadData()  {
         self.titles = dataSource?.pageNavBarTitles(pageNavBar: self)
         self.setupUI()
     }
-    
     
     func scrollFromIndexToIndex(fromIndex fIndex :Int , toIndex tIndex:Int , withProgress progress:CGFloat) {
         
@@ -409,7 +400,6 @@ extension LZPageNavBar {
             coverView.frame.origin.x = config.canScrollEnable ? (fromLbl.frame.origin.x - config.coverMargin + moveTotalX * progress) : (fromLbl.frame.origin.x + moveTotalX * progress)
         }
         
-        
     }
     
     
@@ -425,9 +415,7 @@ extension LZPageNavBar {
         if offsetX < 0 {
             offsetX = 0
         }
-        
         let maxOffset = scrollView.contentSize.width - scrollView.bounds.width
-        
         if offsetX > maxOffset {
             offsetX = maxOffset
         }
