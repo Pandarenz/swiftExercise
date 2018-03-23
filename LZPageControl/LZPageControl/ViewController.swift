@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
    lazy var config:LZPageNavBarConfig = {
     
-        let leftBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 40))
+        let leftBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
             leftBtn.backgroundColor = UIColor.red
             leftBtn.setTitle("left", for: .normal)
             leftBtn.setTitleColor(UIColor.white, for: .normal)
@@ -29,11 +29,11 @@ class ViewController: UIViewController {
             config.navBarBackgroundColor = UIColor.lightGray
             config.isShowTrackLine = true
             config.canScrollEnable = true
-            config.trackLineColor = UIColor.black
-            config.isNeedScale = false
-            config.isShowCover = false
+            config.isTrackDivide = true
+            config.trackLineColor = UIColor.red
             config.coverBgColor = UIColor.orange
-            config.titleMargin = 30
+            config.titleMargin = 10
+            config.firstTitleLeftMargin = 20
             config.coverRadius = 0
             config.leftBarItem = leftBtn
             config.rightBarItem = rightBtn
@@ -41,10 +41,9 @@ class ViewController: UIViewController {
             config.normalColor = UIColor.black
         return config
     }()
-    var titles:[String] = ["第1个","第2个","第3个","第4个噶哈哈","我哦我很难受金石可镂"]
+    var titles:[String] = ["第1个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个"]
     
     var pageControl:LZPageControl = LZPageControl(frame: CGRect.zero, config: LZPageNavBarConfig())
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,13 +60,9 @@ class ViewController: UIViewController {
     }
  
     
-    
-    
-    
     override func viewWillLayoutSubviews() {
         pageControl.frame = self.view.bounds
     }
-//
 }
 
 

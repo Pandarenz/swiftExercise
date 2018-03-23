@@ -16,7 +16,7 @@ class LZPageNavBarConfig {
     
     var navBarBackgroundColor:UIColor = UIColor.white
     
-    //title的view是否可以左右滚动
+    //title的view是否可以左右滚动 一般情况下当title的个数固定的时候才需要设置为false
     var canScrollEnable :Bool = false
     //MARK:颜色
     
@@ -31,10 +31,13 @@ class LZPageNavBarConfig {
     
     /// Title字体大小
     var font : UIFont = UIFont.systemFont(ofSize: 14.0)
-    /// 滚动Title的字体间距
+    /// 滚动Title的间距
     var titleMargin : CGFloat = 20
     /// titleView的高度
     var titleHeight : CGFloat = 44
+    //第一个title 距离左边的距离
+    var firstTitleLeftMargin :CGFloat = 20
+    
     
     //MARK:底部滚动条
     
@@ -44,6 +47,8 @@ class LZPageNavBarConfig {
     var trackLineColor : UIColor = UIColor.orange
     /// 底部滚动条高度
     var trackLineH : CGFloat = 2
+    /// 底部滚动条的宽度是否等宽 canScrollEnable 为 false 时有效isTrackDivide 表示宽度跟title的宽度一样
+    var isTrackDivide: Bool = false
     
     //MARK:缩进
     
@@ -69,10 +74,6 @@ class LZPageNavBarConfig {
     
     //MARK:左右BarItem
     
-    // 是否有左边的bar
-    var hasLeftBarItem : Bool = false
-    //是否有右边的bar
-    var hasRigtBarItem :Bool = false
     var leftBarItem : UIView?
     var rightBarItem : UIView?
     

@@ -143,7 +143,6 @@ extension LZPageNavBar {
     
     if (config.leftBarItem == nil) && (config.rightBarItem == nil)  {
         scrollView.frame = CGRect(x: 0, y: self.bounds.origin.y, width: self.bounds.width , height: self.bounds.height)
-        
         addSubview(scrollView)
     }
     
@@ -211,7 +210,7 @@ extension LZPageNavBar {
                     titleX = preLbl.frame.maxX + config.titleMargin
                 }
             } else {
-                titleW = scrollView.frame.width / CGFloat(count!) - CGFloat(count! - 1) * config.titleMargin
+                titleW = (scrollView.bounds.width - CGFloat(count! - 1) * config.titleMargin) / CGFloat(count!)
                 titleX = titleW * CGFloat(index) + config.titleMargin * CGFloat(index)
             }
             
@@ -224,6 +223,9 @@ extension LZPageNavBar {
         
         if config.canScrollEnable {
             scrollView.contentSize = CGSize(width: (titleLabels.last?.frame.maxX)! + config.titleMargin * 0.5, height: 0)
+            if scrollView.contentSize.width < scrollView.bounds.width {
+                scrollView.contentSize = scrollView.bounds.size
+            }
         }
         
     }
@@ -234,6 +236,15 @@ extension LZPageNavBar {
         let currentLbl = titleLabels.first
         trackLine.frame = (currentLbl?.frame)!
         trackLine.frame.size.height = config.trackLineH
+        if !config.canScrollEnable {
+            if config.isTrackDivide {
+               trackLine.frame.size.width = (currentLbl?.frame.width)!
+            } else {
+                trackLine.frame.size.width = getTitleLblFrame(title: (currentLbl?.text)!, font: config.font).width
+            }
+        } else {
+             trackLine.frame.size.width = (currentLbl?.frame.width)!
+        }
         trackLine.frame.origin.y = scrollView.frame.height - config.trackLineH
         trackLine.center.x = (currentLbl?.center.x)!
     }
@@ -298,7 +309,19 @@ extension LZPageNavBar {
         }
         // 调整trackLine
         if config.isShowTrackLine {
-            self.trackLine.frame.size.width = currentLbl.frame.width
+//            self.trackLine.frame.size.width = currentLbl.frame.width
+            
+            
+            if !config.canScrollEnable {
+                if config.isTrackDivide {
+                    trackLine.frame.size.width = currentLbl.frame.width
+                } else {
+                    trackLine.frame.size.width = getTitleLblFrame(title: currentLbl.text ?? "", font: config.font).width
+                }
+            } else {
+                trackLine.frame.size.width = currentLbl.frame.width
+            }
+            
             UIView.animate(withDuration: 0.15, animations: {
                 self.trackLine.center.x = currentLbl.center.x
             })
@@ -344,7 +367,6 @@ extension LZPageNavBar {
             return
         }
          let toLbl = titleLabels[tIndex]
-       
         
         // 2 渐变
         
@@ -358,9 +380,18 @@ extension LZPageNavBar {
         let moveTotalW = toLbl.frame.width - fromLbl.frame.width
         
         // 4 计算滚动的范围差值
+        
         if config.isShowTrackLine {
-            trackLine.frame.size.width = fromLbl.frame.width + moveTotalW * progress
-            trackLine.frame.origin.x = fromLbl.frame.origin.x + moveTotalX * progress
+            if !config.canScrollEnable {
+                if config.isTrackDivide {
+                    trackLine.frame.size.width = fromLbl.frame.width + moveTotalW * progress
+                } else {
+                    trackLine.frame.size.width = getTitleLblFrame(title: fromLbl.text ?? "", font: config.font).width  + moveTotalW * progress
+                }
+            } else {
+                trackLine.frame.size.width = fromLbl.frame.width  + moveTotalW * progress
+            }
+            trackLine.center.x = fromLbl.center.x + moveTotalX * progress
         }
         
         // 5 放大的比例
@@ -400,7 +431,6 @@ extension LZPageNavBar {
         if offsetX > maxOffset {
             offsetX = maxOffset
         }
-        
         //4 滚动scrollerView
         scrollView.setContentOffset(CGPoint(x:offsetX,y:0), animated:true)
         
