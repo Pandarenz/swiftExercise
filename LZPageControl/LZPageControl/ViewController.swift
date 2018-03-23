@@ -11,32 +11,37 @@ import UIKit
 class ViewController: UIViewController {
 
    lazy var config:LZPageNavBarConfig = {
+    
         let leftBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 40))
-            leftBtn.backgroundColor = UIColor.lightGray
+            leftBtn.backgroundColor = UIColor.red
             leftBtn.setTitle("left", for: .normal)
             leftBtn.setTitleColor(UIColor.white, for: .normal)
             leftBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+    
         let rightBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-            rightBtn.backgroundColor = UIColor.lightGray
+            rightBtn.backgroundColor = UIColor.red
             rightBtn.setTitle("right", for: .normal)
             rightBtn.setTitleColor(UIColor.white, for: .normal)
-        rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+            rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+    
         let config = LZPageNavBarConfig()
-        config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
-        config.navBarBackgroundColor = UIColor.lightGray
-        config.isShowCover = false
-        config.isShowTrackLine = true
-        config.canScrollEnable = false
-        config.trackLineColor = UIColor.blue
-        config.isNeedScale = true
-        config.isShowCover = true
-        config.coverBgColor = UIColor.orange
-        config.titleMargin = 30
-//        config.leftBarItem = leftBtn
-        config.rightBarItem = rightBtn
+            config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
+            config.navBarBackgroundColor = UIColor.lightGray
+            config.isShowTrackLine = true
+            config.canScrollEnable = true
+            config.trackLineColor = UIColor.black
+            config.isNeedScale = false
+            config.isShowCover = false
+            config.coverBgColor = UIColor.orange
+            config.titleMargin = 30
+            config.coverRadius = 0
+            config.leftBarItem = leftBtn
+            config.rightBarItem = rightBtn
+            config.selectedColor = UIColor.red
+            config.normalColor = UIColor.black
         return config
     }()
-    var titles:[String] = ["第1个","第2个"]
+    var titles:[String] = ["第1个","第2个","第3个","第4个噶哈哈","我哦我很难受金石可镂"]
     
     var pageControl:LZPageControl = LZPageControl(frame: CGRect.zero, config: LZPageNavBarConfig())
     

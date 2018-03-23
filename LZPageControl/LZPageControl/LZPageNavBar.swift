@@ -61,7 +61,7 @@ class LZPageNavBar: UIView {
         let splitLine = UIView()
             splitLine.backgroundColor = UIColor.lightGray
             let h : CGFloat = 0.5
-            splitLine.frame = CGRect(x: 0, y: self.frame.height - h, width: self.frame.width, height: h)
+            splitLine.frame = CGRect(x: config.titleMargin, y: self.frame.height - h, width: self.frame.width, height: h)
         return splitLine;
     }()
     
@@ -124,8 +124,6 @@ extension LZPageNavBar {
         let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
         config.leftBarItem?.addGestureRecognizer(leftTap)
         
-        
-        
         scrollView.frame = CGRect(x: (config.leftBarItem?.frame.width)! + (config.leftBarItem?.frame.origin.x)!, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width , height: self.bounds.height)
         addSubview(scrollView)
         
@@ -149,12 +147,12 @@ extension LZPageNavBar {
         addSubview(scrollView)
     }
     
-        //2 添加底部分割线
+        // 添加底部分割线
         addSubview(splitLine)
-        //3 添加所有标题的label
+        // 添加所有标题的label
         setupTitleLbls()
-        //4 设置Lbl的位置
-         setupTitleLblPosition()
+        // 设置Lbl的位置
+        setupTitleLblPosition()
         // 5 设置底部的滚动条
         if config.isShowTrackLine {
             setupTrackLine()
@@ -203,7 +201,7 @@ extension LZPageNavBar {
         for (index,lbl) in titleLabels.enumerated() {
             
             if config.canScrollEnable {
-                let rect = (lbl.text! as NSString).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0.0), options:.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font:config.font ], context: nil)
+                let rect =  getTitleLblFrame(title: lbl.text!, font: config.font)
                 titleW = rect.width
                 
                 if index == 0 {
@@ -213,12 +211,11 @@ extension LZPageNavBar {
                     titleX = preLbl.frame.maxX + config.titleMargin
                 }
             } else {
-                titleW = frame.width / CGFloat(count!)
-                titleX = titleW * CGFloat(index)
+                titleW = scrollView.frame.width / CGFloat(count!) - CGFloat(count! - 1) * config.titleMargin
+                titleX = titleW * CGFloat(index) + config.titleMargin * CGFloat(index)
             }
             
             lbl.frame = CGRect(x: titleX, y: titleY, width: titleW, height: titleH)
-            
             if index == 0 {
                 let scale = config.isNeedScale ? config.scaleRange : 1.0
                 lbl.transform = CGAffineTransform(scaleX: scale, y: scale)
@@ -234,18 +231,20 @@ extension LZPageNavBar {
     
     fileprivate func setupTrackLine() {
         scrollView.addSubview(trackLine)
-        trackLine.frame = titleLabels.first!.frame
+        let currentLbl = titleLabels.first
+        trackLine.frame = (currentLbl?.frame)!
         trackLine.frame.size.height = config.trackLineH
-        trackLine.frame.origin.y = bounds.height - config.trackLineH
+        trackLine.frame.origin.y = scrollView.frame.height - config.trackLineH
+        trackLine.center.x = (currentLbl?.center.x)!
     }
     
     fileprivate func setupCoverView() {
         scrollView.insertSubview(coverView, at: 0)
         let firstLbl = titleLabels[0]
-        var coverW = firstLbl.frame.width
+        var coverW = getTitleLblFrame(title: titleLabels[0].text!, font: config.font).width
         let coverH = config.coverH
         var coverX = firstLbl.frame.origin.x
-        let coverY = (bounds.height - coverH) * 0.5
+        let coverY = (scrollView.frame.height - coverH) * 0.5
         
         if config.canScrollEnable {
             coverX -= config.coverMargin
@@ -254,9 +253,14 @@ extension LZPageNavBar {
         coverView.frame = CGRect(x: coverX, y: coverY, width: coverW, height: coverH)
         coverView.layer.cornerRadius = config.coverRadius
         coverView.layer.masksToBounds = true
+        coverView.center.x = firstLbl.center.x
         
     }
     
+    func getTitleLblFrame(title:String ,font:UIFont) -> CGRect {
+        let rect = (title as NSString).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 0.0), options:.truncatesLastVisibleLine, attributes: [NSAttributedStringKey.font:font], context: nil)
+        return rect
+    }
     
 }
 
@@ -265,60 +269,48 @@ extension LZPageNavBar {
 extension LZPageNavBar {
     
     @objc fileprivate func titleLblClick(_ tap :UITapGestureRecognizer) {
-        //1 当前的Lbl
+        // 当前的Lbl
         guard let currentLbl = tap.view as? UILabel else {
             return
         }
-        //2 如果点击同一个title 直接返回
-        
+        // 如果点击同一个title 直接返回
         if currentLbl.tag == currentIndex {
             return
         }
-        
-        // 3 获取之前的lbl
+        // 获取之前的lbl
         let oldLbl = titleLabels[currentIndex]
 
-        // 4 切换文字颜色
+        // 切换文字颜色
         oldLbl.textColor = config.normalColor
         currentLbl.textColor = config.selectedColor
         
-        // 5 保存最新的lbl下标
+        // 保存最新的lbl下标
         currentIndex = currentLbl.tag
-        // 6 代理通知
-//        delegate?.pageNavBar(pageNavBar: self, didSelectedIndex: currentIndex)
+        // 代理通知
         delegate?.pageNavBar(pageNavBar: self, oldIndex: oldLbl.tag, didSelectedIndex: currentIndex)
-        // 7 居中显示
-        
+        // 居中显示
         currentViewDidEndScroll()
-        
-        // 8 调整trackLine
-        if config.isShowTrackLine {
-            UIView.animate(withDuration: 0.15, animations: {
-                self.trackLine.frame.origin.x = currentLbl.frame.origin.x
-                self.trackLine.frame.size.width = currentLbl.frame.width
-            })
-        }
-        
-        // 9 调整缩放比例
+        // 调整缩放比例
         
         if config.isNeedScale {
             oldLbl.transform = CGAffineTransform.identity
             currentLbl.transform = CGAffineTransform(scaleX: config.scaleRange, y: config.scaleRange)
         }
-        
-        // 10 遮盖位置移动
-        
-        if config.isShowCover {
-            let coverX = config.canScrollEnable ? (currentLbl.frame.origin.x - config.coverMargin ):currentLbl.frame.origin.x
-            
-            let coverW = config.canScrollEnable ? (currentLbl.frame.width + config.coverMargin * 2) : currentLbl.frame.width
+        // 调整trackLine
+        if config.isShowTrackLine {
+            self.trackLine.frame.size.width = currentLbl.frame.width
             UIView.animate(withDuration: 0.15, animations: {
-                self.coverView.frame.origin.x = coverX
-                self.coverView.frame.size.width = coverW
+                self.trackLine.center.x = currentLbl.center.x
             })
-            
         }
-        
+        // 遮盖位置移动
+        if config.isShowCover {
+            self.coverView.frame.size.width = currentLbl.frame.width
+            UIView.animate(withDuration: 0.15, animations: {
+                self.coverView.center.x = currentLbl.center.x
+            })
+        }
+
     }
     
     @objc func leftBarItemClick(tap:UITapGestureRecognizer) {
@@ -372,7 +364,6 @@ extension LZPageNavBar {
         }
         
         // 5 放大的比例
-        
         
         if config.isNeedScale {
             let scaleData = (config.scaleRange - 1.0) * progress
