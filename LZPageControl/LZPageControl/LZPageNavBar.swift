@@ -10,8 +10,8 @@ import UIKit
 
 
 protocol LZPageNavBarDelegate : class {
-    //选中了某一个title
-    func pageNavBar(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,didSelectedIndex index:Int)
+    //选中了某一个title Select
+    func pageNavBarDidSelected(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,oldObj:UILabel,newIndex nIndex:Int ,newObj:UILabel)
    
     //选中了左边的bar
     func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
@@ -35,6 +35,7 @@ extension LZPageNavBarDelegate {
 protocol LZPageNavDataSource :class {
     //返回title数组
     func pageNavBarTitles(pageNavBar:LZPageNavBar) -> [String]
+    
 }
 
 
@@ -90,6 +91,14 @@ class LZPageNavBar: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupLayout()
+        setupTitleLblPosition()
+        setupTrackLine()
+    }
+    
 }
 
 // MARK: 设置UI界面内容
@@ -97,56 +106,19 @@ extension LZPageNavBar {
     
   fileprivate  func setupUI() {
         //1 滚动视图
-    
-    if (config.leftBarItem != nil ) && (config.rightBarItem != nil) {
-        
-        config.leftBarItem?.frame = CGRect(x: 0, y: self.bounds.origin.y, width: (config.leftBarItem?.frame.width)!, height: (config.leftBarItem?.frame.height)!)
+    if config.leftBarItem != nil {
         addSubview(config.leftBarItem!)
-        let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
-        config.leftBarItem?.addGestureRecognizer(leftTap)
-        
-        scrollView.frame = CGRect(x: (config.leftBarItem?.frame.maxX)! + config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.rightBarItem!.frame.width - config.firstTitleLeftMargin - config.lastTitleFightMargin, height: self.bounds.height)
-        
+    }
         addSubview(scrollView)
-        
-        config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX + config.lastTitleFightMargin  , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
+    if config.rightBarItem != nil {
         addSubview(config.rightBarItem!)
-        
-        let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
-        config.rightBarItem?.addGestureRecognizer(rightTap)
-
     }
+    let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
+    config.leftBarItem?.addGestureRecognizer(leftTap)
+    let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
+    config.rightBarItem?.addGestureRecognizer(rightTap)
     
-    if (config.leftBarItem != nil) && (config.rightBarItem == nil) {
-        
-        config.leftBarItem?.frame = CGRect(x: 0, y: self.bounds.origin.y, width: (config.leftBarItem?.frame.width)!, height: (config.leftBarItem?.frame.height)!)
-        addSubview(config.leftBarItem!)
-        
-        let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
-        config.leftBarItem?.addGestureRecognizer(leftTap)
-        
-        scrollView.frame = CGRect(x: (config.leftBarItem?.frame.maxX)! + config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.firstTitleLeftMargin - config.lastTitleFightMargin, height: self.bounds.height)
-        addSubview(scrollView)
-        
-    }
-    
-    if (config.leftBarItem == nil) && (config.rightBarItem != nil) {
- 
-        scrollView.frame = CGRect(x: config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.rightBarItem!.frame.width - config.lastTitleFightMargin - config.firstTitleLeftMargin, height: self.bounds.height)
-        
-        addSubview(scrollView)
-        
-        config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX + config.lastTitleFightMargin , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
-        addSubview(config.rightBarItem!)
-        let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
-        config.rightBarItem?.addGestureRecognizer(rightTap)
-    }
-    
-    if (config.leftBarItem == nil) && (config.rightBarItem == nil)  {
-        scrollView.frame = CGRect(x: config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.firstTitleLeftMargin - config.lastTitleFightMargin , height: self.bounds.height)
-        addSubview(scrollView)
-    }
-    
+    setupLayout()
         // 添加底部分割线
         addSubview(splitLine)
         // 添加所有标题的label
@@ -178,6 +150,7 @@ extension LZPageNavBar {
             lbl.textColor = index == 0 ? config.selectedColor : config.normalColor
             lbl.textAlignment = .center
             lbl.isUserInteractionEnabled = true
+            lbl.backgroundColor = index == 0 ? config.titleSelectedBgColor : config.titleNorBgColor
             let tap = UITapGestureRecognizer(target: self, action: #selector(titleLblClick(_:)))
             lbl.addGestureRecognizer(tap)
             titleLabels.append(lbl)
@@ -227,6 +200,36 @@ extension LZPageNavBar {
         
     }
     
+    func setupLayout() {
+        if (config.leftBarItem != nil ) && (config.rightBarItem != nil) {
+
+            config.leftBarItem?.frame = CGRect(x: 0, y: self.bounds.origin.y, width: (config.leftBarItem?.frame.width)!, height: (config.leftBarItem?.frame.height)!)
+            addSubview(config.leftBarItem!)
+
+            scrollView.frame = CGRect(x: (config.leftBarItem?.frame.maxX)! + config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.rightBarItem!.frame.width - config.firstTitleLeftMargin - config.lastTitleFightMargin, height: self.bounds.height)
+            
+            config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX + config.lastTitleFightMargin  , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
+        }
+        
+        if (config.leftBarItem != nil) && (config.rightBarItem == nil) {
+            
+            config.leftBarItem?.frame = CGRect(x: 0, y: self.bounds.origin.y, width: (config.leftBarItem?.frame.width)!, height: (config.leftBarItem?.frame.height)!)
+   
+            scrollView.frame = CGRect(x: (config.leftBarItem?.frame.maxX)! + config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.firstTitleLeftMargin - config.lastTitleFightMargin, height: self.bounds.height)
+            
+        }
+        
+        if (config.leftBarItem == nil) && (config.rightBarItem != nil) {
+            
+            scrollView.frame = CGRect(x: config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.rightBarItem!.frame.width - config.lastTitleFightMargin - config.firstTitleLeftMargin, height: self.bounds.height)
+            
+            config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX + config.lastTitleFightMargin , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
+        }
+        
+        if (config.leftBarItem == nil) && (config.rightBarItem == nil)  {
+            scrollView.frame = CGRect(x: config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.firstTitleLeftMargin - config.lastTitleFightMargin , height: self.bounds.height)
+        }
+    }
     
     fileprivate func setupTrackLine() {
         scrollView.addSubview(trackLine)
@@ -290,12 +293,13 @@ extension LZPageNavBar {
 
         // 切换文字颜色
         oldLbl.textColor = config.normalColor
+        oldLbl.backgroundColor = config.titleNorBgColor
         currentLbl.textColor = config.selectedColor
-        
+        currentLbl.backgroundColor = config.titleSelectedBgColor
         // 保存最新的lbl下标
         currentIndex = currentLbl.tag
         // 代理通知
-        delegate?.pageNavBar(pageNavBar: self, oldIndex: oldLbl.tag, didSelectedIndex: currentIndex)
+        delegate?.pageNavBarDidSelected(pageNavBar: self, oldIndex: oldLbl.tag, oldObj: oldLbl, newIndex: currentLbl.tag, newObj: currentLbl)
         // 居中显示
         currentViewDidEndScroll()
         // 调整缩放比例
@@ -335,6 +339,9 @@ extension LZPageNavBar {
     @objc func rightBarItemClick(tap:UITapGestureRecognizer) {
         delegate?.pageNavBarDidSelectedRightBar(pageNavBar: self)
     }
+    
+   
+    
 }
 
 //对外方法
@@ -361,8 +368,13 @@ extension LZPageNavBar {
         // 2 渐变
         
         fromLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.normalColor, endColor: config.selectedColor)
-        
+        if config.titleNorBgColor != nil && config.titleSelectedBgColor != nil {
+            fromLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: config.titleNorBgColor!, endColor: config.titleSelectedBgColor!)
+        }
         toLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.selectedColor, endColor: config.normalColor)
+        if config.titleNorBgColor != nil && config.titleSelectedBgColor != nil {
+            toLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: config.titleSelectedBgColor!, endColor: config.titleNorBgColor!)
+        }
         
         // 3 更新当前的index
         currentIndex = tIndex

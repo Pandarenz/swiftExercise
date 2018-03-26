@@ -28,27 +28,40 @@ class ViewController: UIViewController {
             config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
             config.navBarBackgroundColor = UIColor.lightGray
             config.isShowTrackLine = true
-            config.canScrollEnable = true
+            config.canScrollEnable = false
             config.isTrackDivide = true
-            config.trackLineColor = UIColor.red
-            config.coverBgColor = UIColor.orange
-            config.isShowCover = true
-            config.titleMargin = 10
-            config.firstTitleLeftMargin = 10
+            config.trackLineColor = UIColor.yellow
+//            config.coverBgColor = UIColor.orange
+//            config.titleNorBgColor = UIColor.blue
+//            config.titleSelectedBgColor = UIColor.green
+//            config.isShowCover = true
+            config.titleMargin = 20
+            config.firstTitleLeftMargin = 0
             config.lastTitleFightMargin = 0
-            config.leftBarItem = leftBtn
+//            config.leftBarItem = leftBtn
             config.rightBarItem = rightBtn
             config.selectedColor = UIColor.red
             config.normalColor = UIColor.black
         return config
     }()
-    var titles:[String] = ["第1个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个","第2个","第3个"]
+    
+    
+    lazy var nav :LZPageNavBar = {
+        let navBar = LZPageNavBar(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 44), config: config)
+            navBar.dataSource = self
+            navBar.delegate = self
+        return navBar
+    }()
+    
+    var titles:[String] = ["第1个","第2个","第3个"]
+    
     
     var pageControl:LZPageControl = LZPageControl(frame: CGRect.zero, config: LZPageNavBarConfig())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setPageControlView()
+//        setPageControlView()
+        setNavbar()
     }
 
     func setPageControlView() {
@@ -60,9 +73,15 @@ class ViewController: UIViewController {
         pageControl.reloadData()
     }
  
+    func setNavbar() {
+        nav.reloadData()
+        view.addSubview(nav)
+    }
+    
     
     override func viewWillLayoutSubviews() {
         pageControl.frame = self.view.bounds
+        nav.frame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
     }
 }
 
@@ -94,4 +113,42 @@ extension ViewController :LZPageControlDataSource {
         return self.titles;
     }
 }
+
+
+
+extension ViewController:LZPageNavDataSource {
+    
+    func pageNavBarTitles(pageNavBar: LZPageNavBar) -> [String] {
+        return titles
+    }
+    func pageControlChildren(pageControl: LZPageControl, viewAtIndex atIndex: Int) -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        let lbl = UILabel(frame: view.bounds)
+        lbl.text = "第\(atIndex + 1)个"
+        lbl.textAlignment = .center
+        view.addSubview(lbl)
+        let red = CGFloat(arc4random()%256)/255.0
+        let green = CGFloat(arc4random()%256)/255.0
+        let blue = CGFloat(arc4random()%256)/255.0
+        view.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        return view
+    }
+}
+
+extension ViewController:LZPageNavBarDelegate {
+    func pageNavBarDidSelected(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, oldObj: UILabel, newIndex nIndex: Int, newObj: UILabel) {
+        print("old : \(oIndex) new :\(nIndex)")
+    }
+    
+    
+    func pageNavBarDidSelectedLeftBar(pageNavBar: LZPageNavBar) {
+        print("点击了左边")
+    }
+    
+    func pageNavBarDidSelectedRightBar(pageNavBar: LZPageNavBar) {
+        print("点击了右边 ")
+    }
+    
+}
+
 

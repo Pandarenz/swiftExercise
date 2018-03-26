@@ -25,7 +25,8 @@ class LZPageNavBarConfig {
     //选中的Title的颜色
     var selectedColor : UIColor = UIColor.black
     // Title的view的背景色
-    var titleBgColor :UIColor = UIColor.white
+    var titleNorBgColor :UIColor?
+    var titleSelectedBgColor :UIColor?
     
     //MARK:字体
     

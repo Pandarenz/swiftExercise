@@ -21,7 +21,8 @@ protocol LZPageControlDelegate:class {
 protocol LZPageControlDataSource:class  {
     //titles
     func pageControlTitles(control:LZPageControl) -> [String]
-    
+    //views
+    func pageControlChildren(pageControl: LZPageControl, viewAtIndex atIndex: Int) -> UIView
     
 }
 
@@ -54,11 +55,12 @@ class LZPageControl: UIView {
         navBar!.delegate = self
         navBar!.dataSource = self
         addSubview(navBar!)
+        navBar?.setNeedsLayout()
         container = LZPageContainer(frame: CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY))
         container!.delegate = self
         container!.dataSource = self
         addSubview(container!)
-
+        container?.setNeedsLayout()
     }
     
    fileprivate func titlesArray() -> [String]? {
@@ -66,13 +68,21 @@ class LZPageControl: UIView {
         return titles
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        navBar?.frame = CGRect(x: 0, y: 50, width: self.bounds.width, height: 44)
+        container?.frame = CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY)
+        
+    }
+    
 }
 
 extension LZPageControl :LZPageNavBarDelegate {
-    func pageNavBar(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, didSelectedIndex index: Int) {
-        let ani = abs(index - oIndex) > 1
-        container!.scrollToIndexToIndex(fromIndex: oIndex, toIndex: index, withAnimated: !ani)
+    func pageNavBarDidSelected(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, oldObj: UILabel, newIndex nIndex: Int, newObj: UILabel) {
+        let ani = abs(nIndex - oIndex) > 1
+        container!.scrollToIndexToIndex(fromIndex: oIndex, toIndex: nIndex, withAnimated: !ani)
     }
+  
     func pageNavBarDidSelectedLeftBar(pageNavBar: LZPageNavBar) {
         delegate?.pageControlDidselectedLeftBar(control: self)
     }
@@ -110,22 +120,15 @@ extension LZPageControl:LZPageContainerDelegate {
 }
 
 extension LZPageControl :LZPageContainerDataSource {
+    func pageContainerChildren(pageContainer: LZPageContainer, viewAtIndex atIndex: Int) -> UIView {
+        return (dataSource?.pageControlChildren(pageControl: self, viewAtIndex: atIndex))!
+    }
+    
     func pageContainerChildrenCount(pageContainer: LZPageContainer) -> Int {
         return (titlesArray()?.count)!
     }
     
-    func pageContainerChildren(pageContainer: LZPageContainer, viewAtIndex atIndex: Int) -> UIView {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        let lbl = UILabel(frame: view.bounds)
-        lbl.text = "第\(atIndex + 1)个"
-        lbl.textAlignment = .center
-        view.addSubview(lbl)
-        let red = CGFloat(arc4random()%256)/255.0
-        let green = CGFloat(arc4random()%256)/255.0
-        let blue = CGFloat(arc4random()%256)/255.0
-         view.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        return view
-    }
+    
     
     
 }

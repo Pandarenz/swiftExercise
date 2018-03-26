@@ -65,7 +65,7 @@ class LZPageContainer: UIView {
     
     fileprivate func setupUI()  {
         scrollView.backgroundColor = UIColor.red
-        
+        scrollView.setNeedsLayout()
     }
     
    fileprivate func updateContenSize() {
@@ -85,6 +85,8 @@ class LZPageContainer: UIView {
             cache.cacheObj(cacheObj: children, atIndex: aIndex)
         }
     }
+   
+    
 }
 
 
@@ -121,6 +123,7 @@ extension LZPageContainer {
             }
         }
     }
+ 
     
 }
 
@@ -192,6 +195,7 @@ extension LZPageContainer:UIScrollViewDelegate {
                 }
             }
         }
+        
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -205,8 +209,9 @@ extension LZPageContainer:UIScrollViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        scrollView.frame = self.bounds
         scrollView.contentSize = CGSize(width: scrollView.bounds.width * CGFloat(childrenCount), height: self.bounds.height)
-         scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(currentIndex), y: 0), animated: true)
+         scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(currentIndex), y: 0), animated: false)
     }
 }
 
