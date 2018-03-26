@@ -28,7 +28,7 @@ class ViewController: UIViewController {
             config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
             config.navBarBackgroundColor = UIColor.lightGray
             config.isShowTrackLine = true
-            config.canScrollEnable = false
+            config.canScrollEnable = true
             config.isTrackDivide = true
             config.trackLineColor = UIColor.yellow
 //            config.coverBgColor = UIColor.orange
@@ -53,15 +53,15 @@ class ViewController: UIViewController {
         return navBar
     }()
     
-    var titles:[String] = ["第1个","第2个","第3个"]
+    var titles:[String] = ["第1个","第2个","第3个","第4个","第5个","第6个","第7个","第8个","第9个","第10个"]
     
     
     var pageControl:LZPageControl = LZPageControl(frame: CGRect.zero, config: LZPageNavBarConfig())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        setPageControlView()
-        setNavbar()
+        setPageControlView()
+//        setNavbar()
     }
 
     func setPageControlView() {

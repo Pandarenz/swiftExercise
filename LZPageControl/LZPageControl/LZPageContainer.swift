@@ -39,7 +39,12 @@ class LZPageContainer: UIView {
     
 //    var childrens :[UIView] = [UIView]()
     var childrenCount :Int = 0
-    var currentIndex :Int = 0
+    var currentIndex :Int = 0{
+        
+        didSet {
+            
+        }
+    }
     var isClickedEv :Bool = false
     
     fileprivate lazy var cache :LZPageCache = {
@@ -96,16 +101,20 @@ extension LZPageContainer {
     // 从第几个滚动到第几个
     func scrollToIndexToIndex(fromIndex fIndex:Int, toIndex tIndex:Int, withAnimated animated:Bool)  {
         isClickedEv = true
-        
+        currentIndex = tIndex
         if !cache.hasCache(subIndex: tIndex) {
             let view = dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: tIndex)
             if view != nil{
                 addChildren(childrenView: view!, atIndex: tIndex, superView: scrollView)
+
             } else {
                 fatalError("dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: tIndex) return nil ")
             }
+        } else {
+            let view = cache.getCacheObj(atIndex: tIndex)
+            view?.frame.size.width = scrollView.frame.width
+            view?.frame.size.height = scrollView.frame.height
         }
-        
         scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(tIndex), y: 0), animated: animated)
     }
     // 刷新列表
@@ -211,7 +220,11 @@ extension LZPageContainer:UIScrollViewDelegate {
         super.layoutSubviews()
         scrollView.frame = self.bounds
         scrollView.contentSize = CGSize(width: scrollView.bounds.width * CGFloat(childrenCount), height: self.bounds.height)
+        for (index,view) in cache.getAll() {
+            view.frame = CGRect(x: scrollView.bounds.size.width * CGFloat(index), y: 0, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        }
          scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(currentIndex), y: 0), animated: false)
+        
     }
 }
 

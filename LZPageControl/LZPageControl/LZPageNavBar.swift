@@ -71,6 +71,7 @@ class LZPageNavBar: UIView {
     fileprivate lazy var trackLine : UIView = {
        let trackLine = UIView()
         trackLine.backgroundColor = self.config.trackLineColor;
+        trackLine.isHidden = !self.config.isShowTrackLine
         return trackLine
     }()
     
@@ -96,7 +97,7 @@ class LZPageNavBar: UIView {
         super.layoutSubviews()
         setupLayout()
         setupTitleLblPosition()
-        setupTrackLine()
+        setupTrackLineLayout()
     }
     
 }
@@ -126,8 +127,10 @@ extension LZPageNavBar {
         // 设置Lbl的位置
         setupTitleLblPosition()
         // 设置底部的滚动条
+    
         if config.isShowTrackLine {
-            setupTrackLine()
+            scrollView.addSubview(trackLine)
+            setupTrackLineLayout()
         }
         if config.isShowCover {
             setupCoverView()
@@ -231,22 +234,25 @@ extension LZPageNavBar {
         }
     }
     
-    fileprivate func setupTrackLine() {
-        scrollView.addSubview(trackLine)
-        let currentLbl = titleLabels.first
-        trackLine.frame = (currentLbl?.frame)!
+    fileprivate func setupTrackLineLayout() {
+        
+        let currentLbl = titleLabels[currentIndex]
+        trackLine.frame.origin.x = (currentLbl.frame.minX)
+        trackLine.frame.origin.y = currentLbl.frame.maxY - config.trackLineH
         trackLine.frame.size.height = config.trackLineH
         if !config.canScrollEnable {
             if config.isTrackDivide {
-               trackLine.frame.size.width = (currentLbl?.frame.width)!
+                trackLine.frame.size.width = currentLbl.frame.width
             } else {
-                trackLine.frame.size.width = getTitleLblFrame(title: (currentLbl?.text)!, font: config.font).width
+                trackLine.frame.size.width = getTitleLblFrame(title: currentLbl.text ?? "", font: config.font).width
             }
         } else {
-             trackLine.frame.size.width = (currentLbl?.frame.width)!
+            trackLine.frame.size.width = currentLbl.frame.width
         }
-        trackLine.frame.origin.y = scrollView.frame.height - config.trackLineH
-        trackLine.center.x = (currentLbl?.center.x)!
+        UIView.animate(withDuration: 0.15, animations: {
+            self.trackLine.center.x = currentLbl.center.x
+        })
+        
     }
     
     fileprivate func setupCoverView() {
@@ -309,20 +315,7 @@ extension LZPageNavBar {
             currentLbl.transform = CGAffineTransform(scaleX: config.scaleRange, y: config.scaleRange)
         }
         // 调整trackLine
-        if config.isShowTrackLine {
-            if !config.canScrollEnable {
-                if config.isTrackDivide {
-                    trackLine.frame.size.width = currentLbl.frame.width
-                } else {
-                    trackLine.frame.size.width = getTitleLblFrame(title: currentLbl.text ?? "", font: config.font).width
-                }
-            } else {
-                trackLine.frame.size.width = currentLbl.frame.width
-            }
-            UIView.animate(withDuration: 0.1, animations: {
-                self.trackLine.center.x = currentLbl.center.x
-            })
-        }
+        setupTrackLineLayout()
         // 遮盖位置移动
         if config.isShowCover {
             self.coverView.frame.size.width = currentLbl.frame.width
