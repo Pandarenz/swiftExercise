@@ -61,8 +61,8 @@ class LZPageNavBar: UIView {
     
     fileprivate lazy var splitLine:UIView = {
         let splitLine = UIView()
-            splitLine.backgroundColor = UIColor.lightGray
-            let h : CGFloat = 0.5
+            splitLine.backgroundColor = config.bottomLineColor
+            let h : CGFloat = config.bottomLineH
             splitLine.frame = CGRect(x: config.titleMargin, y: self.frame.height - h, width: self.frame.width, height: h)
         return splitLine;
     }()
@@ -97,7 +97,7 @@ class LZPageNavBar: UIView {
         super.layoutSubviews()
         setupLayout()
         setupTitleLblPosition()
-        setupTrackLineLayout()
+        setupTrackLineLayout(animation: false)
     }
     
 }
@@ -131,7 +131,7 @@ extension LZPageNavBar {
     
         if config.isShowTrackLine {
             scrollView.addSubview(trackLine)
-            setupTrackLineLayout()
+            setupTrackLineLayout(animation: false)
         }
         if config.isShowCover {
             setupCoverView()
@@ -235,7 +235,7 @@ extension LZPageNavBar {
         }
     }
     
-    fileprivate func setupTrackLineLayout() {
+    fileprivate func setupTrackLineLayout(animation ani :Bool) {
         
         let currentLbl = titleLabels[currentIndex]
         trackLine.frame.origin.x = (currentLbl.frame.minX)
@@ -250,11 +250,16 @@ extension LZPageNavBar {
         } else {
             trackLine.frame.size.width = currentLbl.frame.width
         }
-        UIView.animate(withDuration: 0.15, animations: {
+        if ani {
+            UIView.animate(withDuration: 0.15, animations: {
+                self.trackLine.center.x = currentLbl.center.x
+            })
+        } else {
             self.trackLine.center.x = currentLbl.center.x
-        })
+        }
         
     }
+
     
     fileprivate func setupCoverView() {
         scrollView.insertSubview(coverView, at: 0)
@@ -322,7 +327,7 @@ extension LZPageNavBar {
             currentLbl.transform = CGAffineTransform(scaleX: config.scaleRange, y: config.scaleRange)
         }
         // 调整trackLine
-        setupTrackLineLayout()
+        setupTrackLineLayout(animation: true)
         // 遮盖位置移动
         if config.isShowCover {
             self.coverView.frame.size.width = currentLbl.frame.width

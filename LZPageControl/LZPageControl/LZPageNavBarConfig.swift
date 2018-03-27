@@ -30,6 +30,12 @@ class LZPageNavBarConfig {
     var titleNorBgColor :UIColor?
     var titleSelectedBgColor :UIColor?
     
+    
+    //MARK: bottomLine
+    
+    var bottomLineColor : UIColor = UIColor.lightGray
+    var bottomLineH :CGFloat = 0.5
+    
     //MARK:字体
     
     /// Title字体大小
