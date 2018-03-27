@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LZPageControl/LZPageContainer.swift"
-            timestampString = "543745726.835258"
+            filePath = "LZPageControl/LZPageNavBar.swift"
+            timestampString = "543827797.850737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "updateContentIndex(scroller:)"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "setupCoverView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

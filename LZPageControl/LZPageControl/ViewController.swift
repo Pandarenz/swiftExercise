@@ -26,15 +26,11 @@ class ViewController: UIViewController {
     
         let config = LZPageNavBarConfig()
             config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
-            config.navBarBackgroundColor = UIColor.lightGray
+            config.navBarBackgroundColor = UIColor.white
             config.isShowTrackLine = true
             config.canScrollEnable = true
             config.isTrackDivide = true
-            config.trackLineColor = UIColor.yellow
-//            config.coverBgColor = UIColor.orange
-//            config.titleNorBgColor = UIColor.blue
-//            config.titleSelectedBgColor = UIColor.green
-//            config.isShowCover = true
+            config.trackLineColor = UIColor.red
             config.titleMargin = 20
             config.firstTitleLeftMargin = 0
             config.lastTitleFightMargin = 0
@@ -42,6 +38,7 @@ class ViewController: UIViewController {
             config.rightBarItem = rightBtn
             config.selectedColor = UIColor.red
             config.normalColor = UIColor.black
+            config.defaultSelectedIndex = 0
         return config
     }()
     
@@ -51,7 +48,7 @@ class ViewController: UIViewController {
             navBar.dataSource = self
             navBar.delegate = self
         return navBar
-    }()
+    }()//,"第5个","第6个","第7个","第8个","第9个","第10个"
     
     var titles:[String] = ["第1个","第2个","第3个","第4个","第5个","第6个","第7个","第8个","第9个","第10个"]
     
@@ -66,7 +63,7 @@ class ViewController: UIViewController {
 
     func setPageControlView() {
          pageControl = LZPageControl(frame: self.view.bounds, config: config)
-        pageControl.backgroundColor = UIColor.blue
+        pageControl.backgroundColor = UIColor.white
         pageControl.delegate = self
         pageControl.dataSource = self
         view.addSubview(pageControl)
@@ -90,20 +87,16 @@ class ViewController: UIViewController {
 
 
 extension ViewController :LZPageControlDelegate {
+    func pageControl(control: LZPageControl, showIndex sIndex: Int) {
+         print("showIndex:\(sIndex)")
+    }
+    
     func pageControlDidselectedLeftBar(control: LZPageControl) {
           print("点击了左边")
     }
     
     func pageControlDidselectedRightBar(control: LZPageControl) {
         print("点击了右边")
-    }
-    
-    func pageControl(control: LZPageControl, scrolToIndex: Int) {
-        print("scrolToIndex: Int:\(scrolToIndex)")
-    }
-    
-    func pageControl(control: LZPageControl, showViewFromIndex fIndex: Int, toIndex tIndex: Int) {
-        print("showViewFromIndex:\(fIndex) toIndex :\(tIndex)")
     }
     
 }
@@ -139,7 +132,6 @@ extension ViewController:LZPageNavBarDelegate {
     func pageNavBarDidSelected(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, oldObj: UILabel, newIndex nIndex: Int, newObj: UILabel) {
         print("old : \(oIndex) new :\(nIndex)")
     }
-    
     
     func pageNavBarDidSelectedLeftBar(pageNavBar: LZPageNavBar) {
         print("点击了左边")

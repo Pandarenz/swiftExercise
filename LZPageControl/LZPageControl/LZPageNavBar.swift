@@ -47,7 +47,7 @@ class LZPageNavBar: UIView {
     fileprivate var config : LZPageNavBarConfig
     
     fileprivate var currentIndex :Int = 0
-    
+    fileprivate var oldIndex :Int = 0
     fileprivate lazy var titleLabels:[UILabel] = [UILabel]()
     
     fileprivate lazy var scrollView : UIScrollView = {
@@ -106,6 +106,7 @@ class LZPageNavBar: UIView {
 extension LZPageNavBar {
     
   fileprivate  func setupUI() {
+    currentIndex = config.defaultSelectedIndex
         //1 滚动视图
     if config.leftBarItem != nil {
         addSubview(config.leftBarItem!)
@@ -150,10 +151,10 @@ extension LZPageNavBar {
             lbl.tag = index
             lbl.text = title
             lbl.font = config.font
-            lbl.textColor = index == 0 ? config.selectedColor : config.normalColor
+            lbl.textColor = index == config.defaultSelectedIndex ? config.selectedColor : config.normalColor
             lbl.textAlignment = .center
             lbl.isUserInteractionEnabled = true
-            lbl.backgroundColor = index == 0 ? config.titleSelectedBgColor : config.titleNorBgColor
+            lbl.backgroundColor = index == config.defaultSelectedIndex ? config.titleSelectedBgColor : config.titleNorBgColor
             let tap = UITapGestureRecognizer(target: self, action: #selector(titleLblClick(_:)))
             lbl.addGestureRecognizer(tap)
             titleLabels.append(lbl)
@@ -188,7 +189,7 @@ extension LZPageNavBar {
             }
             
             lbl.frame = CGRect(x: titleX, y: titleY, width: titleW, height: titleH)
-            if index == 0 {
+            if index == config.defaultSelectedIndex {
                 let scale = config.isNeedScale ? config.scaleRange : 1.0
                 lbl.transform = CGAffineTransform(scaleX: scale, y: scale)
             }
@@ -257,8 +258,13 @@ extension LZPageNavBar {
     
     fileprivate func setupCoverView() {
         scrollView.insertSubview(coverView, at: 0)
-        let firstLbl = titleLabels[0]
-        var coverW = getTitleLblFrame(title: titleLabels[0].text!, font: config.font).width
+        
+        if config.defaultSelectedIndex >= titleLabels.count {
+            config.defaultSelectedIndex = titleLabels.count - 1
+        }
+        
+        let firstLbl = titleLabels[config.defaultSelectedIndex]
+        var coverW = getTitleLblFrame(title: titleLabels[config.defaultSelectedIndex].text!, font: config.font).width
         let coverH = config.coverH
         var coverX = firstLbl.frame.origin.x
         let coverY = (scrollView.frame.height - coverH) * 0.5
@@ -282,7 +288,7 @@ extension LZPageNavBar {
 }
 
 
-
+// MARK:私有
 extension LZPageNavBar {
     
     @objc fileprivate func titleLblClick(_ tap :UITapGestureRecognizer) {
@@ -304,6 +310,7 @@ extension LZPageNavBar {
         currentLbl.backgroundColor = config.titleSelectedBgColor
         // 保存最新的lbl下标
         currentIndex = currentLbl.tag
+        oldIndex = currentIndex
         // 代理通知
         delegate?.pageNavBarDidSelected(pageNavBar: self, oldIndex: oldLbl.tag, oldObj: oldLbl, newIndex: currentLbl.tag, newObj: currentLbl)
         // 居中显示
@@ -333,19 +340,7 @@ extension LZPageNavBar {
         delegate?.pageNavBarDidSelectedRightBar(pageNavBar: self)
     }
     
-   
-    
-}
-
-//对外方法
-extension LZPageNavBar {
-
-    func reloadData()  {
-        self.titles = dataSource?.pageNavBarTitles(pageNavBar: self)
-        self.setupUI()
-    }
-    
-    func scrollFromIndexToIndex(fromIndex fIndex :Int , toIndex tIndex:Int , withProgress progress:CGFloat) {
+    fileprivate func switchFromIndexToIndex(fromIndex fIndex:Int ,toIndex tIndex:Int, withProgress progress:CGFloat ,hasAnimation anmi:Bool) {
         
         // 1 取出from / to
         if fIndex >= titleLabels.count {
@@ -356,21 +351,30 @@ extension LZPageNavBar {
         if tIndex >= titleLabels.count {
             return
         }
-         let toLbl = titleLabels[tIndex]
+        let toLbl = titleLabels[tIndex]
         
         // 2 渐变
         
-        fromLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.normalColor, endColor: config.selectedColor)
-        if config.titleNorBgColor != nil && config.titleSelectedBgColor != nil {
-            fromLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: config.titleNorBgColor!, endColor: config.titleSelectedBgColor!)
+        if anmi {
+            fromLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.normalColor, endColor: config.selectedColor)
+            toLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.selectedColor, endColor: config.normalColor)
+            if config.titleNorBgColor != nil && config.titleSelectedBgColor != nil {
+                fromLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: config.titleNorBgColor!, endColor: config.titleSelectedBgColor!)
+                toLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: config.titleSelectedBgColor!, endColor: config.titleNorBgColor!)
+            }
+        } else {
+            fromLbl.textColor = config.normalColor
+            toLbl.textColor = config.selectedColor
+            if config.titleNorBgColor != nil && config.titleSelectedBgColor != nil {
+                fromLbl.backgroundColor = config.titleNorBgColor
+                toLbl.backgroundColor = config.titleSelectedBgColor
+            }
         }
-        toLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.selectedColor, endColor: config.normalColor)
-        if config.titleNorBgColor != nil && config.titleSelectedBgColor != nil {
-            toLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: config.titleSelectedBgColor!, endColor: config.titleNorBgColor!)
-        }
+        
         
         // 3 更新当前的index
         currentIndex = tIndex
+        oldIndex = tIndex
         let moveTotalX = toLbl.frame.origin.x - fromLbl.frame.origin.x
         let moveTotalW = toLbl.frame.width - fromLbl.frame.width
         
@@ -379,14 +383,17 @@ extension LZPageNavBar {
         if config.isShowTrackLine {
             if !config.canScrollEnable {
                 if config.isTrackDivide {
-                    trackLine.frame.size.width = fromLbl.frame.width + moveTotalW * progress
+                        trackLine.frame.size.width = fromLbl.frame.width + moveTotalW * progress
                 } else {
                     trackLine.frame.size.width = getTitleLblFrame(title: fromLbl.text ?? "", font: config.font).width  + moveTotalW * progress
                 }
             } else {
                 trackLine.frame.size.width = fromLbl.frame.width  + moveTotalW * progress
             }
-            trackLine.center.x = fromLbl.center.x + moveTotalX * progress
+            UIView.animate(withDuration: 0.1, animations: {
+                 self.trackLine.center.x = fromLbl.center.x + moveTotalX * progress
+            })
+            
         }
         
         // 5 放大的比例
@@ -405,6 +412,28 @@ extension LZPageNavBar {
         }
     }
     
+    
+    
+}
+
+//MARK:对外方法
+extension LZPageNavBar {
+
+    func reloadData()  {
+        self.titles = dataSource?.pageNavBarTitles(pageNavBar: self)
+        self.setupUI()
+        oldIndex = config.defaultSelectedIndex
+    }
+    
+    func scrollFromIndexToIndex(fromIndex fIndex :Int , toIndex tIndex:Int , withProgress progress:CGFloat) {
+        oldIndex = fIndex
+        switchFromIndexToIndex(fromIndex: oldIndex, toIndex: tIndex, withProgress: progress, hasAnimation: true)
+    }
+
+    func scrollToIndex(toIndex tIdx:Int)  {
+        switchFromIndexToIndex(fromIndex: currentIndex, toIndex: tIdx, withProgress: 1, hasAnimation: false)
+        print("currentIndex:\(currentIndex),toIndex:\(tIdx)")
+    }
     
     func currentViewDidEndScroll()  {
         // 1 不需要滚动的情况下 则不需要调整中间的位置
