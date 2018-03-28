@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         let config = LZPageNavBarConfig()
             config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
             config.navBarBackgroundColor = UIColor.white
+            //1
             config.isShowTrackLine = true
             config.canScrollEnable = true
             config.isTrackDivide = true
@@ -34,11 +35,55 @@ class ViewController: UIViewController {
             config.titleMargin = 20
             config.firstTitleLeftMargin = 0
             config.lastTitleFightMargin = 0
-//            config.leftBarItem = leftBtn
+            config.leftBarItem = leftBtn
             config.rightBarItem = rightBtn
             config.selectedColor = UIColor.red
             config.normalColor = UIColor.black
             config.defaultSelectedIndex = 0
+            //2
+//            config.isShowTrackLine = false
+//            config.isShowCover = true
+//            config.isNeedScale = true
+//            config.canScrollEnable = true
+//            config.titleMargin = 20
+//            config.firstTitleLeftMargin = 10
+//            config.lastTitleFightMargin = 0
+//            config.leftBarItem = leftBtn
+//            config.rightBarItem = rightBtn
+//            config.selectedColor = UIColor.red
+//            config.normalColor = UIColor.black
+//            config.defaultSelectedIndex = 0
+    //3
+//                config.isShowTrackLine = true
+//                config.canScrollEnable = true
+//                config.isTrackDivide = false
+//                config.trackLineColor = UIColor.red
+//                config.titleMargin = 20
+//                config.firstTitleLeftMargin = 0
+//                config.lastTitleFightMargin = 0
+//                config.leftBarItem = leftBtn
+//                config.rightBarItem = rightBtn
+//                config.selectedColor = UIColor.red
+//                config.normalColor = UIColor.black
+//                config.defaultSelectedIndex = 0
+    
+    // 4
+//                config.navBarBackgroundColor = UIColor.blue
+//                config.isShowTrackLine = false
+//                config.canScrollEnable = true
+//                config.isTrackDivide = false
+//                config.trackLineColor = UIColor.red
+//                config.titleMargin = 20
+//                config.firstTitleLeftMargin = 0
+//                config.lastTitleFightMargin = 0
+////                config.leftBarItem = leftBtn
+////                config.rightBarItem = rightBtn
+//                config.selectedColor = UIColor.red
+//                config.normalColor = UIColor.black
+//                config.defaultSelectedIndex = 0
+//                config.titleNorBgColor = UIColor.blue
+//                config.titleSelectedBgColor = UIColor.green
+    
         return config
     }()
     
@@ -48,9 +93,9 @@ class ViewController: UIViewController {
             navBar.dataSource = self
             navBar.delegate = self
         return navBar
-    }()//,"第5个","第6个","第7个","第8个","第9个","第10个"
+    }()
     
-    var titles:[String] = ["第1个","第2个","第3个","第4个","第5个","第6个","第7个","第8个","第9个","第10个"]
+    var titles:[String] = ["第11个","第2个","第3个","第4个","第5个","第6个","第7个","第8个","第9个","第10个"]
     
     
     var pageControl:LZPageControl = LZPageControl(frame: CGRect.zero, config: LZPageNavBarConfig())

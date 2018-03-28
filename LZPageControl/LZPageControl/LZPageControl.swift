@@ -69,7 +69,8 @@ class LZPageControl: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        navBar?.frame = config.navFrame
+//        navBar?.frame = config.navFrame
+        navBar?.frame = CGRect(x: 0, y: 50, width: self.bounds.width, height: 44)
         container?.frame = CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY)
         
     }
