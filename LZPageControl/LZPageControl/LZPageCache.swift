@@ -29,6 +29,10 @@ class LZPageCache: NSObject {
         return nil
     }
     
+    func getAll() -> [Int : UIView] {
+        return dic
+    }
+    
     func removeObj(objIndex atIndex:Int)  {
         if hasCache(subIndex: atIndex) {
             dic.removeValue(forKey: atIndex)

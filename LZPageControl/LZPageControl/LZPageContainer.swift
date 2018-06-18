@@ -9,10 +9,11 @@
 import UIKit
 
 protocol LZPageContainerDelegate {
-    //目前显示的是第几个
-    func pageContainer(pageContainer:LZPageContainer, didShowViewAtIndex index:Int)
     //从某一个fromIndex 滚动到另一个toIndex
-    func pageContainer(pageContainer:LZPageContainer, scrolFromIndex fIndex:Int,toIndex tIndex:Int ,progress:CGFloat)
+    func pageContainer(pageContainer:LZPageContainer, switchFromIndex fIndex:Int,toIndex tIndex:Int ,progress:CGFloat)
+ 
+    func pageContainer(pageContainer:LZPageContainer,showIndex sIdx:Int)
+    
     func pageContainerDidStop()
 }
 
@@ -37,10 +38,13 @@ class LZPageContainer: UIView {
         return scroll
     }()
     
-//    var childrens :[UIView] = [UIView]()
-    var childrenCount :Int = 0
-    var currentIndex :Int = 0
-    var isClickedEv :Bool = false
+    fileprivate var childrenCount :Int = 0
+    // 当前的index
+    fileprivate var currentIndex :Int = 0
+    //原index
+    fileprivate var oldIndex:Int = 0
+    
+    fileprivate var isClickedEv :Bool = false
     
     fileprivate lazy var cache :LZPageCache = {
        let cache = LZPageCache()
@@ -51,7 +55,7 @@ class LZPageContainer: UIView {
     
     var delegate : LZPageContainerDelegate?
     var dataSource : LZPageContainerDataSource?
-    
+    var defaultSelect :Int = 0
     
     
     override init(frame: CGRect) {
@@ -64,7 +68,6 @@ class LZPageContainer: UIView {
     }
     
     fileprivate func setupUI()  {
-        scrollView.backgroundColor = UIColor.red
         scrollView.setNeedsLayout()
     }
     
@@ -72,8 +75,7 @@ class LZPageContainer: UIView {
         guard childrenCount == 0 else {
             return
         }
-    scrollView.contentSize = CGSize(width: scrollView.bounds.size.width * CGFloat(childrenCount), height: scrollView.bounds.size.height)
-        
+        scrollView.contentSize = CGSize(width: scrollView.bounds.size.width * CGFloat(childrenCount), height: scrollView.bounds.size.height)
     }
    
     fileprivate func addChildren(childrenView children:UIView, atIndex aIndex:Int ,superView sView:UIView)  {
@@ -83,20 +85,21 @@ class LZPageContainer: UIView {
             children.frame = CGRect(x: sView.bounds.size.width * CGFloat(aIndex), y: 0, width: sView.bounds.size.width, height: sView.bounds.size.height)
             sView.addSubview(children)
             cache.cacheObj(cacheObj: children, atIndex: aIndex)
+          
         }
     }
-   
+    
     
 }
 
 
-//对外方法
+// MARK: 对外方法
 extension LZPageContainer {
     
     // 从第几个滚动到第几个
     func scrollToIndexToIndex(fromIndex fIndex:Int, toIndex tIndex:Int, withAnimated animated:Bool)  {
         isClickedEv = true
-        
+        currentIndex = tIndex
         if !cache.hasCache(subIndex: tIndex) {
             let view = dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: tIndex)
             if view != nil{
@@ -104,21 +107,27 @@ extension LZPageContainer {
             } else {
                 fatalError("dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: tIndex) return nil ")
             }
+        } else {
+            let view = cache.getCacheObj(atIndex: tIndex)
+            view?.frame.size.width = scrollView.frame.width
+            view?.frame.size.height = scrollView.frame.height
         }
-        
         scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(tIndex), y: 0), animated: animated)
+        oldIndex = tIndex
     }
+    
+    
     // 刷新列表
     func reloadData() {
         childrenCount = (dataSource?.pageContainerChildrenCount(pageContainer: self))!
         updateContenSize()
+        oldIndex = defaultSelect
         if childrenCount > 0 {
-            var view = cache.getCacheObj(atIndex: 0 )
+            var view = cache.getCacheObj(atIndex: defaultSelect )
             if (view == nil) {
-                view = dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: 0)
+                view = dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: defaultSelect)
                 if view != nil {
-                    addChildren(childrenView: view!, atIndex: 0, superView: scrollView)
-                    cache.cacheObj(cacheObj: view!, atIndex: 0)
+                    addChildren(childrenView: view!, atIndex: defaultSelect, superView: scrollView)
                 }
             }
         }
@@ -139,11 +148,53 @@ extension LZPageContainer:UIScrollViewDelegate {
     }
     
     func updateContentIndex(scroller scrollerView:UIScrollView)  {
-        
         if isClickedEv {
             return
         }
+        let switchIndex = getSwitchIndexs(scrollView: scrollerView)
+        let fromIndex = switchIndex.fromIndex
+        let toIndex = switchIndex.toIndex
+        let progress = switchIndex.progress
         
+        currentIndex = toIndex
+        delegate?.pageContainer(pageContainer: self, switchFromIndex: fromIndex, toIndex: toIndex, progress: progress)
+        if toIndex >= 0 && toIndex < childrenCount {
+            var toView = cache.getCacheObj(atIndex: toIndex)
+            if(toView == nil) {
+                toView = dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: toIndex)
+                if (toView != nil) {
+                    addChildren(childrenView: toView!, atIndex: toIndex, superView: scrollView)
+                }
+            }
+        }
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        delegate?.pageContainerDidStop()
+//        delegate?.pageContainer(pageContainer: self, switchFromIndex: getSwitchIndexs(scrollView: scrollView).fromIndex, toIndex: getSwitchIndexs(scrollView: scrollView).toIndex)
+        delegate?.pageContainer(pageContainer: self, showIndex: getSwitchIndexs(scrollView: scrollView).toIndex)
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            delegate?.pageContainerDidStop()
+        }
+    }
+    
+   
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        scrollView.frame = self.bounds
+        scrollView.contentSize = CGSize(width: scrollView.bounds.width * CGFloat(childrenCount), height: self.bounds.height)
+        for (index,view) in cache.getAll() {
+            view.frame = CGRect(x: scrollView.bounds.size.width * CGFloat(index), y: 0, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        }
+         scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(currentIndex), y: 0), animated: false)
+        
+    }
+    
+    func getSwitchIndexs(scrollView:UIScrollView ) -> (fromIndex:Int,toIndex:Int,progress:CGFloat) {
         // 2.定义获取需要的数据
         var progress : CGFloat = 0.0
         var fromIndex : Int = 0
@@ -165,7 +216,7 @@ extension LZPageContainer:UIScrollViewDelegate {
                 toIndex = childrenCount - 1
             }
             
-            // 4.如果完全划出去
+            //4.如果完全划出去
             if currentOffsetX - startOffsetX == scrollViewW {
                 progress = 1
                 toIndex = fromIndex
@@ -183,35 +234,9 @@ extension LZPageContainer:UIScrollViewDelegate {
                 fromIndex = childrenCount - 1
             }
         }
-        currentIndex = toIndex
-        delegate?.pageContainer(pageContainer: self, scrolFromIndex: fromIndex, toIndex: toIndex, progress: progress)
- 
-        if toIndex >= 0 && toIndex < childrenCount {
-            var toView = cache.getCacheObj(atIndex: toIndex)
-            if(toView == nil) {
-                toView = dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: toIndex)
-                if (toView != nil) {
-                    addChildren(childrenView: toView!, atIndex: toIndex, superView: scrollView)
-                }
-            }
-        }
         
+        return (fromIndex,toIndex,progress)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        delegate?.pageContainerDidStop()
-    }
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            delegate?.pageContainerDidStop()
-        }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        scrollView.frame = self.bounds
-        scrollView.contentSize = CGSize(width: scrollView.bounds.width * CGFloat(childrenCount), height: self.bounds.height)
-         scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(currentIndex), y: 0), animated: false)
-    }
 }
 

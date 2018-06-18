@@ -15,6 +15,8 @@ class LZPageNavBarConfig {
     var navFrame:CGRect = CGRect.zero
     
     var navBarBackgroundColor:UIColor = UIColor.white
+    //默认选中第几个
+    var defaultSelectedIndex :Int = 0
     
     //title的view是否可以左右滚动 一般情况下当title的个数固定的时候才需要设置为false
     var canScrollEnable :Bool = false
@@ -27,6 +29,12 @@ class LZPageNavBarConfig {
     // Title的view的背景色
     var titleNorBgColor :UIColor?
     var titleSelectedBgColor :UIColor?
+    
+    
+    //MARK: bottomLine
+    
+    var bottomLineColor : UIColor = UIColor.lightGray
+    var bottomLineH :CGFloat = 0.5
     
     //MARK:字体
     

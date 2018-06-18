@@ -9,11 +9,9 @@
 import UIKit
 
 protocol LZPageControlDelegate:class {
-    func pageControl(control:LZPageControl,scrolToIndex:Int)
     func pageControlDidselectedLeftBar(control:LZPageControl)
     func pageControlDidselectedRightBar(control:LZPageControl)
-    
-    func pageControl(control:LZPageControl,showViewFromIndex fIndex:Int, toIndex tIndex:Int )
+    func pageControl(control:LZPageControl,showIndex sIndex:Int )
     
 }
 
@@ -57,6 +55,7 @@ class LZPageControl: UIView {
         addSubview(navBar!)
         navBar?.setNeedsLayout()
         container = LZPageContainer(frame: CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY))
+        container?.defaultSelect = config.defaultSelectedIndex
         container!.delegate = self
         container!.dataSource = self
         addSubview(container!)
@@ -70,6 +69,7 @@ class LZPageControl: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+//        navBar?.frame = config.navFrame
         navBar?.frame = CGRect(x: 0, y: 50, width: self.bounds.width, height: 44)
         container?.frame = CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY)
         
@@ -81,6 +81,7 @@ extension LZPageControl :LZPageNavBarDelegate {
     func pageNavBarDidSelected(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, oldObj: UILabel, newIndex nIndex: Int, newObj: UILabel) {
         let ani = abs(nIndex - oIndex) > 1
         container!.scrollToIndexToIndex(fromIndex: oIndex, toIndex: nIndex, withAnimated: !ani)
+        delegate?.pageControl(control: self, showIndex: nIndex)
     }
   
     func pageNavBarDidSelectedLeftBar(pageNavBar: LZPageNavBar) {
@@ -105,12 +106,14 @@ extension LZPageControl :LZPageNavDataSource {
 
 
 extension LZPageControl:LZPageContainerDelegate {
+  
     
-    func pageContainer(pageContainer: LZPageContainer, didShowViewAtIndex index: Int) {
-//        delegate?.pageControl(control: self, showViewFromIndex: fIndex, toIndex: tIndex)
+    func pageContainer(pageContainer: LZPageContainer, showIndex sIdx: Int) {
+//        navBar?.scrollToIndex(toIndex: sIdx)
+         delegate?.pageControl(control: self, showIndex: sIdx)
     }
     
-    func pageContainer(pageContainer: LZPageContainer, scrolFromIndex fIndex: Int, toIndex tIndex: Int, progress: CGFloat) {
+    func pageContainer(pageContainer: LZPageContainer, switchFromIndex fIndex: Int, toIndex tIndex: Int, progress: CGFloat) {
         navBar!.scrollFromIndexToIndex(fromIndex: fIndex, toIndex: tIndex, withProgress: progress)
     }
     func pageContainerDidStop() {
