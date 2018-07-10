@@ -401,20 +401,11 @@ extension LZPageNavBar {
                 }
             } else {
                 trackLine.frame.size.width = fromLbl.frame.width  + moveTotalW * progress
-                print("trackLine.width: " + "\(trackLine.frame.size.width)")
-                print("progress: "+"\(progress)")
-                print("fromLbl.frame.width: "+"\(fromLbl.frame.width)")
                 
             }
             UIView.animate(withDuration: 0.1, animations: {
                  self.trackLine.frame.origin.x = fromLbl.frame.origin.x + moveTotalX * progress
-                print("trackLine.center.x: "+"\(self.trackLine.center.x)")
             })
-            
-            
-//            coverView.frame.size.width = config.canScrollEnable ? (fromLbl.frame.width + 2 * config.coverMargin + moveTotalW * progress) :(fromLbl.frame.width + moveTotalW * progress)
-//            coverView.frame.origin.x = config.canScrollEnable ? (fromLbl.frame.origin.x - config.coverMargin + moveTotalX * progress) : (fromLbl.frame.origin.x + moveTotalX * progress)
-//
             
         }
         

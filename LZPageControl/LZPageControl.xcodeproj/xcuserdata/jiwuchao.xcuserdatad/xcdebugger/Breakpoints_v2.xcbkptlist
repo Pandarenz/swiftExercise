@@ -58,22 +58,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LZPageControl/LZPageNavBar.swift"
-            timestampString = "552887619.797332"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "403"
-            endingLineNumber = "403"
-            landmarkName = "switchFromIndexToIndex(fromIndex:toIndex:withProgress:hasAnimation:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LZPageControl/LZPageNavBar.swift"
             timestampString = "552887619.797842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
