@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LZPageContainerDelegate {
+protocol LZPageContainerDelegate:class{
     //从某一个fromIndex 滚动到另一个toIndex
     func pageContainer(pageContainer:LZPageContainer, switchFromIndex fIndex:Int,toIndex tIndex:Int ,progress:CGFloat)
  
@@ -17,7 +17,7 @@ protocol LZPageContainerDelegate {
     func pageContainerDidStop()
 }
 
-protocol LZPageContainerDataSource {
+protocol LZPageContainerDataSource:class{
     //container中显示几个View
     func pageContainerChildrenCount(pageContainer:LZPageContainer) -> Int
     //每个index对应的view
@@ -53,9 +53,15 @@ class LZPageContainer: UIView {
     
     fileprivate  var startOffsetX : CGFloat = 0
     
-    var delegate : LZPageContainerDelegate?
-    var dataSource : LZPageContainerDataSource?
+    weak var delegate : LZPageContainerDelegate?
+    weak var dataSource : LZPageContainerDataSource?
     var defaultSelect :Int = 0
+//    {
+//        
+//        didSet {
+//            scrollToIndexToIndex(fromIndex: 0, toIndex: defaultSelect, withAnimated: false)
+//        }
+//    }
     
     
     override init(frame: CGRect) {

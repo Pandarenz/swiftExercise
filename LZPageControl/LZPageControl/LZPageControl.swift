@@ -40,7 +40,7 @@ class LZPageControl: UIView {
         setupUI()
      }
    
-    func reloadData()  {
+    func reloadData() {
         self.navBar?.reloadData()
         self.container?.reloadData()
     }
@@ -55,10 +55,10 @@ class LZPageControl: UIView {
         addSubview(navBar!)
         navBar?.setNeedsLayout()
         container = LZPageContainer(frame: CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY))
-        container?.defaultSelect = config.defaultSelectedIndex
         container!.delegate = self
         container!.dataSource = self
         addSubview(container!)
+        container?.defaultSelect = config.defaultSelectedIndex
         container?.setNeedsLayout()
     }
     
@@ -69,13 +69,22 @@ class LZPageControl: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        navBar?.frame = config.navFrame
-        navBar?.frame = CGRect(x: 0, y: 50, width: self.bounds.width, height: 44)
+        navBar?.frame = config.navFrame
         container?.frame = CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY)
-        
     }
     
 }
+
+
+//对外方法
+extension LZPageControl {
+    func updateIndex(scrollToIndex tIndex:Int) {
+        container?.scrollToIndexToIndex(fromIndex: 0, toIndex: tIndex, withAnimated: false)
+        navBar?.scrollToIndex(toIndex: tIndex)
+        delegate?.pageControl(control: self, showIndex: tIndex)
+    }
+}
+
 
 extension LZPageControl :LZPageNavBarDelegate {
     func pageNavBarDidSelected(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, oldObj: UILabel, newIndex nIndex: Int, newObj: UILabel) {
@@ -124,17 +133,21 @@ extension LZPageControl:LZPageContainerDelegate {
 
 extension LZPageControl :LZPageContainerDataSource {
     func pageContainerChildren(pageContainer: LZPageContainer, viewAtIndex atIndex: Int) -> UIView {
-        return (dataSource?.pageControlChildren(pageControl: self, viewAtIndex: atIndex))!
+        
+        if let view = dataSource?.pageControlChildren(pageControl: self, viewAtIndex: atIndex) {
+            return view
+        }
+        return UIView.init()
     }
     
     func pageContainerChildrenCount(pageContainer: LZPageContainer) -> Int {
+//        if let count = dataSource?.pageControlTitles(control: self).count {
+//            return count
+//        }
         return (titlesArray()?.count)!
     }
-    
-    
-    
-    
 }
+
 
 
 

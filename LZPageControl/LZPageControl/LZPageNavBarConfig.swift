@@ -30,18 +30,12 @@ class LZPageNavBarConfig {
     var titleNorBgColor :UIColor?
     var titleSelectedBgColor :UIColor?
     
-    
-    //MARK: bottomLine
-    
-    var bottomLineColor : UIColor = UIColor.lightGray
-    var bottomLineH :CGFloat = 0.5
-    
     //MARK:字体
     
     /// Title字体大小
     var font : UIFont = UIFont.systemFont(ofSize: 14.0)
     /// 滚动Title的间距
-    var titleMargin : CGFloat = 20
+    var titleMargin : CGFloat = 0
     /// titleView的高度
     var titleHeight : CGFloat = 44
     //第一个title 距离左边的距离
@@ -59,6 +53,11 @@ class LZPageNavBarConfig {
     var trackLineH : CGFloat = 2
     /// 底部滚动条的宽度是否等宽 canScrollEnable 为 false 时有效isTrackDivide 表示宽度跟title的宽度一样
     var isTrackDivide: Bool = false
+    
+    
+    //MARK: bottomLine
+    
+    var bottomLineColor : UIColor = UIColor.lightGray
     
     //MARK:缩进
     

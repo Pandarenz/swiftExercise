@@ -7,22 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04175B8C20650F01000EE90A /* UIColor+Middle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04175B8B20650F01000EE90A /* UIColor+Middle.swift */; };
 		042D3F822058F1C100E022FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D3F812058F1C100E022FC /* AppDelegate.swift */; };
 		042D3F842058F1C100E022FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D3F832058F1C100E022FC /* ViewController.swift */; };
 		042D3F872058F1C100E022FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042D3F852058F1C100E022FC /* Main.storyboard */; };
 		042D3F892058F1C100E022FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 042D3F882058F1C100E022FC /* Assets.xcassets */; };
 		042D3F8C2058F1C100E022FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042D3F8A2058F1C100E022FC /* LaunchScreen.storyboard */; };
-		04791844205FB6BF00C105B0 /* LZPageNavBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479183E205FB6BE00C105B0 /* LZPageNavBarProtocol.swift */; };
-		04791845205FB6BF00C105B0 /* LZPageNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479183F205FB6BF00C105B0 /* LZPageNavBar.swift */; };
-		04791846205FB6BF00C105B0 /* LZPageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791840205FB6BF00C105B0 /* LZPageContainer.swift */; };
-		04791847205FB6BF00C105B0 /* LZPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791841205FB6BF00C105B0 /* LZPageControl.swift */; };
-		04791848205FB6BF00C105B0 /* LZPageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791842205FB6BF00C105B0 /* LZPageCache.swift */; };
-		04791849205FB6BF00C105B0 /* LZPageNavBarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04791843205FB6BF00C105B0 /* LZPageNavBarConfig.swift */; };
+		04637E7320F455D300130690 /* LZPageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E6D20F455D200130690 /* LZPageContainer.swift */; };
+		04637E7420F455D300130690 /* LZPageNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E6E20F455D200130690 /* LZPageNavBar.swift */; };
+		04637E7520F455D300130690 /* UIColor+Middle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E6F20F455D200130690 /* UIColor+Middle.swift */; };
+		04637E7620F455D300130690 /* LZPageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E7020F455D200130690 /* LZPageCache.swift */; };
+		04637E7720F455D300130690 /* LZPageNavBarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E7120F455D300130690 /* LZPageNavBarConfig.swift */; };
+		04637E7820F455D300130690 /* LZPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E7220F455D300130690 /* LZPageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04175B8B20650F01000EE90A /* UIColor+Middle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Middle.swift"; sourceTree = "<group>"; };
 		042D3F7E2058F1C100E022FC /* LZPageControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZPageControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		042D3F812058F1C100E022FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		042D3F832058F1C100E022FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,12 +28,12 @@
 		042D3F882058F1C100E022FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		042D3F8B2058F1C100E022FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		042D3F8D2058F1C100E022FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0479183E205FB6BE00C105B0 /* LZPageNavBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageNavBarProtocol.swift; sourceTree = "<group>"; };
-		0479183F205FB6BF00C105B0 /* LZPageNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageNavBar.swift; sourceTree = "<group>"; };
-		04791840205FB6BF00C105B0 /* LZPageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageContainer.swift; sourceTree = "<group>"; };
-		04791841205FB6BF00C105B0 /* LZPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageControl.swift; sourceTree = "<group>"; };
-		04791842205FB6BF00C105B0 /* LZPageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageCache.swift; sourceTree = "<group>"; };
-		04791843205FB6BF00C105B0 /* LZPageNavBarConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageNavBarConfig.swift; sourceTree = "<group>"; };
+		04637E6D20F455D200130690 /* LZPageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageContainer.swift; sourceTree = "<group>"; };
+		04637E6E20F455D200130690 /* LZPageNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageNavBar.swift; sourceTree = "<group>"; };
+		04637E6F20F455D200130690 /* UIColor+Middle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Middle.swift"; sourceTree = "<group>"; };
+		04637E7020F455D200130690 /* LZPageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageCache.swift; sourceTree = "<group>"; };
+		04637E7120F455D300130690 /* LZPageNavBarConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageNavBarConfig.swift; sourceTree = "<group>"; };
+		04637E7220F455D300130690 /* LZPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +80,12 @@
 		0479184B205FB6F200C105B0 /* PageControl */ = {
 			isa = PBXGroup;
 			children = (
-				04791842205FB6BF00C105B0 /* LZPageCache.swift */,
-				04791840205FB6BF00C105B0 /* LZPageContainer.swift */,
-				04791841205FB6BF00C105B0 /* LZPageControl.swift */,
-				0479183F205FB6BF00C105B0 /* LZPageNavBar.swift */,
-				04791843205FB6BF00C105B0 /* LZPageNavBarConfig.swift */,
-				0479183E205FB6BE00C105B0 /* LZPageNavBarProtocol.swift */,
-				04175B8B20650F01000EE90A /* UIColor+Middle.swift */,
+				04637E7020F455D200130690 /* LZPageCache.swift */,
+				04637E6D20F455D200130690 /* LZPageContainer.swift */,
+				04637E7220F455D300130690 /* LZPageControl.swift */,
+				04637E6E20F455D200130690 /* LZPageNavBar.swift */,
+				04637E7120F455D300130690 /* LZPageNavBarConfig.swift */,
+				04637E6F20F455D200130690 /* UIColor+Middle.swift */,
 			);
 			name = PageControl;
 			sourceTree = "<group>";
@@ -165,15 +162,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04637E7320F455D300130690 /* LZPageContainer.swift in Sources */,
 				042D3F842058F1C100E022FC /* ViewController.swift in Sources */,
+				04637E7820F455D300130690 /* LZPageControl.swift in Sources */,
+				04637E7520F455D300130690 /* UIColor+Middle.swift in Sources */,
+				04637E7620F455D300130690 /* LZPageCache.swift in Sources */,
+				04637E7720F455D300130690 /* LZPageNavBarConfig.swift in Sources */,
+				04637E7420F455D300130690 /* LZPageNavBar.swift in Sources */,
 				042D3F822058F1C100E022FC /* AppDelegate.swift in Sources */,
-				04175B8C20650F01000EE90A /* UIColor+Middle.swift in Sources */,
-				04791845205FB6BF00C105B0 /* LZPageNavBar.swift in Sources */,
-				04791848205FB6BF00C105B0 /* LZPageCache.swift in Sources */,
-				04791846205FB6BF00C105B0 /* LZPageContainer.swift in Sources */,
-				04791847205FB6BF00C105B0 /* LZPageControl.swift in Sources */,
-				04791849205FB6BF00C105B0 /* LZPageNavBarConfig.swift in Sources */,
-				04791844205FB6BF00C105B0 /* LZPageNavBarProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

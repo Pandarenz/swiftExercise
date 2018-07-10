@@ -68,6 +68,8 @@ class ViewController: UIViewController {
     }
     
     
+    
+    
     // 1闭包表达式
     func test1() {
         let names = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]

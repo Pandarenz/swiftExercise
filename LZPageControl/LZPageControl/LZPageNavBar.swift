@@ -46,7 +46,7 @@ class LZPageNavBar: UIView {
     fileprivate var titles :[String]?
     fileprivate var config : LZPageNavBarConfig
     
-    fileprivate var currentIndex :Int = 0
+    var currentIndex :Int = 0
     fileprivate var oldIndex :Int = 0
     fileprivate lazy var titleLabels:[UILabel] = [UILabel]()
     
@@ -62,7 +62,7 @@ class LZPageNavBar: UIView {
     fileprivate lazy var splitLine:UIView = {
         let splitLine = UIView()
             splitLine.backgroundColor = config.bottomLineColor
-            let h : CGFloat = config.bottomLineH
+            let h : CGFloat = 1.0
             splitLine.frame = CGRect(x: config.titleMargin, y: self.frame.height - h, width: self.frame.width, height: h)
         return splitLine;
     }()
@@ -185,9 +185,11 @@ extension LZPageNavBar {
                 }
             } else {
                 titleW = (scrollView.bounds.width - CGFloat(count! - 1) * config.titleMargin) / CGFloat(count!)
+                
                 titleX = titleW * CGFloat(index) + config.titleMargin * CGFloat(index)
             }
             
+            titleW = CGFloat(ceil(Double(titleW)))
             lbl.frame = CGRect(x: titleX, y: titleY, width: titleW, height: titleH)
             if index == config.defaultSelectedIndex {
                 let scale = config.isNeedScale ? config.scaleRange : 1.0
@@ -196,12 +198,13 @@ extension LZPageNavBar {
         }
         
         if config.canScrollEnable {
-            scrollView.contentSize = CGSize(width: (titleLabels.last?.frame.maxX)! + config.titleMargin * 0.5, height: 0)
-            if scrollView.contentSize.width < scrollView.bounds.width {
-                scrollView.contentSize = scrollView.bounds.size
+            if titleLabels.count > 0 {
+                scrollView.contentSize = CGSize(width: (titleLabels.last?.frame.maxX)! + config.titleMargin * 0.5, height: 0)
+                if scrollView.contentSize.width < scrollView.bounds.width {
+                    scrollView.contentSize = scrollView.bounds.size
+                }
             }
         }
-        
     }
     
     func setupLayout() {
@@ -236,7 +239,9 @@ extension LZPageNavBar {
     }
     
     fileprivate func setupTrackLineLayout(animation ani :Bool) {
-        
+        if currentIndex >= titleLabels.count {
+            return
+        }
         let currentLbl = titleLabels[currentIndex]
         trackLine.frame.origin.x = (currentLbl.frame.minX)
         trackLine.frame.origin.y = currentLbl.frame.maxY - config.trackLineH
@@ -259,7 +264,6 @@ extension LZPageNavBar {
         }
         
     }
-
     
     fileprivate func setupCoverView() {
         scrollView.insertSubview(coverView, at: 0)
@@ -282,7 +286,6 @@ extension LZPageNavBar {
         coverView.layer.cornerRadius = config.coverRadius
         coverView.layer.masksToBounds = true
         coverView.center.x = firstLbl.center.x
-        
     }
     
     fileprivate  func getTitleLblFrame(title:String ,font:UIFont) -> CGRect {
@@ -381,8 +384,12 @@ extension LZPageNavBar {
         currentIndex = tIndex
         oldIndex = tIndex
         let moveTotalX = toLbl.frame.origin.x - fromLbl.frame.origin.x
+        print("toLbl.frame.origin.x: "+"\(toLbl.frame.origin.x)")
+        print("fromLbl.frame.origin.x: "+"\(fromLbl.frame.origin.x)")
         let moveTotalW = toLbl.frame.width - fromLbl.frame.width
-        
+//        if moveTotalW < 0 {
+//            moveTotalW = -moveTotalW
+//        }
         // 4 计算滚动的范围差值
         
         if config.isShowTrackLine {
@@ -394,10 +401,20 @@ extension LZPageNavBar {
                 }
             } else {
                 trackLine.frame.size.width = fromLbl.frame.width  + moveTotalW * progress
+                print("trackLine.width: " + "\(trackLine.frame.size.width)")
+                print("progress: "+"\(progress)")
+                print("fromLbl.frame.width: "+"\(fromLbl.frame.width)")
+                
             }
             UIView.animate(withDuration: 0.1, animations: {
-                 self.trackLine.center.x = fromLbl.center.x + moveTotalX * progress
+                 self.trackLine.frame.origin.x = fromLbl.frame.origin.x + moveTotalX * progress
+                print("trackLine.center.x: "+"\(self.trackLine.center.x)")
             })
+            
+            
+//            coverView.frame.size.width = config.canScrollEnable ? (fromLbl.frame.width + 2 * config.coverMargin + moveTotalW * progress) :(fromLbl.frame.width + moveTotalW * progress)
+//            coverView.frame.origin.x = config.canScrollEnable ? (fromLbl.frame.origin.x - config.coverMargin + moveTotalX * progress) : (fromLbl.frame.origin.x + moveTotalX * progress)
+//
             
         }
         

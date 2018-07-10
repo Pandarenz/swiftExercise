@@ -28,31 +28,33 @@ class ViewController: UIViewController {
             config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
             config.navBarBackgroundColor = UIColor.white
             //1
-            config.isShowTrackLine = true
-            config.canScrollEnable = true
-            config.isTrackDivide = true
-            config.trackLineColor = UIColor.red
-            config.titleMargin = 20
-            config.firstTitleLeftMargin = 0
-            config.lastTitleFightMargin = 0
-            config.leftBarItem = leftBtn
-            config.rightBarItem = rightBtn
-            config.selectedColor = UIColor.red
-            config.normalColor = UIColor.black
-            config.defaultSelectedIndex = 0
-            //2
-//            config.isShowTrackLine = false
-//            config.isShowCover = true
-//            config.isNeedScale = true
+//            config.isShowTrackLine = true
 //            config.canScrollEnable = true
+//            config.isTrackDivide = true
+//            config.trackLineColor = UIColor.red
 //            config.titleMargin = 20
-//            config.firstTitleLeftMargin = 10
+//            config.firstTitleLeftMargin = 0
 //            config.lastTitleFightMargin = 0
 //            config.leftBarItem = leftBtn
 //            config.rightBarItem = rightBtn
 //            config.selectedColor = UIColor.red
 //            config.normalColor = UIColor.black
 //            config.defaultSelectedIndex = 0
+            //2
+            config.isShowTrackLine = true
+            config.isShowCover = false
+//            config.isNeedScale = true
+            config.scaleRange = 1.1
+            config.canScrollEnable = true
+            config.titleMargin = 20
+            config.firstTitleLeftMargin = 10
+            config.lastTitleFightMargin = 0
+//            config.leftBarItem = leftBtn
+            config.rightBarItem = rightBtn
+            config.selectedColor = UIColor.red
+            config.normalColor = UIColor.black
+            config.defaultSelectedIndex = 0
+            config.coverRadius = 8
     //3
 //                config.isShowTrackLine = true
 //                config.canScrollEnable = true
@@ -95,7 +97,7 @@ class ViewController: UIViewController {
         return navBar
     }()
     
-    var titles:[String] = ["第11个","第2个","第3个","第4个","第5个","第6个","第7个","第8个","第9个","第10个"]
+    var titles:[String] = ["第1个","第2个出现问题了","第3个","第4个","第5个","第6个","第7个","第8个","第9个","第10个"]
     
     
     var pageControl:LZPageControl = LZPageControl(frame: CGRect.zero, config: LZPageNavBarConfig())
@@ -133,7 +135,7 @@ class ViewController: UIViewController {
 
 extension ViewController :LZPageControlDelegate {
     func pageControl(control: LZPageControl, showIndex sIndex: Int) {
-         print("showIndex:\(sIndex)")
+//         print("showIndex:\(sIndex)")
     }
     
     func pageControlDidselectedLeftBar(control: LZPageControl) {
