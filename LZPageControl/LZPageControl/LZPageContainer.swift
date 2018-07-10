@@ -108,7 +108,7 @@ extension LZPageContainer {
         currentIndex = tIndex
         if !cache.hasCache(subIndex: tIndex) {
             let view = dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: tIndex)
-            if view != nil{
+            if view != nil {
                 addChildren(childrenView: view!, atIndex: tIndex, superView: scrollView)
             } else {
                 fatalError("dataSource?.pageContainerChildren(pageContainer: self, viewAtIndex: tIndex) return nil ")
@@ -125,7 +125,7 @@ extension LZPageContainer {
     
     // 刷新列表
     func reloadData() {
-        childrenCount = (dataSource?.pageContainerChildrenCount(pageContainer: self))!
+        childrenCount = (dataSource?.pageContainerChildrenCount(pageContainer: self)) ?? 0
         updateContenSize()
         oldIndex = defaultSelect
         if childrenCount > 0 {

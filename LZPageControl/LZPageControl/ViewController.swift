@@ -125,7 +125,6 @@ class ViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         pageControl.frame = self.view.bounds
-        nav.frame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
     }
 }
 

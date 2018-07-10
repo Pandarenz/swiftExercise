@@ -53,13 +53,13 @@ class LZPageControl: UIView {
     
    fileprivate func setupUI()  {
         navBar = LZPageNavBar(frame: config.navFrame, config: config)
-        navBar!.delegate = self
-        navBar!.dataSource = self
+        navBar?.delegate = self
+        navBar?.dataSource = self
         addSubview(navBar!)
         navBar?.setNeedsLayout()
         container = LZPageContainer(frame: CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY))
-        container!.delegate = self
-        container!.dataSource = self
+        container?.delegate = self
+        container?.dataSource = self
         addSubview(container!)
         container?.defaultSelect = config.defaultSelectedIndex
         container?.setNeedsLayout()
@@ -129,10 +129,10 @@ extension LZPageControl:LZPageContainerDelegate {
     }
     
     func pageContainer(pageContainer: LZPageContainer, switchFromIndex fIndex: Int, toIndex tIndex: Int, progress: CGFloat) {
-        navBar!.scrollFromIndexToIndex(fromIndex: fIndex, toIndex: tIndex, withProgress: progress)
+        navBar?.scrollFromIndexToIndex(fromIndex: fIndex, toIndex: tIndex, withProgress: progress)
     }
     func pageContainerDidStop() {
-        navBar!.currentViewDidEndScroll()
+        navBar?.currentViewDidEndScroll()
     }
     
 }
