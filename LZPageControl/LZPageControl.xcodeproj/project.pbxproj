@@ -18,6 +18,8 @@
 		04637E7620F455D300130690 /* LZPageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E7020F455D200130690 /* LZPageCache.swift */; };
 		04637E7720F455D300130690 /* LZPageNavBarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E7120F455D300130690 /* LZPageNavBarConfig.swift */; };
 		04637E7820F455D300130690 /* LZPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E7220F455D300130690 /* LZPageControl.swift */; };
+		04637E7E20F484C700130690 /* LZPageNavBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E7D20F484C700130690 /* LZPageNavBarDelegate.swift */; };
+		04637E8020F485CC00130690 /* LZPageNavProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04637E7F20F485CC00130690 /* LZPageNavProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		04637E7020F455D200130690 /* LZPageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageCache.swift; sourceTree = "<group>"; };
 		04637E7120F455D300130690 /* LZPageNavBarConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageNavBarConfig.swift; sourceTree = "<group>"; };
 		04637E7220F455D300130690 /* LZPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZPageControl.swift; sourceTree = "<group>"; };
+		04637E7D20F484C700130690 /* LZPageNavBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZPageNavBarDelegate.swift; sourceTree = "<group>"; };
+		04637E7F20F485CC00130690 /* LZPageNavProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZPageNavProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				04637E6E20F455D200130690 /* LZPageNavBar.swift */,
 				04637E7120F455D300130690 /* LZPageNavBarConfig.swift */,
 				04637E6F20F455D200130690 /* UIColor+Middle.swift */,
+				04637E7D20F484C700130690 /* LZPageNavBarDelegate.swift */,
+				04637E7F20F485CC00130690 /* LZPageNavProtocol.swift */,
 			);
 			name = PageControl;
 			sourceTree = "<group>";
@@ -168,7 +174,9 @@
 				04637E7520F455D300130690 /* UIColor+Middle.swift in Sources */,
 				04637E7620F455D300130690 /* LZPageCache.swift in Sources */,
 				04637E7720F455D300130690 /* LZPageNavBarConfig.swift in Sources */,
+				04637E8020F485CC00130690 /* LZPageNavProtocol.swift in Sources */,
 				04637E7420F455D300130690 /* LZPageNavBar.swift in Sources */,
+				04637E7E20F484C700130690 /* LZPageNavBarDelegate.swift in Sources */,
 				042D3F822058F1C100E022FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

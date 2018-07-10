@@ -9,8 +9,11 @@
 import UIKit
 
 protocol LZPageControlDelegate:class {
+    //点击了左边的bar
     func pageControlDidselectedLeftBar(control:LZPageControl)
+    //点击了右边的bar
     func pageControlDidselectedRightBar(control:LZPageControl)
+    //当前展示的第几页
     func pageControl(control:LZPageControl,showIndex sIndex:Int )
     
 }
@@ -69,8 +72,9 @@ class LZPageControl: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        config.navFrame = CGRect.init(x: config.navFrame.origin.x, y: config.navFrame.origin.y, width: self.bounds.width, height: config.navFrame.height)
         navBar?.frame = config.navFrame
-        container?.frame = CGRect(x: 0, y: navBar!.frame.maxY, width: self.bounds.size.width, height: self.bounds.size.height - navBar!.frame.maxY)
+        container?.frame = CGRect(x: 0, y: navBar?.frame.maxY ?? 0, width: self.bounds.size.width, height: self.bounds.size.height - (navBar?.frame.maxY ?? 0))
     }
     
 }
@@ -89,7 +93,9 @@ extension LZPageControl {
 extension LZPageControl :LZPageNavBarDelegate {
     func pageNavBarDidSelected(pageNavBar: LZPageNavBar, oldIndex oIndex: Int, oldObj: UILabel, newIndex nIndex: Int, newObj: UILabel) {
         let ani = abs(nIndex - oIndex) > 1
-        container!.scrollToIndexToIndex(fromIndex: oIndex, toIndex: nIndex, withAnimated: !ani)
+        //内部联动
+        container?.scrollToIndexToIndex(fromIndex: oIndex, toIndex: nIndex, withAnimated: !ani)
+        //告诉外界当前展示的是第几个页面
         delegate?.pageControl(control: self, showIndex: nIndex)
     }
   
@@ -132,6 +138,7 @@ extension LZPageControl:LZPageContainerDelegate {
 }
 
 extension LZPageControl :LZPageContainerDataSource {
+    
     func pageContainerChildren(pageContainer: LZPageContainer, viewAtIndex atIndex: Int) -> UIView {
         
         if let view = dataSource?.pageControlChildren(pageControl: self, viewAtIndex: atIndex) {
@@ -141,9 +148,6 @@ extension LZPageControl :LZPageContainerDataSource {
     }
     
     func pageContainerChildrenCount(pageContainer: LZPageContainer) -> Int {
-//        if let count = dataSource?.pageControlTitles(control: self).count {
-//            return count
-//        }
         return (titlesArray()?.count)!
     }
 }

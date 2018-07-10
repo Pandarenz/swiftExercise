@@ -9,27 +9,27 @@
 import UIKit
 
 
-protocol LZPageNavBarDelegate : class {
-    //选中了某一个title Select
-    func pageNavBarDidSelected(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,oldObj:UILabel,newIndex nIndex:Int ,newObj:UILabel)
-   
-    //选中了左边的bar
-    func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
-    //选中了右边的bar
-    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar)
-    
-}
-
-extension LZPageNavBarDelegate {
-   func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar) {
-    
-    }
-    
-    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar) {
-        
-    }
-    
-}
+//protocol LZPageNavBarDelegate : class {
+//    //选中了某一个title Select
+//    func pageNavBarDidSelected(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,oldObj:UILabel,newIndex nIndex:Int ,newObj:UILabel)
+//
+//    //选中了左边的bar
+//    func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
+//    //选中了右边的bar
+//    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar)
+//
+//}
+//默认实现 ：swift的可选方法
+//extension LZPageNavBarDelegate {
+//   func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar) {
+//    
+//    }
+//    
+//    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar) {
+//        
+//    }
+//    
+//}
 
 
 protocol LZPageNavDataSource :class {
@@ -39,7 +39,7 @@ protocol LZPageNavDataSource :class {
 }
 
 
-class LZPageNavBar: UIView {
+class LZPageNavBar: UIView,LZPageNavProtocol {
 
     weak var delegate : LZPageNavBarDelegate?
     weak var dataSource :LZPageNavDataSource?
@@ -207,7 +207,7 @@ extension LZPageNavBar {
         }
     }
     
-    func setupLayout() {
+   fileprivate func setupLayout() {
         if (config.leftBarItem != nil ) && (config.rightBarItem != nil) {
 
             config.leftBarItem?.frame = CGRect(x: 0, y: self.bounds.origin.y, width: (config.leftBarItem?.frame.width)!, height: (config.leftBarItem?.frame.height)!)
@@ -384,12 +384,8 @@ extension LZPageNavBar {
         currentIndex = tIndex
         oldIndex = tIndex
         let moveTotalX = toLbl.frame.origin.x - fromLbl.frame.origin.x
-        print("toLbl.frame.origin.x: "+"\(toLbl.frame.origin.x)")
-        print("fromLbl.frame.origin.x: "+"\(fromLbl.frame.origin.x)")
         let moveTotalW = toLbl.frame.width - fromLbl.frame.width
-//        if moveTotalW < 0 {
-//            moveTotalW = -moveTotalW
-//        }
+
         // 4 计算滚动的范围差值
         
         if config.isShowTrackLine {
