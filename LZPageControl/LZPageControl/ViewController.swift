@@ -23,10 +23,13 @@ class ViewController: UIViewController {
             rightBtn.setTitle("right", for: .normal)
             rightBtn.setTitleColor(UIColor.white, for: .normal)
             rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-    
-        let config = LZPageNavBarConfig()
-            config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
-            config.navBarBackgroundColor = UIColor.white
+    //LZPageNavBarConfig.init(navFrame: CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44), isShowTrckLine: true, canScrollEnable: true, titleMargin: 10, firstTitleLeftMargin: 10, lastTitleRightMargin: 10, selectedCorlor: UIColor.orange, normalColor: UIColor.black)
+        let config = LZPageNavBarConfig.init(navFrame: CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44), coverBgColor: UIColor.black, coverAlpha: 0.5, coverMargin: 5, coverH: 25, coverRadius: 8, canScrollEnable: true, titleMargin: 20, firstTitleLeftMargin: 10, lastTitleRightMargin: 10, selectedColor: UIColor.red, normalColor: UIColor.black)
+            config.leftBarItem = leftBtn
+            config.rightBarItem = rightBtn
+            config.isNeedScale = true
+//            config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
+//            config.navBarBackgroundColor = UIColor.white
             //1
 //            config.isShowTrackLine = true
 //            config.canScrollEnable = true
@@ -41,20 +44,20 @@ class ViewController: UIViewController {
 //            config.normalColor = UIColor.black
 //            config.defaultSelectedIndex = 0
             //2
-            config.isShowTrackLine = true
-            config.isShowCover = false
-//            config.isNeedScale = true
-            config.scaleRange = 1.1
-            config.canScrollEnable = true
-            config.titleMargin = 20
-            config.firstTitleLeftMargin = 10
-            config.lastTitleFightMargin = 0
-//            config.leftBarItem = leftBtn
-            config.rightBarItem = rightBtn
-            config.selectedColor = UIColor.red
-            config.normalColor = UIColor.black
-            config.defaultSelectedIndex = 0
-            config.coverRadius = 8
+//            config.isShowTrackLine = true
+//            config.isShowCover = false
+////            config.isNeedScale = true
+//            config.scaleRange = 1.1
+//            config.canScrollEnable = true
+//            config.titleMargin = 20
+//            config.firstTitleLeftMargin = 10
+//            config.lastTitleFightMargin = 0
+////            config.leftBarItem = leftBtn
+//            config.rightBarItem = rightBtn
+//            config.selectedColor = UIColor.red
+//            config.normalColor = UIColor.black
+//            config.defaultSelectedIndex = 0
+//            config.coverRadius = 8
     //3
 //                config.isShowTrackLine = true
 //                config.canScrollEnable = true
@@ -90,13 +93,13 @@ class ViewController: UIViewController {
     }()
     
     
-    lazy var nav :LZPageNavBar = {
-        let navBar = LZPageNavBar(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 44), config: config)
-            navBar.dataSource = self
-            navBar.delegate = self
-        return navBar
-    }()
-    
+//    lazy var nav :LZPageNavBar = {
+//        let navBar = LZPageNavBar(frame: CGRect(x: 0, y: 50, width: UIScreen.main.bounds.width, height: 44), config: config)
+//            navBar.dataSource = self
+//            navBar.delegate = self
+//        return navBar
+//    }()
+//
     var titles:[String] = ["第1个","第2个出现问题了","第3个","第4个","第5个","第6个","第7个","第8个","第9个","第10个"]
     
     
@@ -117,11 +120,11 @@ class ViewController: UIViewController {
         pageControl.reloadData()
     }
  
-    func setNavbar() {
-        nav.reloadData()
-        view.addSubview(nav)
-    }
-    
+//    func setNavbar() {
+//        nav.reloadData()
+//        view.addSubview(nav)
+//    }
+//
     
     override func viewWillLayoutSubviews() {
         pageControl.frame = self.view.bounds

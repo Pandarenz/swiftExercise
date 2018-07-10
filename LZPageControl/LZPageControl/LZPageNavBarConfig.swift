@@ -87,5 +87,73 @@ class LZPageNavBarConfig {
     var rightBarItem : UIView?
     
     
+//    config.isShowTrackLine = true
+//    config.isShowCover = false
+//    //            config.isNeedScale = true
+//    config.scaleRange = 1.1
+//    config.canScrollEnable = true
+//    config.titleMargin = 20
+//    config.firstTitleLeftMargin = 10
+//    config.lastTitleFightMargin = 0
+//    //            config.leftBarItem = leftBtn
+//    config.rightBarItem = rightBtn
+//    config.selectedColor = UIColor.red
+//    config.normalColor = UIColor.black
+//    config.defaultSelectedIndex = 0
+//    config.coverRadius = 8
+    
+    /// 普通的样式
+    ///
+    /// - Parameters:
+    ///   - navFrame: <#navFrame description#>
+    ///   - isShowTrckLine: <#isShowTrckLine description#>
+    ///   - canScrollEnable: <#canScrollEnable description#>
+    ///   - titleMargin: <#titleMargin description#>
+    ///   - firstTitleLeftMargin: <#firstTitleLeftMargin description#>
+    ///   - lastTitleRightMargin: <#lastTitleRightMargin description#>
+    ///   - selectedCorlor: <#selectedCorlor description#>
+    ///   - normalColor: <#normalColor description#>
+    ///   - defaultSelectedIndex: <#defaultSelectedIndex description#>
+    ///   - font: <#font description#>
+    convenience init(navFrame: CGRect,isShowTrckLine:Bool,
+                     canScrollEnable:Bool,
+                     titleMargin:CGFloat,
+                     firstTitleLeftMargin:CGFloat,
+                     lastTitleRightMargin:CGFloat,
+                     selectedCorlor:UIColor,
+                     normalColor:UIColor,
+                     defaultSelectedIndex:Int = 0,font:UIFont = UIFont.systemFont(ofSize: 14)) {
+        self.init()
+        self.navFrame = navFrame
+        self.isShowTrackLine = isShowTrckLine
+        self.canScrollEnable = canScrollEnable
+        self.titleMargin = titleMargin
+        self.firstTitleLeftMargin = firstTitleLeftMargin
+        self.selectedColor = selectedCorlor
+        self.normalColor = normalColor
+        self.isShowCover = false
+        self.font = font
+    }
+    
+    ///遮罩样式
+    convenience init(navFrame: CGRect,coverBgColor :UIColor,coverAlpha:CGFloat ,coverMargin:CGFloat,coverH:CGFloat,coverRadius:CGFloat,canScrollEnable:Bool, titleMargin:CGFloat, firstTitleLeftMargin:CGFloat, lastTitleRightMargin:CGFloat, selectedColor:UIColor, normalColor:UIColor, defaultSelectedIndex:Int = 0,font:UIFont = UIFont.systemFont(ofSize: 14)) {
+        self.init()
+        self.isShowCover = true
+        self.navFrame = navFrame
+        self.coverBgColor = coverBgColor
+        self.coverAlpha = coverAlpha
+        self.coverMargin = coverMargin
+        self.coverH = coverH
+        self.coverRadius = coverRadius
+        self.canScrollEnable = canScrollEnable
+        self.titleMargin = titleMargin
+        self.firstTitleLeftMargin = firstTitleLeftMargin
+        self.lastTitleFightMargin = lastTitleRightMargin
+        self.selectedColor = selectedColor
+        self.normalColor = normalColor
+        self.defaultSelectedIndex = defaultSelectedIndex
+        self.font = font
+    }
+    
 
 }

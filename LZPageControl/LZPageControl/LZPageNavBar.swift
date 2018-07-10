@@ -108,13 +108,22 @@ extension LZPageNavBar {
   fileprivate  func setupUI() {
     currentIndex = config.defaultSelectedIndex
         //1 滚动视图
-    if config.leftBarItem != nil {
-        addSubview(config.leftBarItem!)
+//    if config.leftBarItem != nil {
+//        addSubview(config.leftBarItem!)
+//    }
+    
+    if let leftBar = config.leftBarItem {
+        addSubview(leftBar)
     }
         addSubview(scrollView)
-    if config.rightBarItem != nil {
-        addSubview(config.rightBarItem!)
+//    if config.rightBarItem != nil {
+//        addSubview(config.rightBarItem!)
+//    }
+    
+    if let rightBar = config.rightBarItem {
+        addSubview(rightBar)
     }
+    
     let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
     config.leftBarItem?.addGestureRecognizer(leftTap)
     let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
