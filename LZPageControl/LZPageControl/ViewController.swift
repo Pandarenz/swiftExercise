@@ -24,71 +24,9 @@ class ViewController: UIViewController {
             rightBtn.setTitleColor(UIColor.white, for: .normal)
             rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
     //LZPageNavBarConfig.init(navFrame: CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44), isShowTrckLine: true, canScrollEnable: true, titleMargin: 10, firstTitleLeftMargin: 10, lastTitleRightMargin: 10, selectedCorlor: UIColor.orange, normalColor: UIColor.black)
-        let config = LZPageNavBarConfig.init(navFrame: CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44), coverBgColor: UIColor.black, coverAlpha: 0.5, coverMargin: 5, coverH: 25, coverRadius: 8, canScrollEnable: true, titleMargin: 20, firstTitleLeftMargin: 10, lastTitleRightMargin: 10, selectedColor: UIColor.red, normalColor: UIColor.black)
-            config.leftBarItem = leftBtn
-            config.rightBarItem = rightBtn
-            config.isNeedScale = true
-//            config.navFrame = CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44)
-//            config.navBarBackgroundColor = UIColor.white
-            //1
-//            config.isShowTrackLine = true
-//            config.canScrollEnable = true
-//            config.isTrackDivide = true
-//            config.trackLineColor = UIColor.red
-//            config.titleMargin = 20
-//            config.firstTitleLeftMargin = 0
-//            config.lastTitleFightMargin = 0
-//            config.leftBarItem = leftBtn
-//            config.rightBarItem = rightBtn
-//            config.selectedColor = UIColor.red
-//            config.normalColor = UIColor.black
-//            config.defaultSelectedIndex = 0
-            //2
-//            config.isShowTrackLine = true
-//            config.isShowCover = false
-////            config.isNeedScale = true
-//            config.scaleRange = 1.1
-//            config.canScrollEnable = true
-//            config.titleMargin = 20
-//            config.firstTitleLeftMargin = 10
-//            config.lastTitleFightMargin = 0
-////            config.leftBarItem = leftBtn
-//            config.rightBarItem = rightBtn
-//            config.selectedColor = UIColor.red
-//            config.normalColor = UIColor.black
-//            config.defaultSelectedIndex = 0
-//            config.coverRadius = 8
-    //3
-//                config.isShowTrackLine = true
-//                config.canScrollEnable = true
-//                config.isTrackDivide = false
-//                config.trackLineColor = UIColor.red
-//                config.titleMargin = 20
-//                config.firstTitleLeftMargin = 0
-//                config.lastTitleFightMargin = 0
-//                config.leftBarItem = leftBtn
-//                config.rightBarItem = rightBtn
-//                config.selectedColor = UIColor.red
-//                config.normalColor = UIColor.black
-//                config.defaultSelectedIndex = 0
-    
-    // 4
-//                config.navBarBackgroundColor = UIColor.blue
-//                config.isShowTrackLine = false
-//                config.canScrollEnable = true
-//                config.isTrackDivide = false
-//                config.trackLineColor = UIColor.red
-//                config.titleMargin = 20
-//                config.firstTitleLeftMargin = 0
-//                config.lastTitleFightMargin = 0
-////                config.leftBarItem = leftBtn
-////                config.rightBarItem = rightBtn
-//                config.selectedColor = UIColor.red
-//                config.normalColor = UIColor.black
-//                config.defaultSelectedIndex = 0
-//                config.titleNorBgColor = UIColor.blue
-//                config.titleSelectedBgColor = UIColor.green
-    
+    let config = LZPageNavBarConfig.init(navFrame: CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44), coverBgColor: UIColor.black, coverAlpha: 0.5, coverMargin: 5, coverH: 25, coverRadius: 8, canScrollEnable: true, titleMargin: 20, firstTitleLeftMargin: 10, lastTitleRightMargin: 10, selectedColor: UIColor.red, normalColor: UIColor.black,isNeedScale:false,scaleRange:1.2)
+        config.leftBarItem = leftBtn
+        config.rightBarItem = rightBtn
         return config
     }()
     

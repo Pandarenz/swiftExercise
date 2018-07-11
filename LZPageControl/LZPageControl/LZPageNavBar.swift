@@ -108,26 +108,18 @@ extension LZPageNavBar {
   fileprivate  func setupUI() {
     currentIndex = config.defaultSelectedIndex
         //1 滚动视图
-//    if config.leftBarItem != nil {
-//        addSubview(config.leftBarItem!)
+//    if let leftBar = config.leftBarItem {
+        addSubview(config.leftBarItem)
 //    }
-    
-    if let leftBar = config.leftBarItem {
-        addSubview(leftBar)
-    }
         addSubview(scrollView)
-//    if config.rightBarItem != nil {
-//        addSubview(config.rightBarItem!)
+//    if let rightBar = config.rightBarItem {
+        addSubview(config.rightBarItem)
 //    }
-    
-    if let rightBar = config.rightBarItem {
-        addSubview(rightBar)
-    }
     
     let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
-    config.leftBarItem?.addGestureRecognizer(leftTap)
+        config.leftBarItem.addGestureRecognizer(leftTap)
     let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
-    config.rightBarItem?.addGestureRecognizer(rightTap)
+        config.rightBarItem.addGestureRecognizer(rightTap)
     
     setupLayout()
         // 添加底部分割线
@@ -184,7 +176,7 @@ extension LZPageNavBar {
         for (index,lbl) in titleLabels.enumerated() {
             
             if config.canScrollEnable {
-                let rect =  getTitleLblFrame(title: lbl.text!, font: config.font)
+                let rect =  getTitleLblFrame(title: lbl.text ?? "", font: config.font)
                 titleW = rect.width
                 if index == 0 {
                     titleX = config.titleMargin * 0.5
@@ -194,15 +186,14 @@ extension LZPageNavBar {
                 }
             } else {
                 titleW = (scrollView.bounds.width - CGFloat(count! - 1) * config.titleMargin) / CGFloat(count!)
-                
                 titleX = titleW * CGFloat(index) + config.titleMargin * CGFloat(index)
             }
             
             titleW = CGFloat(ceil(Double(titleW)))
             lbl.frame = CGRect(x: titleX, y: titleY, width: titleW, height: titleH)
             if index == config.defaultSelectedIndex {
-                let scale = config.isNeedScale ? config.scaleRange : 1.0
-                lbl.transform = CGAffineTransform(scaleX: scale, y: scale)
+//                let scale = config.isNeedScale ? config.scaleRange : 1.0
+//                lbl.transform = CGAffineTransform(scaleX: scale, y: scale)
             }
         }
         
@@ -216,35 +207,12 @@ extension LZPageNavBar {
         }
     }
     
+   /// 设置左右barItem的位置
    fileprivate func setupLayout() {
-        if (config.leftBarItem != nil ) && (config.rightBarItem != nil) {
-
-            config.leftBarItem?.frame = CGRect(x: 0, y: self.bounds.origin.y, width: (config.leftBarItem?.frame.width)!, height: (config.leftBarItem?.frame.height)!)
-            addSubview(config.leftBarItem!)
-
-            scrollView.frame = CGRect(x: (config.leftBarItem?.frame.maxX)! + config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.rightBarItem!.frame.width - config.firstTitleLeftMargin - config.lastTitleFightMargin, height: self.bounds.height)
-            
-            config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX + config.lastTitleFightMargin  , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
-        }
-        
-        if (config.leftBarItem != nil) && (config.rightBarItem == nil) {
-            
-            config.leftBarItem?.frame = CGRect(x: 0, y: self.bounds.origin.y, width: (config.leftBarItem?.frame.width)!, height: (config.leftBarItem?.frame.height)!)
-   
-            scrollView.frame = CGRect(x: (config.leftBarItem?.frame.maxX)! + config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem!.frame.width - config.firstTitleLeftMargin - config.lastTitleFightMargin, height: self.bounds.height)
-            
-        }
-        
-        if (config.leftBarItem == nil) && (config.rightBarItem != nil) {
-            
-            scrollView.frame = CGRect(x: config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.rightBarItem!.frame.width - config.lastTitleFightMargin - config.firstTitleLeftMargin, height: self.bounds.height)
-            
-            config.rightBarItem?.frame = CGRect(x:scrollView.frame.maxX + config.lastTitleFightMargin , y: self.bounds.origin.y, width: (config.rightBarItem?.frame.width)!, height: (config.rightBarItem?.frame.height)!)
-        }
-        
-        if (config.leftBarItem == nil) && (config.rightBarItem == nil)  {
-            scrollView.frame = CGRect(x: config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.firstTitleLeftMargin - config.lastTitleFightMargin , height: self.bounds.height)
-        }
+        config.leftBarItem.frame = CGRect(x: 0, y: self.bounds.origin.y, width: config.leftBarItem.frame.width, height: config.leftBarItem.frame.height)
+        addSubview(config.leftBarItem)
+        scrollView.frame = CGRect(x: config.leftBarItem.frame.maxX + config.firstTitleLeftMargin, y: self.bounds.origin.y, width: self.bounds.width - config.leftBarItem.frame.width - config.rightBarItem.frame.width - config.firstTitleLeftMargin - config.lastTitleRightMargin, height: self.bounds.height)
+        config.rightBarItem.frame = CGRect(x:scrollView.frame.maxX + config.lastTitleRightMargin  , y: self.bounds.origin.y, width: config.rightBarItem.frame.width, height: config.rightBarItem.frame.height)
     }
     
     fileprivate func setupTrackLineLayout(animation ani :Bool) {
@@ -342,7 +310,7 @@ extension LZPageNavBar {
         setupTrackLineLayout(animation: true)
         // 遮盖位置移动
         if config.isShowCover {
-            self.coverView.frame.size.width = currentLbl.frame.width
+            self.coverView.frame.size.width = currentLbl.frame.width + config.coverMargin * 2
             UIView.animate(withDuration: 0.1, animations: {
                 self.coverView.center.x = currentLbl.center.x
             })
@@ -375,16 +343,17 @@ extension LZPageNavBar {
         if anmi {
             fromLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.normalColor, endColor: config.selectedColor)
             toLbl.textColor = UIColor.getMiddleColor(percent: progress, currentColor: config.selectedColor, endColor: config.normalColor)
-            if config.titleNorBgColor != nil && config.titleSelectedBgColor != nil {
-                fromLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: config.titleNorBgColor!, endColor: config.titleSelectedBgColor!)
-                toLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: config.titleSelectedBgColor!, endColor: config.titleNorBgColor!)
+            
+            if let norBg = config.titleNorBgColor,let selectedBgColor = config.titleSelectedBgColor {
+                fromLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: norBg, endColor: config.titleSelectedBgColor!)
+                toLbl.backgroundColor =  UIColor.getMiddleColor(percent: progress, currentColor: selectedBgColor, endColor: config.titleNorBgColor!)
             }
         } else {
             fromLbl.textColor = config.normalColor
             toLbl.textColor = config.selectedColor
-            if config.titleNorBgColor != nil && config.titleSelectedBgColor != nil {
-                fromLbl.backgroundColor = config.titleNorBgColor
-                toLbl.backgroundColor = config.titleSelectedBgColor
+            if let norBg = config.titleNorBgColor,let selectedBgColor = config.titleSelectedBgColor {
+                fromLbl.backgroundColor =  norBg
+                toLbl.backgroundColor =  selectedBgColor
             }
         }
         
