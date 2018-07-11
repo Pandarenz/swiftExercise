@@ -63,7 +63,7 @@ class LZPageNavBar: UIView,LZPageNavProtocol {
         let splitLine = UIView()
             splitLine.backgroundColor = config.bottomLineColor
             let h : CGFloat = 1.0
-            splitLine.frame = CGRect(x: config.titleMargin, y: self.frame.height - h, width: self.frame.width, height: h)
+            splitLine.frame = CGRect(x: 0, y: self.frame.height - h, width: self.frame.width, height: h)
         return splitLine;
     }()
     
@@ -361,7 +361,7 @@ extension LZPageNavBar {
         // 3 更新当前的index
         currentIndex = tIndex
         oldIndex = tIndex
-        let moveTotalX = toLbl.frame.origin.x - fromLbl.frame.origin.x
+        let moveTotalX = toLbl.center.x - fromLbl.center.x
         let moveTotalW = toLbl.frame.width - fromLbl.frame.width
 
         // 4 计算滚动的范围差值
@@ -378,7 +378,7 @@ extension LZPageNavBar {
                 
             }
             UIView.animate(withDuration: 0.1, animations: {
-                 self.trackLine.frame.origin.x = fromLbl.frame.origin.x + moveTotalX * progress
+                 self.trackLine.center.x = fromLbl.center.x + moveTotalX * progress
             })
             
         }

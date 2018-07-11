@@ -24,9 +24,11 @@ class ViewController: UIViewController {
             rightBtn.setTitleColor(UIColor.white, for: .normal)
             rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
     //LZPageNavBarConfig.init(navFrame: CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44), isShowTrckLine: true, canScrollEnable: true, titleMargin: 10, firstTitleLeftMargin: 10, lastTitleRightMargin: 10, selectedCorlor: UIColor.orange, normalColor: UIColor.black)
-    let config = LZPageNavBarConfig.init(navFrame: CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44), coverBgColor: UIColor.black, coverAlpha: 0.5, coverMargin: 5, coverH: 25, coverRadius: 8, canScrollEnable: true, titleMargin: 20, firstTitleLeftMargin: 10, lastTitleRightMargin: 10, selectedColor: UIColor.red, normalColor: UIColor.black,isNeedScale:false,scaleRange:1.2)
-        config.leftBarItem = leftBtn
+//    LZPageNavBarConfig.init(navFrame: CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44), coverBgColor: UIColor.black, coverAlpha: 0.5, coverMargin: 5, coverH: 25, coverRadius: 8, canScrollEnable: true, titleMargin: 20, firstTitleLeftMargin: 10, lastTitleRightMargin: 10, selectedColor: UIColor.red, normalColor: UIColor.black,isNeedScale:false,scaleRange:1.2)
+    let config = LZPageNavBarConfig.init(navFrame: CGRect(x: 0, y: 50, width: self.view.bounds.width, height: 44), isShowTrckLine: true, canScrollEnable: true, titleMargin: 10, firstTitleLeftMargin: 10, lastTitleRightMargin: 10, selectedCorlor: UIColor.orange, normalColor: UIColor.black)
+//        config.leftBarItem = leftBtn
         config.rightBarItem = rightBtn
+//        config.isTrackDivide = true
         return config
     }()
     
@@ -38,7 +40,7 @@ class ViewController: UIViewController {
 //        return navBar
 //    }()
 //
-    var titles:[String] = ["第1个","第2个出现问题了","第3个","第4个","第5个","第6个","第7个","第8个","第9个","第10个"]
+    var titles:[String] = ["第1个","第2个会出问题吗","第3个","第4个"]
     
     
     var pageControl:LZPageControl = LZPageControl(frame: CGRect.zero, config: LZPageNavBarConfig())
@@ -48,10 +50,10 @@ class ViewController: UIViewController {
         setPageControlView()
 //        setNavbar()
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) {
-            self.titles = ["第1个","第2个","第3个","第4个"]
-            self.pageControl.reloadData()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) {
+//            self.titles = ["第1个","第2个","第3个","第4个"]
+//            self.pageControl.reloadData()
+//        }
         
     }
 
