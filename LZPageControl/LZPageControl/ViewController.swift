@@ -47,6 +47,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setPageControlView()
 //        setNavbar()
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) {
+            self.titles = ["第1个","第2个","第3个","第4个"]
+            self.pageControl.reloadData()
+        }
+        
     }
 
     func setPageControlView() {

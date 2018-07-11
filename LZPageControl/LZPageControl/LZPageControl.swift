@@ -45,7 +45,7 @@ class LZPageControl: UIView {
    
     func reloadData() {
         self.navBar?.reloadData()
-        self.container?.reloadData()
+        self.container?.reloadData(selectedIndex: 0)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

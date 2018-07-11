@@ -56,13 +56,7 @@ class LZPageContainer: UIView {
     weak var delegate : LZPageContainerDelegate?
     weak var dataSource : LZPageContainerDataSource?
     var defaultSelect :Int = 0
-//    {
-//        
-//        didSet {
-//            scrollToIndexToIndex(fromIndex: 0, toIndex: defaultSelect, withAnimated: false)
-//        }
-//    }
-    
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,9 +72,9 @@ class LZPageContainer: UIView {
     }
     
    fileprivate func updateContenSize() {
-        guard childrenCount == 0 else {
-            return
-        }
+    if childrenCount == 0 {
+        return
+    }
         scrollView.contentSize = CGSize(width: scrollView.bounds.size.width * CGFloat(childrenCount), height: scrollView.bounds.size.height)
     }
    
@@ -91,7 +85,7 @@ class LZPageContainer: UIView {
             children.frame = CGRect(x: sView.bounds.size.width * CGFloat(aIndex), y: 0, width: sView.bounds.size.width, height: sView.bounds.size.height)
             sView.addSubview(children)
             cache.cacheObj(cacheObj: children, atIndex: aIndex)
-          
+//            scrollView.setContentOffset(CGPoint.init(x: 0, y: sView.bounds.size.width * CGFloat(aIndex)), animated: false)
         }
     }
     
@@ -125,6 +119,7 @@ extension LZPageContainer {
     
     // 刷新列表
     func reloadData() {
+        cache.removeAll()
         childrenCount = (dataSource?.pageContainerChildrenCount(pageContainer: self)) ?? 0
         updateContenSize()
         oldIndex = defaultSelect
@@ -137,8 +132,14 @@ extension LZPageContainer {
                 }
             }
         }
+        scrollToIndexToIndex(fromIndex: 0, toIndex: defaultSelect, withAnimated: false)
+        
     }
- 
+    
+    func reloadData(selectedIndex:Int = 0) {
+        defaultSelect = selectedIndex
+        reloadData()
+    }
     
 }
 
@@ -196,7 +197,7 @@ extension LZPageContainer:UIScrollViewDelegate {
         for (index,view) in cache.getAll() {
             view.frame = CGRect(x: scrollView.bounds.size.width * CGFloat(index), y: 0, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         }
-         scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(currentIndex), y: 0), animated: false)
+//         scrollView.setContentOffset(CGPoint(x: scrollView.bounds.width * CGFloat(currentIndex), y: 0), animated: false)
         
     }
     

@@ -38,6 +38,8 @@ class LZPageCache: NSObject {
             dic.removeValue(forKey: atIndex)
         }
     }
-    
+    func removeAll() {
+        dic.removeAll()
+    }
     
 }
