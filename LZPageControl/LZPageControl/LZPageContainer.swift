@@ -148,6 +148,7 @@ extension LZPageContainer:UIScrollViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         isClickedEv = false
         startOffsetX = scrollView.contentOffset.x
+        print("哈哈哈")
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -214,6 +215,7 @@ extension LZPageContainer:UIScrollViewDelegate {
             // 1.计算progress
             progress = currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW)
             
+            
             // 2.计算sourceIndex
             fromIndex = Int(currentOffsetX / scrollViewW)
             
@@ -222,12 +224,13 @@ extension LZPageContainer:UIScrollViewDelegate {
             if toIndex >= childrenCount {
                 toIndex = childrenCount - 1
             }
-            
+            print("progress : "+"\(progress)")
             //4.如果完全划出去
-            if currentOffsetX - startOffsetX == scrollViewW {
+            if currentOffsetX - startOffsetX == scrollViewW || progress == 0 {
                 progress = 1
                 toIndex = fromIndex
             }
+            
         } else { // 右滑
             // 1.计算progress
             progress = 1 - (currentOffsetX / scrollViewW - floor(currentOffsetX / scrollViewW))
