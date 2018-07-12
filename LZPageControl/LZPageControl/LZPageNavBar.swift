@@ -9,27 +9,27 @@
 import UIKit
 
 
-//protocol LZPageNavBarDelegate : class {
-//    //选中了某一个title Select
-//    func pageNavBarDidSelected(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,oldObj:UILabel,newIndex nIndex:Int ,newObj:UILabel)
-//
-//    //选中了左边的bar
-//    func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
-//    //选中了右边的bar
-//    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar)
-//
-//}
-//默认实现 ：swift的可选方法
-//extension LZPageNavBarDelegate {
-//   func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar) {
-//    
-//    }
-//    
-//    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar) {
-//        
-//    }
-//    
-//}
+protocol LZPageNavBarDelegate : class {
+    //选中了某一个title Select
+    func pageNavBarDidSelected(pageNavBar:LZPageNavBar ,oldIndex oIndex:Int ,oldObj:UILabel,newIndex nIndex:Int ,newObj:UILabel)
+
+    //选中了左边的bar
+    func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar)
+    //选中了右边的bar
+    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar)
+
+}
+// 默认实现
+extension LZPageNavBarDelegate {
+   func pageNavBarDidSelectedLeftBar(pageNavBar:LZPageNavBar) {
+    
+    }
+    
+    func pageNavBarDidSelectedRightBar(pageNavBar:LZPageNavBar) {
+        
+    }
+    
+}
 
 
 protocol LZPageNavDataSource :class {
@@ -39,7 +39,7 @@ protocol LZPageNavDataSource :class {
 }
 
 
-class LZPageNavBar: UIView,LZPageNavProtocol {
+class LZPageNavBar: UIView {
 
     weak var delegate : LZPageNavBarDelegate?
     weak var dataSource :LZPageNavDataSource?
@@ -106,22 +106,17 @@ class LZPageNavBar: UIView,LZPageNavProtocol {
 extension LZPageNavBar {
     
   fileprivate  func setupUI() {
-    currentIndex = config.defaultSelectedIndex
-        //1 滚动视图
-//    if let leftBar = config.leftBarItem {
+        currentIndex = config.defaultSelectedIndex
         addSubview(config.leftBarItem)
-//    }
         addSubview(scrollView)
-//    if let rightBar = config.rightBarItem {
         addSubview(config.rightBarItem)
-//    }
     
     let leftTap = UITapGestureRecognizer(target: self, action: #selector(leftBarItemClick(tap:)))
         config.leftBarItem.addGestureRecognizer(leftTap)
     let rightTap = UITapGestureRecognizer(target: self, action: #selector(rightBarItemClick(tap:)))
         config.rightBarItem.addGestureRecognizer(rightTap)
     
-    setupLayout()
+        setupLayout()
         // 添加底部分割线
         addSubview(splitLine)
         // 添加所有标题的label
