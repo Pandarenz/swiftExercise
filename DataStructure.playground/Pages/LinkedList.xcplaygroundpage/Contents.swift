@@ -1,17 +1,36 @@
-//
-//  LinkList.swift
-//  LinkList
-//
-//  Created by JiWuChao on 2018/7/13.
-//  Copyright © 2018年 JiWuChao. All rights reserved.
-//
+//: [Previous](@previous)
 
 import Foundation
 
-public final class LinkList<T> {
+//定义一个 结点 双向链表的结点定义格式
+public class LinkListNode<T> {
+    var value: T
+    var next :LinkListNode?// 下一个结点
+    weak var previous :LinkListNode?//前一个结点
+    public init(value:T) {
+        self.value = value
+    }
+}
+
+
+
+/*
+ 总结：
+ 
+    链式存储结构中，如果链表有头结点，则头指针指向头结点；否则头指针指向第一元素结点。
+ 
+ 任何情况下，头指针都存在，无论链表是否为空。
+ 
+ 头结点是为了方便同一操作额外添加的，通过添加头结点，对在第一个元素结点前插入新结点或者删除新结点的操作与对其他结点的插入删除操作一致。
+ 
+ 头结点根据实现可有可无。
+ 
+ */
+
+public final class LinkedList<T> {
     
-   public typealias Node = linkedListNode<T>
-    //头结点
+    public typealias Node = LinkListNode<T>
+    //头结点 ：链表中的第一个结点的存储位置叫做头指针，如果为了方便 也可以在单链表的第一个结点前设置一个结点 称为头结点 头结点的数据与可以不存储任何数据，此时头结点的指针域指向第一个结点的指针
     fileprivate var head:Node?
     
     public init() {}
@@ -48,7 +67,7 @@ public final class LinkList<T> {
         } else {
             return 0
         }
-     
+        
     }
     
     // 返回某个 index 的结点
@@ -82,7 +101,7 @@ public final class LinkList<T> {
         
     }
     func append(_ node:Node) {
-        let newNode = linkedListNode(value: node.value)
+        let newNode = LinkListNode(value: node.value)
         if let lastNode = last {
             newNode.previous = lastNode
             lastNode.next = newNode
@@ -93,7 +112,7 @@ public final class LinkList<T> {
     }
     
     //把一个链表添加到另一个链表之后
-    public func append(_ list: LinkList) {
+    public func append(_ list: LinkedList) {
         var nodeToCopy = list.head
         while let node = nodeToCopy {
             self.append(node.value)
@@ -126,7 +145,7 @@ public final class LinkList<T> {
     
     public func insert(_ node: Node, atIndex index: Int) {
         let (prev, next) = nodesBeforeAndAfter(index: index)
-        let newNode = linkedListNode(value: node.value)
+        let newNode = LinkListNode(value: node.value)
         newNode.previous = prev
         newNode.next = next
         prev?.next = newNode
@@ -137,7 +156,7 @@ public final class LinkList<T> {
         }
     }
     
-    public func insert(_ list: LinkList, atIndex index: Int) {
+    public func insert(_ list: LinkedList, atIndex index: Int) {
         if list.isEmpty { return }
         var (prev, next) = nodesBeforeAndAfter(index: index)
         var nodeToCopy = list.head
@@ -190,7 +209,7 @@ public final class LinkList<T> {
     
 }
 
-extension LinkList:CustomStringConvertible {
+extension LinkedList:CustomStringConvertible {
     public var description: String {
         var s = "["
         var node = head
@@ -206,19 +225,19 @@ extension LinkList:CustomStringConvertible {
 }
 
 
-extension LinkList {
+extension LinkedList {
     // 链表翻转
-   public func reverse() {
-    var node = head
+    public func reverse() {
+        var node = head
         while let currentNode = node {
-                node = currentNode.next // 把下一个赋值给node
+            node = currentNode.next // 把下一个赋值给node
             swap(&currentNode.next, &currentNode.previous) // 交换
             head = currentNode
         }
     }
 }
 
-extension LinkList {
+extension LinkedList {
     convenience init(array: Array<T>) {
         self.init()
         for element in array {
@@ -226,6 +245,26 @@ extension LinkList {
         }
     }
 }
+
+
+let lin = LinkedList<String>()
+lin.append("姬武超")
+lin.isEmpty
+lin.first?.value
+
+let lined2 = LinkedList<String>()
+
+    lined2.append("aaaa")
+
+    lin.append(lined2)
+
+    print(lin)
+lin.reverse()
+
+lin.insert("2121", atIndex: 1)
+
+lined2.removeAll()
+
 
 
 
