@@ -3,10 +3,10 @@
 import Foundation
 
 //定义一个 结点 双向链表的结点定义格式
-public class LinkListNode<T> {
+public class DLNode<T> {
     var value: T
-    var next :LinkListNode?// 下一个结点
-    weak var previous :LinkListNode?//前一个结点
+    var next :DLNode?// 下一个结点
+    weak var previous :DLNode?//前一个结点
     public init(value:T) {
         self.value = value
     }
@@ -18,8 +18,7 @@ public class LinkListNode<T> {
  总结：
  
     链式存储结构中，如果链表有头结点，则头指针指向头结点；否则头指针指向第一元素结点。
- 
- 任何情况下，头指针都存在，无论链表是否为空。
+  任何情况下，头指针都存在，无论链表是否为空。
  
  头结点是为了方便同一操作额外添加的，通过添加头结点，对在第一个元素结点前插入新结点或者删除新结点的操作与对其他结点的插入删除操作一致。
  
@@ -27,24 +26,24 @@ public class LinkListNode<T> {
  
  */
 
-public final class LinkedList<T> {
+public final class DoubleLinkList<T> {
     
-    public typealias Node = LinkListNode<T>
-    //头结点 ：链表中的第一个结点的存储位置叫做头指针，如果为了方便 也可以在单链表的第一个结点前设置一个结点 称为头结点 头结点的数据与可以不存储任何数据，此时头结点的指针域指向第一个结点的指针
+    public typealias Node = DLNode<T>
+   
     fileprivate var head:Node?
     
     public init() {}
-    //链表是否为空
+    //1 :链表是否为空
     public var isEmpty:Bool {
         return head == nil
     }
     
-    //获取头结点
+    //2 获取首元结点
     public var first:Node?{
         return head
     }
     
-    //获取尾结点
+    //3 获取尾结点
     public var last:Node? {
         if var node = head {
             while case let next? = node.next {
@@ -55,7 +54,7 @@ public final class LinkedList<T> {
             return nil
         }
     }
-    // 链表的长度
+    //4 链表的长度
     public var count:Int {
         if var node = head {
             var c = 1
@@ -67,61 +66,35 @@ public final class LinkedList<T> {
         } else {
             return 0
         }
-        
     }
     
-    // 返回某个 index 的结点
+    //5 链表的查找： 返回某个 index 的结点
     
-    public func node(atIndex index:Int) -> Node? {
+    public func getNode(atIndex index: Int) -> Node? {
         if index >= 0 {
             var node = head
             var i = index
-            while node != nil {
-                if index == 0 {
+            while node != nil {//从首元结点开始向后查找
+                if i == 0 {
                     return node
                 }
                 i -= 1
                 node = node!.next
             }
         }
-        
         return nil
     }
     
-    //下标语法
+    //5 链表的查找：下标语法
     public subscript(index: Int) -> T {
-        let node = self.node(atIndex: index)
+        let node = self.getNode(atIndex: index)
         assert(node != nil)
         return node!.value
     }
     
-    func append(_ value:T) {
-        let newNode = Node(value: value)
-        self.append(newNode)
-        
-    }
-    func append(_ node:Node) {
-        let newNode = LinkListNode(value: node.value)
-        if let lastNode = last {
-            newNode.previous = lastNode
-            lastNode.next = newNode
-        } else {
-            head = newNode
-        }
-        
-    }
-    
-    //把一个链表添加到另一个链表之后
-    public func append(_ list: LinkedList) {
-        var nodeToCopy = list.head
-        while let node = nodeToCopy {
-            self.append(node.value)
-            nodeToCopy = node.next
-        }
-    }
-    
+    // 5 链表的查找：
     //获取某一 index 的前结点和后结点
-    private func nodesBeforeAndAfter(index: Int) -> (Node?, Node?) {
+    public func nodesBeforeAndAfter(index: Int) -> (Node?, Node?) {
         assert(index >= 0)
         
         var i = index
@@ -137,26 +110,54 @@ public final class LinkedList<T> {
         
         return (prev, next)
     }
-    //插入一个结点
+    
+    
+    // 6 链表的插入
+    func append(_ value:T) {
+        let newNode = Node(value: value)
+        self.append(newNode)
+        
+    }
+    // 6 链表插入：Node
+    func append(_ node:Node) {
+        let newNode = DLNode(value: node.value)
+        if let lastNode = last {
+            newNode.previous = lastNode
+            lastNode.next = newNode
+        } else {
+            head = newNode
+        }
+        
+    }
+    
+    //6 链表的插入：把一个链表添加到另一个链表之后
+    public func append(_ list: DoubleLinkList) {
+        var nodeToCopy = list.head
+        while let node = nodeToCopy {
+            self.append(node.value)
+            nodeToCopy = node.next
+        }
+    }
+    
+    //6 链表的插入：在某个位置插入一个结点
     public func insert(_ value: T, atIndex index: Int) {
         let newNode = Node(value: value)
         self.insert(newNode, atIndex: index)
     }
-    
+    //6 链表的插入：在某个位置插入一个结点
     public func insert(_ node: Node, atIndex index: Int) {
-        let (prev, next) = nodesBeforeAndAfter(index: index)
-        let newNode = LinkListNode(value: node.value)
-        newNode.previous = prev
-        newNode.next = next
-        prev?.next = newNode
-        next?.previous = newNode
-        
-        if prev == nil {
+        let oldNode = getNode(atIndex: index)
+        let newNode = DLNode(value: node.value)
+        newNode.previous = oldNode?.previous
+        oldNode?.previous?.next = newNode
+        newNode.next = oldNode
+        oldNode?.previous = newNode
+        if oldNode?.previous == nil {
             head = newNode
         }
     }
-    
-    public func insert(_ list: LinkedList, atIndex index: Int) {
+    //6 链表的插入：在某个位置插入一个链表
+    public func insert(_ list: DoubleLinkList, atIndex index: Int) {
         if list.isEmpty { return }
         var (prev, next) = nodesBeforeAndAfter(index: index)
         var nodeToCopy = list.head
@@ -176,11 +177,11 @@ public final class LinkedList<T> {
         next?.previous = prev
     }
     
-    /// Function to remove all nodes/value from the list
+    //7 链表的销毁
     public func removeAll() {
         head = nil
     }
-    
+    //7 链表的删除
     @discardableResult public func remove(node: Node) -> T {
         let prev = node.previous
         let next = node.next
@@ -196,20 +197,21 @@ public final class LinkedList<T> {
         node.next = nil
         return node.value
     }
+    //7 链表的删除：删除最后一个结点
     @discardableResult public func removeLast() -> T {
         assert(!isEmpty)
         return remove(node: last!)
     }
-    
+    //7 链表的删除，删除指定位置的结点
     @discardableResult public func remove(atIndex index: Int) -> T {
-        let node = self.node(atIndex: index)
+        let node = self.getNode(atIndex: index)
         assert(node != nil)
         return remove(node: node!)
     }
     
 }
 
-extension LinkedList:CustomStringConvertible {
+extension DoubleLinkList:CustomStringConvertible {
     public var description: String {
         var s = "["
         var node = head
@@ -225,8 +227,8 @@ extension LinkedList:CustomStringConvertible {
 }
 
 
-extension LinkedList {
-    // 链表翻转
+extension DoubleLinkList {
+    //8 链表翻转
     public func reverse() {
         var node = head
         while let currentNode = node {
@@ -237,7 +239,8 @@ extension LinkedList {
     }
 }
 
-extension LinkedList {
+extension DoubleLinkList {
+    //9 链表的批量插入
     convenience init(array: Array<T>) {
         self.init()
         for element in array {
@@ -247,25 +250,27 @@ extension LinkedList {
 }
 
 
-let lin = LinkedList<String>()
-lin.append("姬武超")
-lin.isEmpty
-lin.first?.value
+let lin = DoubleLinkList<String>()
 
-let lined2 = LinkedList<String>()
+    lin.append("姬武超")
+    lin.append("姬武超")
+    lin.isEmpty
+
+    lin.first?.value
+
+let lined2 = DoubleLinkList<String>()
 
     lined2.append("aaaa")
 
-    lin.append(lined2)
+//    lin.append(lined2)
 
     print(lin)
-lin.reverse()
 
-lin.insert("2121", atIndex: 1)
+    lin.reverse()
 
-lined2.removeAll()
-
-
-
-
+    lin.insert("2121", atIndex: 1)
+    print(lin)
+    print(lin.getNode(atIndex: 2)?.value)
+    print(lin.nodesBeforeAndAfter(index: 1).0?.value)
+    print(lin.nodesBeforeAndAfter(index: 1).1?.value)
 
