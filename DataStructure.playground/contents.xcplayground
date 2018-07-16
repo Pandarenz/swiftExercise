@@ -2,6 +2,6 @@
 <playground version='6.0' target-platform='ios'>
     <pages>
         <page name='LinkedList'/>
-        <page name='Untitled Page'/>
+        <page name='SingleLinkList'/>
     </pages>
 </playground>
