@@ -2,6 +2,8 @@
 
 //import Foundation
 
+// -------------堆的定义和操作-----------
+
 public struct Stack<T> {
     
     fileprivate var stackData = [T]()
@@ -40,14 +42,14 @@ public struct Stack<T> {
 }
 
 var stack = Stack<String>()
-    stack.push("姬武超")
-    stack.pushArray(["qqqqq","wwww","rrrrr","gggg","fffff"])
-    print(stack)
-    stack.count
-    stack.isEmpty
-    stack.pop()
-    stack.pop()
-    print(stack)
+stack.push("姬武超")
+stack.pushArray(["qqqqq","wwww","rrrrr","gggg","fffff"])
+print(stack)
+stack.count
+stack.isEmpty
+stack.pop()
+stack.pop()
+print(stack)
 print("hahah")
 
 

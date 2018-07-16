@@ -3,5 +3,7 @@
     <pages>
         <page name='LinkedList'/>
         <page name='SingleLinkList'/>
+        <page name='Stack'/>
+        <page name='有序链表的合并'/>
     </pages>
 </playground>

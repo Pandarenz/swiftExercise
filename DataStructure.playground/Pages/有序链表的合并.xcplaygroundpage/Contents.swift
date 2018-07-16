@@ -1,21 +1,20 @@
-//: Playground - noun: a place where people can play
+//: [Previous](@previous)
 
-import UIKit
 import Foundation
 
-//------------------单向链表-------------------
+var str = "Hello, playground"
 
-public class SLNode<T> {
-    var value: T
+public class SLNode<Int> {
+    var value: Int
     var next :SLNode?// 下一个结点
-    public init(value:T) {
+    public init(value:Int) {
         self.value = value
     }
 }
 
-public final class SingleLinkList<T> {
+public final class SingleLinkList {
     
-   public typealias Node = SLNode<T>
+    public typealias Node = SLNode<Int>
     
     fileprivate var head:Node?
     
@@ -62,7 +61,7 @@ public final class SingleLinkList<T> {
     
     func getNode(atIndex index:Int) -> Node? {
         if index >= 0 {
-         var node = head
+            var node = head
             var i = index
             while node != nil {
                 if i == 0 {
@@ -93,12 +92,12 @@ public final class SingleLinkList<T> {
         }
         return nil
     }
-
+    
     
     
     // 链表的添加
     
-   public func append(_ value: T) {
+    public func append(_ value: Int) {
         let newNode = SLNode(value: value)
         if let lastNode = last {
             lastNode.next = newNode
@@ -107,7 +106,7 @@ public final class SingleLinkList<T> {
         }
     }
     // 批量添加
-    public func append(_ values:Array<T>) {
+    public func append(_ values:Array<Int>) {
         for value in values {
             append(value)
         }
@@ -116,7 +115,7 @@ public final class SingleLinkList<T> {
     
     //5 链表的插入 插入在第 index 结点
     
-    public func insertNode(atIndex index:Int,value:T) {
+    public func insertNode(atIndex index:Int,value:Int) {
         let oldNode = getBeforeNode(atIndex: index)
         var newNode = SLNode(value: value)
         if index > 0 {
@@ -142,7 +141,36 @@ public final class SingleLinkList<T> {
         head = nil
     }
     
+    //
     
+    public func merge(node1: Node?, node2: Node?) -> Node? {
+        var no2 = node2
+        var no1 = node1
+        
+        
+        guard let _ = no1 else { return no2 }
+        guard let _ = no2 else { return no1 }
+        
+        let root = Node(value: 0)
+        let pointer = root
+        while no1 != nil && node2 != nil {
+            if no1!.value < node2!.value {
+                pointer.next = no1
+                no1 = node1?.next
+            } else {
+                pointer.next = no2
+                no2 = no2?.next
+            }
+        }
+        
+        return root.next
+    }
+    
+    public func linkMerge(linkList:SingleLinkList){
+        
+        
+        }
+
 }
 
 extension SingleLinkList:CustomStringConvertible {
@@ -160,18 +188,11 @@ extension SingleLinkList:CustomStringConvertible {
     }
 }
 
-
-
-
-let link = SingleLinkList<String>()
-    link.isEmpty()
-    link.append(["haha1","haha2","haha3","haha4","haha5"])
-    print(link.getNode(atIndex: 0)?.value ?? "")
-    link.insertNode(atIndex: 1, value: "插入")
+var link = SingleLinkList.init()
+    link.append([1,3,5,6,8,10])
     print(link)
-    link.removeNode(atIndex: 1)
-    print(link)
-    print(link.count)
-    link.removeAll()
-    print(link)
+var linkTow = SingleLinkList.init()
+    linkTow.append([0,2,4,7,9,11])
 
+//    link =  link.linkMerge(linkList: linkTow)!
+    print(link)
