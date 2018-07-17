@@ -118,7 +118,7 @@ public final class SingleLinkList<T> {
     
     public func insertNode(atIndex index:Int,value:T) {
         let oldNode = getBeforeNode(atIndex: index)
-        var newNode = SLNode(value: value)
+        let newNode = SLNode(value: value)
         if index > 0 {
             if let old = oldNode {
                 newNode.next = old.next
@@ -126,6 +126,9 @@ public final class SingleLinkList<T> {
             } else {
                 append(value)
             }
+        } else if (index == 0 ) {
+            newNode.next = head
+            head = newNode
         } else {
             append(value)
         }
@@ -167,7 +170,7 @@ let link = SingleLinkList<String>()
     link.isEmpty()
     link.append(["haha1","haha2","haha3","haha4","haha5"])
     print(link.getNode(atIndex: 0)?.value ?? "")
-    link.insertNode(atIndex: 1, value: "插入")
+    link.insertNode(atIndex: 0, value: "插入")
     print(link)
     link.removeNode(atIndex: 1)
     print(link)

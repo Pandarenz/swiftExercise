@@ -16,7 +16,7 @@ public final class SingleLinkList {
     
     public typealias Node = SLNode<Int>
     
-    fileprivate var head:Node?
+    fileprivate var head:Node? // 头指针 指向首元结点
     
     public init() {}
     
@@ -95,7 +95,7 @@ public final class SingleLinkList {
     
     
     
-    // 链表的添加
+    // 链表的添加 按照顺序添加
     
     public func append(_ value: Int) {
         let newNode = SLNode(value: value)
@@ -105,7 +105,7 @@ public final class SingleLinkList {
             head = newNode
         }
     }
-    // 批量添加
+    // 批量添加 按照顺序添加
     public func append(_ values:Array<Int>) {
         for value in values {
             append(value)
@@ -119,12 +119,20 @@ public final class SingleLinkList {
         let oldNode = getBeforeNode(atIndex: index)
         let newNode = SLNode(value: value)
         if index > 0 {
-            if let old = oldNode {
+            if let old = oldNode { // 插入
+                /*
+                    注意: 下面的两行的顺序不能换
+                 old.next = newNode // 这样的话整个链表就会断掉
+                 newNode.next = old.next
+                 */
                 newNode.next = old.next
                 old.next = newNode
             } else {
-                append(value)
+                append(value) // 插入到尾部
             }
+        } else if (index == 0 ) {
+            newNode.next = head // 插入到头部
+            head = newNode
         } else {
             append(value)
         }
@@ -140,14 +148,30 @@ public final class SingleLinkList {
     public func removeAll() {
         head = nil
     }
+    
+    
+    
+    /// 批量添加 生成有序链表
+    ///
+    /// - Parameter values: <#values description#>
+    func insertValues(values:[Int]) {
+        for value in values {
+            insert(value: value)
+        }
+    }
+    
+    
+    
+    
     // 插入一个值 不指定位置 按 升序插入
     func insert(value: Int) {
-        if self.head == nil {
+        if self.head == nil { // 如果链表为空
             self.head = Node.init(value: value)
-        } else {
+        } else {// 如果链表不为空 则从首元结点开始查找插入位置
             self.insert(node: &self.head!, value: value)
         }
     }
+    
     // inout 内部可以改变外面传的参数值
     func insert(node: inout Node, value: Int) {
         if value > node.value {
@@ -160,7 +184,7 @@ public final class SingleLinkList {
             // val is less than node, squeeze in node
             let newNode = Node.init(value: value)
             // replace val
-            newNode.next = node
+            newNode.next = node // 头插法建立链表
             node = newNode
         }
     }
@@ -195,6 +219,8 @@ extension SingleLinkList:CustomStringConvertible {
 
 var link = SingleLinkList.init()
     link.append([1,3,5,6,8,10])
+    link.insertNode(atIndex: 1, value: 11)
+//    link.insertValues(values: [2,34,3,5,666,3,8,0])
     print(link)
 var linkTow = SingleLinkList.init()
     linkTow.append([0,2,4,7,9,11])
