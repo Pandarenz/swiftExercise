@@ -7,5 +7,6 @@
         <page name='有序链表的合并'/>
         <page name='队列'/>
         <page name='迷宫求解-stack'/>
+        <page name='十进制转成八进制'/>
     </pages>
 </playground>
