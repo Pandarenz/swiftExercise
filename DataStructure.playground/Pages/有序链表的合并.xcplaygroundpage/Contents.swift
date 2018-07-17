@@ -117,7 +117,7 @@ public final class SingleLinkList {
     
     public func insertNode(atIndex index:Int,value:Int) {
         let oldNode = getBeforeNode(atIndex: index)
-        var newNode = SLNode(value: value)
+        let newNode = SLNode(value: value)
         if index > 0 {
             if let old = oldNode {
                 newNode.next = old.next
@@ -140,37 +140,42 @@ public final class SingleLinkList {
     public func removeAll() {
         head = nil
     }
-    
-    //
-    
-    public func merge(node1: Node?, node2: Node?) -> Node? {
-        var no2 = node2
-        var no1 = node1
-        
-        
-        guard let _ = no1 else { return no2 }
-        guard let _ = no2 else { return no1 }
-        
-        let root = Node(value: 0)
-        let pointer = root
-        while no1 != nil && node2 != nil {
-            if no1!.value < node2!.value {
-                pointer.next = no1
-                no1 = node1?.next
-            } else {
-                pointer.next = no2
-                no2 = no2?.next
-            }
+    // 插入一个值 不指定位置 按 升序插入
+    func insert(value: Int) {
+        if self.head == nil {
+            self.head = Node.init(value: value)
+        } else {
+            self.insert(node: &self.head!, value: value)
         }
-        
-        return root.next
+    }
+    // inout 内部可以改变外面传的参数值
+    func insert(node: inout Node, value: Int) {
+        if value > node.value {
+            if node.next == nil {
+                node.next = Node.init(value: value)
+            } else {
+                self.insert(node: &node.next!, value: value)
+            }
+        } else {
+            // val is less than node, squeeze in node
+            let newNode = Node.init(value: value)
+            // replace val
+            newNode.next = node
+            node = newNode
+        }
     }
     
-    public func linkMerge(linkList:SingleLinkList){
-        
-        
+    /// 链表合并
+    ///
+    /// - Parameter list: <#list description#>
+    func merge(list: SingleLinkList) {
+        var listNode = list.head
+        while listNode != nil {
+            self.insert(value: listNode!.value)
+            listNode = listNode!.next
         }
-
+    }
+    
 }
 
 extension SingleLinkList:CustomStringConvertible {
@@ -193,6 +198,8 @@ var link = SingleLinkList.init()
     print(link)
 var linkTow = SingleLinkList.init()
     linkTow.append([0,2,4,7,9,11])
-
-//    link =  link.linkMerge(linkList: linkTow)!
+    link.merge(list: linkTow)
     print(link)
+
+
+
