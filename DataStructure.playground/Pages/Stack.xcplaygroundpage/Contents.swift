@@ -42,7 +42,7 @@ public struct Stack<T> {
 }
 
 var stack = Stack<String>()
-stack.push("姬武超")
+stack.push("enenenen")
 stack.pushArray(["qqqqq","wwww","rrrrr","gggg","fffff"])
 print(stack)
 stack.count

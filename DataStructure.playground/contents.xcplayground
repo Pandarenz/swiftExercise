@@ -5,5 +5,7 @@
         <page name='SingleLinkList'/>
         <page name='Stack'/>
         <page name='有序链表的合并'/>
+        <page name='队列'/>
+        <page name='迷宫求解-stack'/>
     </pages>
 </playground>
