@@ -121,8 +121,8 @@ public final class SingleLinkList {
         if index > 0 {
             if let old = oldNode { // 插入
                 /*
-                    注意: 下面的两行的顺序不能换
-                 old.next = newNode // 这样的话整个链表就会断掉
+                    注意: 下面的两行的顺序不能换 这样的话整个链表就会出现死循环
+                 old.next = newNode
                  newNode.next = old.next
                  */
                 newNode.next = old.next
@@ -172,6 +172,14 @@ public final class SingleLinkList {
         }
     }
     
+    
+    /*
+        思路：找到第一个比插入的值大的结点
+        1 插入的值和当前结点的值做比较
+        2 如果value 大于当前的结点值 则继续寻找一个比它大的值
+        3 找到之后把插入的值放到比它大的值前面
+        时间复杂度：O(n)
+     */
     // inout 内部可以改变外面传的参数值
     func insert(node: inout Node, value: Int) {
         if value > node.value {
@@ -181,9 +189,7 @@ public final class SingleLinkList {
                 self.insert(node: &node.next!, value: value)
             }
         } else {
-            // val is less than node, squeeze in node
             let newNode = Node.init(value: value)
-            // replace val
             newNode.next = node // 头插法建立链表
             node = newNode
         }
@@ -219,7 +225,7 @@ extension SingleLinkList:CustomStringConvertible {
 
 var link = SingleLinkList.init()
     link.append([1,3,5,6,8,10])
-    link.insertNode(atIndex: 1, value: 11)
+//    link.insertNode(atIndex: 1, value: 11)
 //    link.insertValues(values: [2,34,3,5,666,3,8,0])
     print(link)
 var linkTow = SingleLinkList.init()
