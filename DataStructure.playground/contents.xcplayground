@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <playground version='6.0' target-platform='ios'>
     <pages>
-<<<<<<< HEAD
         <page name='4 Stack'/>
         <page name='3 有序链表的合并'/>
         <page name='5 队列'/>
         <page name='1 LinkedList'/>
         <page name='2 SingleLinkList'/>
         <page name='6 矩阵'/>
-=======
-        <page name='LinkedList'/>
-        <page name='SingleLinkList'/>
-        <page name='Stack'/>
-        <page name='有序链表的合并'/>
-        <page name='队列'/>
-        <page name='迷宫求解-stack'/>
-        <page name='十进制转成八进制'/>
->>>>>>> c1ad20dfd2c094b3784585355c8f2b03937a68a1
     </pages>
 </playground>

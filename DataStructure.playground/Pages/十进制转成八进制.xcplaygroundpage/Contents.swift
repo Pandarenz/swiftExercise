@@ -62,7 +62,7 @@ public struct Stack {
 
 
 var stack = Stack.init()
-
+    //1348 的 八进制 表示为 2504
     stack.tenTransformEight(value: 1348)
 
     print(stack.popAll() ?? "")
