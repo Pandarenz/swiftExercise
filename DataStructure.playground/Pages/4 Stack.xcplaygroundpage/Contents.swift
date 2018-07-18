@@ -39,6 +39,9 @@ public struct Stack<T> {
         return stackData.count
     }
     
+    
+    
+    
 }
 
 var stack = Stack<String>()
