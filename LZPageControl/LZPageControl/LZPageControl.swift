@@ -33,8 +33,8 @@ class LZPageControl: UIView {
    weak var delegate : LZPageControlDelegate?
    weak var dataSource : LZPageControlDataSource?
    fileprivate var config:LZPageNavBarConfig = LZPageNavBarConfig()
-   var navBar : LZPageNavBar?
-   var container :LZPageContainer?
+   fileprivate var navBar : LZPageNavBar?
+   fileprivate  var container :LZPageContainer?
  
     init(frame: CGRect,config : LZPageNavBarConfig) {
         self.config = config
@@ -124,7 +124,6 @@ extension LZPageControl:LZPageContainerDelegate {
   
     
     func pageContainer(pageContainer: LZPageContainer, showIndex sIdx: Int) {
-//        navBar?.scrollToIndex(toIndex: sIdx)
          delegate?.pageControl(control: self, showIndex: sIdx)
     }
     
