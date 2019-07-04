@@ -10,11 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    lazy var listVM: LZListVM = {
+        let vm = LZListVM()
+        return vm
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
-
+    @IBAction func action(_ sender: Any) {
+        listVM.getListData { (items, des) in
+            print(items as Any)
+            print(des as Any)
+        }
+    }
+    
 }
 
