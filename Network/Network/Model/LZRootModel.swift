@@ -19,7 +19,16 @@ struct Root:Codable {
 struct Item:Codable {
     
     var userId:Int = 0
-    var userName:String?
+    private var name :String?
+    var userName:String? {
+        set {
+            name = newValue
+            print("name : " + "\(name)")
+        }
+        get {
+            return name
+        }
+    }
     var avatar:String?
     var grade:Int = 0
     var newGrade:Int = 0
@@ -37,14 +46,25 @@ struct Item:Codable {
     var isYearGuard:Bool = false
     
     var remainingDays:Int = 0
-    var yearGuardRemainingDays:Int = 0
+    var yearGuardRemainingDays:Int = 0 {
+        didSet {
+            print(yearGuardRemainingDays)
+        }
+    }
     
 }
 
 struct LZSportVipInfo:Codable {
-    var type:Int = 0
+    
+    var customType:Int = 0
     var expire:TimeInterval = 0
     var sort:Int = 0
+    
+    private enum CodingKeys: String, CodingKey {
+        case customType = "type"
+        case expire
+        case sort
+    }
 }
 
 

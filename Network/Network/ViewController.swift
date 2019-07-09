@@ -23,6 +23,11 @@ class ViewController: UIViewController {
     @IBAction func action(_ sender: Any) {
         listVM.getListData { (items, des) in
             print(items as Any)
+            let item = items?.first
+            print(item?.avatar)
+            print(item?.userName)
+            print(item?.sportVipInfo)
+            print(item?.sportVipInfo?.customType)
             print(des as Any)
         }
     }
