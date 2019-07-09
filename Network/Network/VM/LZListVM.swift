@@ -12,6 +12,8 @@ import Alamofire
 
 import SwiftyJSON
 
+import CodableAlamofire
+
 struct LZListVM {
     
     var items:[Item]?
@@ -29,32 +31,32 @@ struct LZListVM {
 //
         // codeAble
         
-        Alamofire.request(Request.list).responseJSON { (resopnse) in
-            switch resopnse.result {
-            case .success(let json):
-                let jsonDecoder = JSONDecoder()
-                do {
-                    guard let data = resopnse.data else {
-                        return
-                    }
-
-                    let bMovie = try jsonDecoder.decode(Root.self, from: data)
-                    print(bMovie)
-                    print("Name : " + "\(bMovie.items?.first?.userName)")
-                    print("avator :" + "\(bMovie.items?.first?.avatar)")
-//                    print(bMovie.moviesGenere)
-//                    print(json)
-                    completion(bMovie.items,nil)
-                } catch {
-                    print("Some Errors")
-                }
-                break
-            case .failure( let error):
-                print(error)
-                completion(nil,error.localizedDescription)
-                break
-            }
-        }
+//        Alamofire.request(Request.list).responseJSON { (resopnse) in
+//            switch resopnse.result {
+//            case .success(let json):
+//                let jsonDecoder = JSONDecoder()
+//                do {
+//                    guard let data = resopnse.data else {
+//                        return
+//                    }
+//
+//                    let bMovie = try jsonDecoder.decode(Root.self, from: data)
+//                    print(bMovie)
+//                    print("Name : " + "\(bMovie.items?.first?.userName)")
+//                    print("avator :" + "\(bMovie.items?.first?.avatar)")
+////                    print(bMovie.moviesGenere)
+////                    print(json)
+//                    completion(bMovie.items,nil)
+//                } catch {
+//                    print("Some Errors")
+//                }
+//                break
+//            case .failure( let error):
+//                print(error)
+//                completion(nil,error.localizedDescription)
+//                break
+//            }
+//        }
         // swiftJson
         
 //        Alamofire.request(Request.list).responseJSON { (resopnse) in
@@ -84,7 +86,16 @@ struct LZListVM {
 //                    }
 //                }
         
-        
+        SessionManager.default.request(Request.list).responseDecodableObject(queue: nil, keyPath: nil, decoder: JSONDecoder()) { (response:DataResponse<Root>) in
+            switch response.result {
+            case .success(let value):
+                completion(response.value?.items,nil)
+                break
+            case .failure(let error):
+                completion(nil,error.localizedDescription)
+                break
+            }
+        }
     }
 }
 

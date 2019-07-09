@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Network/Model/Request.swift"
-            timestampString = "584276838.6808341"
+            filePath = "Network/Model/LZRootModel.swift"
+            timestampString = "584354219.470794"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "asURLRequest()"
-            landmarkType = "7">
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "yearGuardRemainingDays"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,29 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Network/Model/Request.swift"
-            timestampString = "584276838.680913"
+            filePath = "Network/VM/LZListVM.swift"
+            timestampString = "584354219.4709851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "asURLRequest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Network/ViewController.swift"
-            timestampString = "584280524.56142"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "action(_:)"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "getListData(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Network/Model/LZRootModel.swift"
-            timestampString = "584280524.5615211"
+            timestampString = "584354219.471043"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "yearGuardRemainingDays"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "grade"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>

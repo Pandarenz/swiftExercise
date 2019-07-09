@@ -20,17 +20,13 @@ struct Item:Codable {
     
     var userId:Int = 0
     private var name :String?
-    var userName:String? {
-        set {
-            name = newValue
-            print("name : " + "\(name)")
-        }
-        get {
-            return name
+    var userName:String? 
+    var avatar:String?
+    var grade:Int = 0 {
+        didSet {
+            print("grade")
         }
     }
-    var avatar:String?
-    var grade:Int = 0
     var newGrade:Int = 0
     var vipType:Int = 0
     var toUserId:Int = 0
