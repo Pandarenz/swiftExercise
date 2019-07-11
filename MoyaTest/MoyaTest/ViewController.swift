@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     let searchVM = LZSearchVM.init()
     
+    let nobleVM = LZNobleVM.init()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,9 @@ class ViewController: UIViewController {
         
         
         searchVM.getRelativeData()
+        
+        nobleVM.getNobleList(roomid: "2241427", pageIdx: 1)
+        
     }
 
 
