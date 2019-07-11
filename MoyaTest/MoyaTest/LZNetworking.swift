@@ -127,23 +127,47 @@ let serverTrustPolicies: [String: ServerTrustPolicy] = [
     
 ]
 
-let manager = Manager(configuration: configuration, delegate:delegate, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
+
 
 
 //let myManager = Manager(configuration)
 
 
 
+let network = MoyaProvider<MultiTarget>.init(plugins: [RequestHandlingPlugin]())
 
-
-class LZNetworking {
+class LZNetworking<T:TargetType> {
     
-    public static let `default` = LZNetworking()
+//    public static let `default` = LZNetworking<T>()
 //    public let manager = MoyaProvider<LZSearch>.init(endpointClosure: myEndpointClosure, requestClosure: timeoutClosure)
-    public let manager = MoyaProvider<LZSearch>.init(plugins: [RequestHandlingPlugin()])
+//    public let manager = MoyaProvider<LZSearch>.init(plugins: [RequestHandlingPlugin()])
+    
+//    let manager = Manager(configuration: configuration, delegate:delegate, serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies))
+    
+   public lazy var manager: Manager = {
+        let m = MoyaProvider<T>.defaultAlamofireManager()
+        return m
+    }()
+    
+    init() {
+        manager.delegate.sessionDidReceiveChallenge = { (session,challenge) in
+            var disposition = URLSession.AuthChallengeDisposition.performDefaultHandling;
+//            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+//                var host = challenge.protectionSpace.host;
+//                if let reqSerializer = manager?.requestSerializer {
+//                    let oriHost = reqSerializer.value(forHTTPHeaderField: "HOST");
+//                    if let oH = oriHost {
+//                        host = oH;
+//                    }
+//                }
+            return    (URLSession.AuthChallengeDisposition.useCredential,URLCredential(trust:challenge.protectionSpace.serverTrust!))
+            
+        }
+    }
     
     
     
+ 
 }
 
 extension MoyaProvider {
@@ -171,7 +195,11 @@ extension MoyaProvider {
         
     }
 
-    
+//    open func request<T: Codable>(_ target: MultiTarget,
+//                                  model: T.Type,
+//                                  completed: ((_ returnData: T?,_ error:Error?) -> Void)?) -> Cancellable? {
+//        
+//    }
 }
 
 

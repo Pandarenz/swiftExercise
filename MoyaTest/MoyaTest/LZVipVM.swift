@@ -25,7 +25,7 @@ class LZVipVM {
             print(error.debugDescription)
         }
         
-        request?.cancel()
+//        request?.cancel()
         
         
     }
