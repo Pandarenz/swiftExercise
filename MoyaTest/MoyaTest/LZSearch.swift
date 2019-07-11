@@ -16,17 +16,54 @@ enum LZSearch {
     case searchResult(argCon: Int, q: String)
 }
 
-let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<LZSearch>.RequestResultClosure) -> Void in
-    
-    if var urlRequest = try? endpoint.urlRequest() {
-        urlRequest.timeoutInterval = 20
-        closure(.success(urlRequest))
-    } else {
-        closure(.failure(MoyaError.requestMapping(endpoint.url)))
-    }
-}
+//let timeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<LZSearch>.RequestResultClosure) -> Void in
+//    let defaultHeader = ["name":"longzhu",
+//                         "devaceid":"1"]
+//    let header = endpoint.httpHeaderFields
+//    
+//    
+//    
+//    if var urlRequest = try? endpoint.urlRequest() {
+//        urlRequest.timeoutInterval = 20
+//        closure(.success(urlRequest))
+//    } else {
+//        closure(.failure(MoyaError.requestMapping(endpoint.url)))
+//    }
+//}
+//
+//
+//let myEndpointClosure = { (target: LZSearch) -> Endpoint in
+//    
+//    let url = target.baseURL.appendingPathComponent(target.path).absoluteString
+//    
+//    
+//    let endpoint = Endpoint(url: url, sampleResponseClosure: { .networkResponse(200, target.sampleData) }, method: target.method, task: target.task, httpHeaderFields: target.headers)
+//    
+//    
+//    
+//    //在这里设置你的HTTP头部信息
+//    return endpoint.adding(newHTTPHeaderFields: [
+//        "Content-Type" : "application/x-www-form-urlencoded;charset=UTF-8",
+//        "COOKIE" :  "JSESSIONID=jiwuchao",
+//        "Accept": "application/json;application/octet-stream;text/html,text/json;text/plain;text/javascript;text/xml;application/x-www-form-urlencoded;image/png;image/jpeg;image/jpg;image/gif;image/bmp;image/*"
+//        ])
+//    
+//    
+//}
 
-let LZSearchProvider = MoyaProvider<LZSearch>(requestClosure: timeoutClosure)
+//let requestSet = {(endpoint:Endpoint,done:@escaping MoyaProvider<LZSearch>.RequestResultClosure) in
+//    do {
+//        var request:URLRequest = try endpoint.urlRequest()
+//        request.timeoutInterval = 15
+//        done(.success(request))
+//    } catch {
+//        print("错误了\(error)")
+//    }
+//}
+
+
+
+let LZSearchProvider = MoyaProvider<LZSearch>.init(plugins: [RequestHandlingPlugin()])
 
 extension LZSearch:TargetType {
     var baseURL: URL {
