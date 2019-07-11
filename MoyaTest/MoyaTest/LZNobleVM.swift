@@ -19,7 +19,8 @@ class LZNobleVM {
     func getNobleList(roomid:String,pageIdx:Int = 1) {
         
         network.provider.request(LZNobleAPI.LZNoble.list(roomid: roomid, pageIdx: pageIdx), model: Root.self) { (rootModel, error) in
-            print("守护请求成功: \(rootModel?.items?.first?.userName)")
+            print("守护失败：\(error.debugDescription)")
+            print("守护请求成功: \(rootModel?.items?.first?.userName ?? "failure")")
         }
     }
     

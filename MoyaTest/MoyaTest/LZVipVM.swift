@@ -8,14 +8,26 @@
 
 import Foundation
 
+import Moya
+
 class LZVipVM {
+    
+    init() {
+        
+    }
+    
+//    var request<T:Cancellable> = T()
     
     
     func getVipData() {
-        LZVipProvider.request(LZVip.vipList, model: LZVipModel.self) { (model,error) in
+      let request = LZVipProvider.request(LZVip.vipList, model: LZVipModel.self) { (model,error) in
             print(model?.data?.message)
-            print(error)
+            print(error.debugDescription)
         }
+        
+        request?.cancel()
+        
+        
     }
     
 }

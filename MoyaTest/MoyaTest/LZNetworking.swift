@@ -151,15 +151,23 @@ extension MoyaProvider {
     open func request<T: Codable>(_ target: Target,
                                     model: T.Type,
                                     completed: ((_ returnData: T?,_ error:Error?) -> Void)?) -> Cancellable? {
-        
-        return request(target, completion: { (result) in
+        return request(target, completion: { (resut) in
             guard let completion = completed else {return}
-            guard let returnData = try? result.value?.map(model.self) else {
-                completion(nil, result.error)
-                return
+            switch resut {
+                case .success(let resultValue):
+                    guard let returnData = try? resultValue.map(model.self) else {
+                        completion(nil, resut.error)
+                        return
+                    }
+                    completion(returnData,resut.error)
+                break
+                
+            case .failure(let error):
+                    completion(nil,error)
+                break
             }
-            completion(returnData,result.error)
         })
+        
         
     }
 
