@@ -11,6 +11,18 @@ import Foundation
 
 @objcMembers public class LZNetworkClient: NSObject {
     // MARK: 初始化
+    
+//    public static let `default`: SessionManager = {
+//        let configuration = URLSessionConfiguration.default
+//        configuration.httpAdditionalHeaders = SessionManager.defaultHTTPHeaders
+//
+//        return SessionManager(configuration: configuration)
+//    }()
+//    public static let `default`: LZNetworkClient = {
+//        let client = LZNetworkClient()
+//        client.
+//        return client
+//    }
     private static var sInstance: LZNetworkClient? = nil;
     public static func sharedInstance() -> LZNetworkClient?{
         if sInstance == nil {
@@ -33,6 +45,12 @@ import Foundation
 //        self.startAFNetworking();
          LZNetworkMonitor.sharedInstance()?.start()
     }
+    
+    
+    func get(url:String?,parm:Parameters) -> <#return type#> {
+        <#function body#>
+    }
+    
     
     
 }

@@ -97,6 +97,19 @@ struct LZListVM {
             }
         }
     }
+    
+    
+    func getTest()  {
+        let config = URLSessionConfiguration.init()
+            config.requestCachePolicy = NSURLRequest.CachePolicy.useProtocolCachePolicy
+            config.timeoutIntervalForRequest = 10
+            config.timeoutIntervalForResource = 10
+        
+//        let session = SessionManager(configuration: config, delegate: <#T##SessionDelegate#>, serverTrustPolicyManager: <#T##ServerTrustPolicyManager?#>)
+        
+        
+    }
+    
 }
 
 
