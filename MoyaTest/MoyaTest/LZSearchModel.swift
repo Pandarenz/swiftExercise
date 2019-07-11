@@ -26,7 +26,7 @@ struct LZSearchData:Codable {
 struct LZSearchRetureData:Codable {
     var comic_id:String?
     var name:String?
-
+ 
 }
 
 

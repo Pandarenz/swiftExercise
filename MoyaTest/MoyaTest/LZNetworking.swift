@@ -10,7 +10,23 @@ import Foundation
 
 import Moya
 
+let myEndpointClosure = { (target: LZSearch) -> Endpoint in
+    
+    let url = target.baseURL.appendingPathComponent(target.path).absoluteString
+    
+    
+    let endpoint = Endpoint(url: url, sampleResponseClosure: { .networkResponse(200, target.sampleData) }, method: target.method, task: target.task, httpHeaderFields: target.headers)
+    
 
+    
+    //在这里设置你的HTTP头部信息
+    return endpoint.adding(newHTTPHeaderFields: [
+        "Content-Type" : "application/x-www-form-urlencoded",
+        "ECP-COOKIE" : ""
+        ])
+    
+    
+}
 
 
 

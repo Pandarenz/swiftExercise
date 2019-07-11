@@ -13,7 +13,8 @@ class LZSearchVM {
     func getRelativeData()  {
         LZSearchProvider.request(LZSearch.searchRelative(inputText: "龙珠"), model: LZSearchRelative.self) { (result,error) in
             print("\n\n")
-            print(result?.data)
+            print(result?.data?.returnData?.first?.comic_id)
+            print(result?.data?.returnData?.first?.name)
             print(error)
         }
     }
