@@ -26,7 +26,6 @@
 		04528AF122D73FD500D9FD40 /* LZRootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528AF022D73FD500D9FD40 /* LZRootModel.swift */; };
 		04528AF322D73FFF00D9FD40 /* LZNobleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528AF222D73FFF00D9FD40 /* LZNobleVM.swift */; };
 		04528AF522D7401100D9FD40 /* LZNobleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528AF422D7401100D9FD40 /* LZNobleAPI.swift */; };
-		04528AF722D747D600D9FD40 /* MoyaProvider+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528AF622D747D600D9FD40 /* MoyaProvider+Init.swift */; };
 		D1238AE4CD1259C60CD52375 /* Pods_MoyaTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE8E4E8554CF5859B60B597 /* Pods_MoyaTest.framework */; };
 		DA7E683148F00F4D5E09E23C /* Pods_MoyaTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B9526A42D99B2B253FCA73 /* Pods_MoyaTestTests.framework */; };
 		E980C4D8C8E7ABDD086D0F04 /* Pods_MoyaTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEE67A8D58C2FC036E360E6C /* Pods_MoyaTestUITests.framework */; };
@@ -75,7 +74,6 @@
 		04528AF022D73FD500D9FD40 /* LZRootModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LZRootModel.swift; path = ../../Network/Network/Model/LZRootModel.swift; sourceTree = "<group>"; };
 		04528AF222D73FFF00D9FD40 /* LZNobleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZNobleVM.swift; sourceTree = "<group>"; };
 		04528AF422D7401100D9FD40 /* LZNobleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZNobleAPI.swift; sourceTree = "<group>"; };
-		04528AF622D747D600D9FD40 /* MoyaProvider+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Init.swift"; sourceTree = "<group>"; };
 		12BDA3030D05DD94F6EA5891 /* Pods-MoyaTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoyaTestUITests/Pods-MoyaTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32719BDD45082C65D73CBED0 /* Pods-MoyaTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaTestTests.release.xcconfig"; path = "Target Support Files/Pods-MoyaTestTests/Pods-MoyaTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		32B9526A42D99B2B253FCA73 /* Pods_MoyaTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,7 +186,6 @@
 				04528AD522D5D10D00D9FD40 /* LZNetworking.swift */,
 				04528AE922D73A4A00D9FD40 /* URLRequest+AddCommon.swift */,
 				04528AED22D73AA600D9FD40 /* LZRequestHandlingPlugin.swift */,
-				04528AF622D747D600D9FD40 /* MoyaProvider+Init.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -464,7 +461,6 @@
 				04528AAA22D59AFE00D9FD40 /* ViewController.swift in Sources */,
 				04528AE822D5DCB300D9FD40 /* LZSearchModel.swift in Sources */,
 				04528AF322D73FFF00D9FD40 /* LZNobleVM.swift in Sources */,
-				04528AF722D747D600D9FD40 /* MoyaProvider+Init.swift in Sources */,
 				04528ADC22D5D17E00D9FD40 /* LZVip.swift in Sources */,
 				04528ADA22D5D17600D9FD40 /* LZSearch.swift in Sources */,
 				04528AE022D5DC2A00D9FD40 /* LZVipVM.swift in Sources */,

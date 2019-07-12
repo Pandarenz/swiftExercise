@@ -7,19 +7,13 @@
 //
 
 import Foundation
-
+import Moya
 
 class LZSearchVM {
     
     func getRelativeData()  {
-//        LZSearchProvider.request(LZSearch.searchRelative(inputText: "龙珠"), model: LZSearchRelative.self) { (result,error) in
-//            print("\n\n")
-//            print(result?.data?.returnData?.first?.comic_id)
-//            print(result?.data?.returnData?.first?.name)
-//            print(error)
-//        }
-        
-        LZSearchProvider.request(LZSearch.searchRelative(inputText: "龙珠"), model: LZSearchRelative.self) { (result, error) in
+
+        networking.request(MultiTarget(LZSearch.searchRelative(inputText: "龙珠")), model: LZSearchRelative.self) { (result, error) in
             print(result?.data?.returnData?.first?.comic_id)
             print(result?.data?.returnData?.first?.name)
         }

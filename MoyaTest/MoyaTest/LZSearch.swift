@@ -63,9 +63,9 @@ enum LZSearch {
 
 
 //init(plugins: [RequestHandlingPlugin()])
-let LZSearchProvider = MoyaProvider<LZSearch>.init(
-    manager:  LZNetworking<LZSearch>().manager,
-                                                   plugins: [RequestHandlingPlugin()])
+//let LZSearchProvider = MoyaProvider<LZSearch>.init(
+//    manager:  LZNetworking<LZSearch>().manager,
+//                                                   plugins: [RequestHandlingPlugin()])
 
 extension LZSearch:TargetType {
     var baseURL: URL {

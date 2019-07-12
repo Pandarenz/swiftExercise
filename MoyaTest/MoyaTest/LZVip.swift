@@ -17,9 +17,6 @@ enum LZVip {
 
 }
 
-//
-let LZVipProvider = MoyaProvider<LZVip>.init(plugins: [RequestHandlingPlugin()])
-//MoyaProvider<MultiTarget>.init(endpointClosure: <#T##(MultiTarget) -> Endpoint#>, requestClosure: <#T##(Endpoint, @escaping (Result<URLRequest, MoyaError>) -> Void) -> Void#>, stubClosure: <#T##(MultiTarget) -> StubBehavior#>, callbackQueue: <#T##DispatchQueue?#>, manager: <#T##Manager#>, plugins: <#T##[PluginType]#>, trackInflights: <#T##Bool#>)
 
 extension LZVip:TargetType {
     var baseURL: URL {
