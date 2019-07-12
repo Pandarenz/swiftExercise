@@ -15,10 +15,16 @@ class LZNobleAPI {
     enum LZNoble {
         case list( roomid:String, pageIdx:Int )
     }
+    //MoyaProvider<LZSearch>.init(
+//    manager:  LZNetworking<LZSearch>().manager,
+//    plugins: [RequestHandlingPlugin()])
+    
+    //init( plugins: [RequestHandlingPlugin()])
+//    let provider = MoyaProvider<LZNoble>.init(
+//        manager:  LZNetworking<LZNoble>().manager,
+//        plugins: [RequestHandlingPlugin()])
     
     let provider = MoyaProvider<LZNoble>.init( plugins: [RequestHandlingPlugin()])
-    
-    
 
 }
 

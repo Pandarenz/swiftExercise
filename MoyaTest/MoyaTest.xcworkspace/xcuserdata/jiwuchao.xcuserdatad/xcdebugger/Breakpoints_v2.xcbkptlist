@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoyaTest/LZNetworking.swift"
+            timestampString = "584554455.24324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoyaTest.LZNetworking.init() -&gt; MoyaTest.LZNetworking&lt;A&gt;"
+                  moduleName = "MoyaTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JiWuChao/MyGit/SwiftPP/swiftExercise/MoyaTest/MoyaTest/LZNetworking.swift"
+                  timestampString = "584553145.212128"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSURLSession, __C.NSURLAuthenticationChallenge) -&gt; (__C.NSURLSessionAuthChallengeDisposition, Swift.Optional&lt;__C.NSURLCredential&gt;) in MoyaTest.LZNetworking.init() -&gt; MoyaTest.LZNetworking&lt;A&gt;"
+                  moduleName = "MoyaTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JiWuChao/MyGit/SwiftPP/swiftExercise/MoyaTest/MoyaTest/LZNetworking.swift"
+                  timestampString = "584553145.214306"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -14,20 +14,12 @@ import Moya
 
 enum LZVip {
     case vipList
+
 }
-//let vipTimeoutClosure = {(endpoint: Endpoint, closure: MoyaProvider<LZVip>.RequestResultClosure) -> Void in
+
 //
-//    if var urlRequest = try? endpoint.urlRequest() {
-//        urlRequest.timeoutInterval = 20
-//        closure(.success(urlRequest))
-//    } else {
-//        closure(.failure(MoyaError.requestMapping(endpoint.url)))
-//    }
-//}
-
-
 let LZVipProvider = MoyaProvider<LZVip>.init(plugins: [RequestHandlingPlugin()])
-
+//MoyaProvider<MultiTarget>.init(endpointClosure: <#T##(MultiTarget) -> Endpoint#>, requestClosure: <#T##(Endpoint, @escaping (Result<URLRequest, MoyaError>) -> Void) -> Void#>, stubClosure: <#T##(MultiTarget) -> StubBehavior#>, callbackQueue: <#T##DispatchQueue?#>, manager: <#T##Manager#>, plugins: <#T##[PluginType]#>, trackInflights: <#T##Bool#>)
 
 extension LZVip:TargetType {
     var baseURL: URL {
