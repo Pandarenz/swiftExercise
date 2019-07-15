@@ -10,45 +10,91 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoyaTest/LZNetworking.swift"
-            timestampString = "584554455.24324"
+            timestampString = "584848188.834008"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
-            landmarkName = "init()"
+            startingLineNumber = "79"
+            endingLineNumber = "79">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoyaTest/LZVipVM.swift"
+            timestampString = "584848188.834427"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "getVipData()"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "MoyaTest.LZNetworking.init() -&gt; MoyaTest.LZNetworking&lt;A&gt;"
+                  symbolName = "closure #2 (Swift.Optional&lt;Any&gt;) -&gt; () in MoyaTest.LZVipVM.getVipData() -&gt; ()"
                   moduleName = "MoyaTest"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/JiWuChao/MyGit/SwiftPP/swiftExercise/MoyaTest/MoyaTest/LZNetworking.swift"
-                  timestampString = "584553145.212128"
+                  urlString = "file:///Users/jiwuchao/Documents/MyGit/Swift/swiftExercise/MoyaTest/MoyaTest/LZVipVM.swift"
+                  timestampString = "584848189.6061929"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "153"
-                  endingLineNumber = "153"
-                  offsetFromSymbolStart = "104">
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "820">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.NSURLSession, __C.NSURLAuthenticationChallenge) -&gt; (__C.NSURLSessionAuthChallengeDisposition, Swift.Optional&lt;__C.NSURLCredential&gt;) in MoyaTest.LZNetworking.init() -&gt; MoyaTest.LZNetworking&lt;A&gt;"
+                  symbolName = "closure #3 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MoyaTest.LZVipVM.getVipData() -&gt; ()"
                   moduleName = "MoyaTest"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/JiWuChao/MyGit/SwiftPP/swiftExercise/MoyaTest/MoyaTest/LZNetworking.swift"
-                  timestampString = "584553145.214306"
+                  urlString = "file:///Users/jiwuchao/Documents/MyGit/Swift/swiftExercise/MoyaTest/MoyaTest/LZVipVM.swift"
+                  timestampString = "584848189.607811"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "155"
-                  endingLineNumber = "155"
-                  offsetFromSymbolStart = "108">
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "60">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoyaTest/LZVipVM.swift"
+            timestampString = "584848188.834658"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getVipData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoyaTest/LZVipVM.swift"
+            timestampString = "584848192.1592751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getVipData()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -13,7 +13,7 @@ class LZSearchVM {
     
     func getRelativeData()  {
 
-        networking.request(MultiTarget(LZSearch.searchRelative(inputText: "龙珠")), model: LZSearchRelative.self) { (result, error) in
+        LZNetworking.default.provider.request(MultiTarget(LZSearch.searchRelative(inputText: "龙珠")), model: LZSearchRelative.self) { (result, error) in
             print(result?.data?.returnData?.first?.comic_id)
             print(result?.data?.returnData?.first?.name)
         }

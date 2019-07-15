@@ -20,13 +20,19 @@ class LZVipVM {
     
     
     func getVipData() {
-      let request = networking.request(MultiTarget(LZVip.vipList), model: LZVipModel.self) { (model,error) in
-            print(model?.data?.message)
+//      let request = LZNetworking.default.provider.request(MultiTarget(LZVip.vipList), model: LZVipModel.self) { (model,error) in
+//            print(model?.data?.message)
+//            print(error.debugDescription)
+//        }
+//
+//        request?.cancel()
+        LZNetworking.default.provider.request(MultiTarget(LZVip.vipList), model: LZVipModel.self, success: { (model) in
+            if let m = model as? LZVipModel {
+                print(m.data?.message)
+            }
+        }) { (error) in
             print(error.debugDescription)
         }
-        
-//        request?.cancel()
-        
         
     }
     

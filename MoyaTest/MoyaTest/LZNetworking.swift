@@ -14,7 +14,10 @@ import Alamofire
 
 
 let networking = MoyaProvider<MultiTarget>.init(plugins: [RequestHandlingPlugin]())
+//public typealias Completion = (_ result: Result<Moya.Response, MoyaError>) -> Void
 
+public typealias  Success = (_ result:Any?)->Void
+public typealias Failure = (_ error:Error?)->Void
 class LZNetworking {
     
     public static let `default`:LZNetworking = LZNetworking()
@@ -25,21 +28,45 @@ class LZNetworking {
 extension MoyaProvider {
     @discardableResult
     open func request<T: Codable>(_ target: Target,
-                                    model: T.Type,
-                                    completed: ((_ returnData: T?,_ error:Error?) -> Void)?) -> Cancellable? {
+                                  model: T.Type,
+                                  completed: ((_ returnData: T?,_ error:Error?) -> Void)?) -> Cancellable? {
         return request(target, completion: { (resut) in
             guard let completion = completed else {return}
             switch resut {
-                case .success(let resultValue):
-                    guard let returnData = try? resultValue.map(model.self) else {
-                        completion(nil, resut.error)
-                        return
-                    }
-                    completion(returnData,resut.error)
+            case .success(let resultValue):
+                guard let returnData = try? resultValue.map(model.self) else {
+                    completion(nil, resut.error)
+                    return
+                }
+                completion(returnData,resut.error)
                 break
                 
             case .failure(let error):
-                    completion(nil,error)
+                completion(nil,error)
+                break
+            }
+        })
+    }
+    
+    
+    @discardableResult
+    open func request<T: Codable>(_ target: Target,
+                                    model: T.Type,
+                                    success: @escaping Success,
+                                    failure:@escaping Failure) -> Cancellable?{
+        return request(target, completion: { (resut) in
+            
+            switch resut {
+                case .success(let resultValue):
+                    guard let returnData = try? resultValue.map(model.self) else {
+                        success(nil)
+                        return
+                    }
+                    success(returnData)
+                break
+                
+            case .failure(let error):
+                    failure(error)
                 break
             }
         })
