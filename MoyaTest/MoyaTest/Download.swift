@@ -10,31 +10,19 @@ import Foundation
 
 import Moya
 
-//定义下载的DownloadDestination（不改变文件名，同名文件不会覆盖）
-private let DefaultDownloadDestination: DownloadDestination = { temporaryURL, response in
-    return (DefaultDownloadDir.appendingPathComponent(response.suggestedFilename!), [])
-}
-
-//默认下载保存地址（用户文档目录）
-let DefaultDownloadDir: URL = {
-    let directoryURLs = FileManager.default.urls(for: .documentDirectory,
-                                                 in: .userDomainMask)
-    return directoryURLs.first ?? URL(fileURLWithPath: NSTemporaryDirectory())
-}()
 
 enum Download:TargetType {
     
-    
-    case MV
-    case Image
+    case MV(download:DownloadDestination)
+    case Image(download:DownloadDestination)
 }
 //http://image.chnpec.com/img/photoworkspace/contentimg/2019/05/22/2019052216041434426.jpg
 extension Download {
     var baseURL: URL {
         switch self {
-        case .Image:
+        case .Image(_):
             return URL.init(string: "http://image.chnpec.com/img/photoworkspace/contentimg/2019/05/22/2019052216041434426.jpg")!
-        case .MV:
+        case .MV(_):
             return URL.init(string: "http://113.105.248.47/7/i/z/k/q/izkqgqywhfwpnrtqwmaswobxprggmq/sh.yinyuetai.com/8697016A335B24C07B3A5E52B7AE9EE6.mp4")!
         }
     }
@@ -52,17 +40,18 @@ extension Download {
     
     var task: Task {
         
-        return .downloadDestination(DefaultDownloadDestination)
+        switch self {
+        case .Image(let download):
+            return .downloadDestination(download)
+        case .MV(let download):
+            return .downloadDestination(download)
+        }
         
     }
     
     var headers: [String : String]? {
         return nil
     }
-}
-
-
-extension Download {
-    
     
 }
+

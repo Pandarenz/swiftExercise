@@ -14,6 +14,7 @@
 		043ACF4A22DC682400499653 /* LZNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4922DC682400499653 /* LZNetworkClient.swift */; };
 		043ACF4D22DC727B00499653 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4C22DC727B00499653 /* Download.swift */; };
 		043ACF4F22DC74A000499653 /* DownloadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4E22DC74A000499653 /* DownloadVM.swift */; };
+		043ACF5122DC7B5C00499653 /* DwonloadTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF5022DC7B5C00499653 /* DwonloadTargetType.swift */; };
 		04528AA822D59AFE00D9FD40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528AA722D59AFE00D9FD40 /* AppDelegate.swift */; };
 		04528AAA22D59AFE00D9FD40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528AA922D59AFE00D9FD40 /* ViewController.swift */; };
 		04528AAD22D59AFE00D9FD40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04528AAB22D59AFE00D9FD40 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		043ACF4922DC682400499653 /* LZNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZNetworkClient.swift; sourceTree = "<group>"; };
 		043ACF4C22DC727B00499653 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
 		043ACF4E22DC74A000499653 /* DownloadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVM.swift; sourceTree = "<group>"; };
+		043ACF5022DC7B5C00499653 /* DwonloadTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DwonloadTargetType.swift; sourceTree = "<group>"; };
 		04528AA422D59AFE00D9FD40 /* MoyaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04528AA722D59AFE00D9FD40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04528AA922D59AFE00D9FD40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				04528AED22D73AA600D9FD40 /* LZRequestHandlingPlugin.swift */,
 				043ACF4722DC542000499653 /* TargetType+Extension.swift */,
 				043ACF4922DC682400499653 /* LZNetworkClient.swift */,
+				043ACF5022DC7B5C00499653 /* DwonloadTargetType.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				043ACF4422DC23EC00499653 /* PostAPI.swift in Sources */,
 				043ACF4822DC542000499653 /* TargetType+Extension.swift in Sources */,
 				043ACF4F22DC74A000499653 /* DownloadVM.swift in Sources */,
+				043ACF5122DC7B5C00499653 /* DwonloadTargetType.swift in Sources */,
 				04528ADC22D5D17E00D9FD40 /* LZVip.swift in Sources */,
 				04528ADA22D5D17600D9FD40 /* LZSearch.swift in Sources */,
 				04528AE022D5DC2A00D9FD40 /* LZVipVM.swift in Sources */,
