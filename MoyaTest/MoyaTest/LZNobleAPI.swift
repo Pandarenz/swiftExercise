@@ -10,6 +10,8 @@ import Foundation
 
 import Moya
 
+let nobleProvider = MoyaProvider<LZNoble>.init(plugins: [RequestHandlingPlugin]())
+
 class LZNobleAPI {
     
     let provider = MoyaProvider<LZNoble>.init( plugins: [RequestHandlingPlugin()])
@@ -59,3 +61,6 @@ extension LZNoble :TargetType {
 
 
 
+extension LZNoble {
+    
+}

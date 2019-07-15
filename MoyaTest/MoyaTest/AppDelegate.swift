@@ -8,14 +8,26 @@
 
 import UIKit
 
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+//    lazy var config: Configuration = {
+//        let conf = LZNetworking.Configuration.default
+//        conf.addingHeaders = {target in
+//            return ["ssss":"wwwwww"]
+//        }
+//        return conf
+//    }()
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         return true
     }
 

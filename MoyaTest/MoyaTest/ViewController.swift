@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     
     let nobleVM = LZNobleVM.init()
     
+    let post = PostVM.init()
+    
+    
+    let download = DownloadVM()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,11 @@ class ViewController: UIViewController {
         searchVM.getRelativeData()
         
         nobleVM.getNobleList(roomid: "2241427", pageIdx: 1)
+        
+        
+        post.getPost()
+        
+        download.startDownload()
         
     }
 

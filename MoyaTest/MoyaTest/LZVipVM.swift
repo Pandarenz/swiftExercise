@@ -26,14 +26,27 @@ class LZVipVM {
 //        }
 //
 //        request?.cancel()
-        LZNetworking.default.provider.request(MultiTarget(LZVip.vipList), model: LZVipModel.self, success: { (model) in
+//        vip.request(LZVip.vipList, model: LZVipModel.self, success: { (model) in
+//            if let m = model as? LZVipModel {
+//                print(m.data?.message)
+//            } else {
+//                print("数据解析失败")
+//            }
+//        }) { (error) in
+//            print(error.debugDescription)
+//        }
+        LZVip.vipList.request(model: LZVipModel.self, success: { (model) in
             if let m = model as? LZVipModel {
-                print(m.data?.message)
-            }
+                    print("vip \n")
+                    print(m.data?.message)
+                } else {
+                print("vip \n")
+                print("数据解析失败")
+                }
         }) { (error) in
+            print("vip \n")
             print(error.debugDescription)
         }
-        
     }
     
 }

@@ -10,6 +10,7 @@ import Foundation
 
 import Moya
 
+let vip = MoyaProvider<LZVip>.init( plugins: [RequestHandlingPlugin]())
 // MARK: VIP 模块
 
 enum LZVip {

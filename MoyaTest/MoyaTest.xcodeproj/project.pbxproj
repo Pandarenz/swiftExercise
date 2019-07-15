@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043ACF4222DC232F00499653 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4122DC232F00499653 /* PostModel.swift */; };
+		043ACF4422DC23EC00499653 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4322DC23EC00499653 /* PostAPI.swift */; };
+		043ACF4622DC23F700499653 /* PostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4522DC23F700499653 /* PostVM.swift */; };
+		043ACF4822DC542000499653 /* TargetType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4722DC542000499653 /* TargetType+Extension.swift */; };
+		043ACF4A22DC682400499653 /* LZNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4922DC682400499653 /* LZNetworkClient.swift */; };
+		043ACF4D22DC727B00499653 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4C22DC727B00499653 /* Download.swift */; };
+		043ACF4F22DC74A000499653 /* DownloadVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4E22DC74A000499653 /* DownloadVM.swift */; };
 		04528AA822D59AFE00D9FD40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528AA722D59AFE00D9FD40 /* AppDelegate.swift */; };
 		04528AAA22D59AFE00D9FD40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04528AA922D59AFE00D9FD40 /* ViewController.swift */; };
 		04528AAD22D59AFE00D9FD40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04528AAB22D59AFE00D9FD40 /* Main.storyboard */; };
@@ -49,6 +56,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043ACF4122DC232F00499653 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		043ACF4322DC23EC00499653 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
+		043ACF4522DC23F700499653 /* PostVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVM.swift; sourceTree = "<group>"; };
+		043ACF4722DC542000499653 /* TargetType+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetType+Extension.swift"; sourceTree = "<group>"; };
+		043ACF4922DC682400499653 /* LZNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZNetworkClient.swift; sourceTree = "<group>"; };
+		043ACF4C22DC727B00499653 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		043ACF4E22DC74A000499653 /* DownloadVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadVM.swift; sourceTree = "<group>"; };
 		04528AA422D59AFE00D9FD40 /* MoyaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04528AA722D59AFE00D9FD40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04528AA922D59AFE00D9FD40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +127,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043ACF4022DC231000499653 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				043ACF4122DC232F00499653 /* PostModel.swift */,
+				043ACF4322DC23EC00499653 /* PostAPI.swift */,
+				043ACF4522DC23F700499653 /* PostVM.swift */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		043ACF4B22DC726800499653 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				043ACF4C22DC727B00499653 /* Download.swift */,
+				043ACF4E22DC74A000499653 /* DownloadVM.swift */,
+			);
+			name = Download;
+			sourceTree = "<group>";
+		};
 		04528A9B22D59AFE00D9FD40 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +171,8 @@
 		04528AA622D59AFE00D9FD40 /* MoyaTest */ = {
 			isa = PBXGroup;
 			children = (
+				043ACF4B22DC726800499653 /* Download */,
+				043ACF4022DC231000499653 /* Post */,
 				04528AEF22D73FC200D9FD40 /* Noble */,
 				04528AE422D5DC9300D9FD40 /* Vip */,
 				04528AE322D5DC8300D9FD40 /* Network */,
@@ -186,6 +221,8 @@
 				04528AD522D5D10D00D9FD40 /* LZNetworking.swift */,
 				04528AE922D73A4A00D9FD40 /* URLRequest+AddCommon.swift */,
 				04528AED22D73AA600D9FD40 /* LZRequestHandlingPlugin.swift */,
+				043ACF4722DC542000499653 /* TargetType+Extension.swift */,
+				043ACF4922DC682400499653 /* LZNetworkClient.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -455,12 +492,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				04528AEE22D73AA600D9FD40 /* LZRequestHandlingPlugin.swift in Sources */,
+				043ACF4622DC23F700499653 /* PostVM.swift in Sources */,
+				043ACF4222DC232F00499653 /* PostModel.swift in Sources */,
 				04528ADE22D5DC1E00D9FD40 /* LZSearchVM.swift in Sources */,
 				04528AE622D5DCA700D9FD40 /* LZVipModel.swift in Sources */,
 				04528AEA22D73A4A00D9FD40 /* URLRequest+AddCommon.swift in Sources */,
 				04528AAA22D59AFE00D9FD40 /* ViewController.swift in Sources */,
 				04528AE822D5DCB300D9FD40 /* LZSearchModel.swift in Sources */,
 				04528AF322D73FFF00D9FD40 /* LZNobleVM.swift in Sources */,
+				043ACF4D22DC727B00499653 /* Download.swift in Sources */,
+				043ACF4A22DC682400499653 /* LZNetworkClient.swift in Sources */,
+				043ACF4422DC23EC00499653 /* PostAPI.swift in Sources */,
+				043ACF4822DC542000499653 /* TargetType+Extension.swift in Sources */,
+				043ACF4F22DC74A000499653 /* DownloadVM.swift in Sources */,
 				04528ADC22D5D17E00D9FD40 /* LZVip.swift in Sources */,
 				04528ADA22D5D17600D9FD40 /* LZSearch.swift in Sources */,
 				04528AE022D5DC2A00D9FD40 /* LZVipVM.swift in Sources */,
