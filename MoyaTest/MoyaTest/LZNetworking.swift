@@ -57,7 +57,7 @@ public class Configuration {
     
     public var timeoutInterval: TimeInterval = 15
     
-    public var plugins: [PluginType] = []
+    public var plugins: [PluginType] = [RequestHandlingPlugin()]
     
     public init() {}
 }
@@ -67,14 +67,14 @@ extension LZNetworking {
     
  
     
-    @discardableResult
-    open func request<T: Codable>(_ target: MultiTarget,
-                                  model: T.Type,
-                                  success: @escaping Success,
-                                  failure:@escaping Failure) -> Cancellable? {
-        
-        return custom.request(target, model: model, success: success, failure: failure)
-    }
+//    @discardableResult
+//    open func request<T: Codable>(_ target: MultiTarget,
+//                                  model: T.Type,
+//                                  success: @escaping Success,
+//                                  failure:@escaping Failure) -> Cancellable? {
+//
+//        return custom.request(target, model: model, success: success, failure: failure)
+//    }
     
     @discardableResult
     open func request<T: Codable>(_ target: TargetType,
