@@ -13,12 +13,12 @@ import Foundation
 class PostVM {
     
     func getPost() {
-        LZNetworking().request(PostAPI.post, model: [PostModel].self, success: { (model) in
-            if let m = model as? [PostModel] {
-                print(m)
-            }
-        }) { (error) in
-            print(error.debugDescription)
-        }
+//        LZNetworking().request(PostAPI.post, model: [PostModel].self, success: { (model) in
+//            if let m = model as? [PostModel] {
+//                print(m)
+//            }
+//        }) { (error) in
+//            print(error.debugDescription)
+//        }
     }
 }

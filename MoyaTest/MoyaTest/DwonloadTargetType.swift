@@ -13,6 +13,9 @@ import Moya
 //private let DefaultDownloadDestination: DownloadDestination = { temporaryURL, response in
 //    return (DefaultDownloadDir.appendingPathComponent(response.suggestedFilename!), [])
 //}
+
+typealias DownloadTargetType = DownloadTarget & TargetType & Codable
+
 public protocol DownloadTarget {
     
     var downloadDir: URL { get }
@@ -29,3 +32,6 @@ public extension DownloadTarget {
     }
     
 }
+
+
+

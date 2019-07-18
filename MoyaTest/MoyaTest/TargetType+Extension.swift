@@ -18,5 +18,12 @@ extension TargetType {
                             failure:@escaping Failure) -> Cancellable? {
         return LZNetworking.default.request(MultiTarget.init(self), model: model, success: success, failure: failure)
     }
+    
+    @discardableResult
+    public func requestCleanJson<T: Codable>(model: T.Type,
+                                    success: @escaping Success,
+                                    failure:@escaping Failure) -> Cancellable? {
+        return LZNetworking.default.requestCleanJson(MultiTarget.init(self), model: model, success: success, failure: failure)
+    }
 }
 

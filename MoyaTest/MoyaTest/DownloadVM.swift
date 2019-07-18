@@ -35,6 +35,7 @@ class DownloadVM {
         provider.request(Download.Image(download: DefaultDownloadDestination)) { (result) in
             switch result {
             case .success(let value):
+                
                 let localLocation: URL = DefaultDownloadDir.appendingPathComponent(saveName)
                 let image = UIImage(contentsOfFile: localLocation.path)
                 print("下载完毕！保存地址：\(localLocation)")

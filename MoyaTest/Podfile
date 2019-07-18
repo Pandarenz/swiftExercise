@@ -6,6 +6,7 @@ target 'MoyaTest' do
   use_frameworks!
   pod 'Moya'
   pod 'Codextended'
+  pod 'CleanJSON'
   # Pods for MoyaTest
 
   target 'MoyaTestTests' do

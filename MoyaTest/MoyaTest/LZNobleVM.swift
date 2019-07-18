@@ -30,8 +30,8 @@ class LZNobleVM {
 //        }) { (error) in
 //             print("守护失败：\(error.debugDescription)")
 //        }
-        
-        LZNoble.list(roomid: roomid, pageIdx: pageIdx).request(model: Root.self, success: { (rootModel) in
+        //
+        LZNoble.list(roomid: roomid, pageIdx: pageIdx).requestCleanJson(model: Root.self, success: { (rootModel) in
             if let root = rootModel as? Root {
                 print("守护请求成功: \(root.items?.first?.userName ?? "failure")")
             }

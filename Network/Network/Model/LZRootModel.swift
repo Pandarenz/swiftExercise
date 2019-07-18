@@ -52,7 +52,7 @@ struct Item:Codable {
 
 struct LZSportVipInfo:Codable {
     
-    var customType:Int = 0
+    var customType:String = "0" // 类型错了 应该是Int = 0 主要测试在系统的Codable在类型错误的时候是否能成功
     var expire:TimeInterval = 0
     var sort:Int = 0
     

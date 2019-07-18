@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04193C1722E061F100D5CB91 /* MoyaProvider+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04193C1622E061F100D5CB91 /* MoyaProvider+Init.swift */; };
+		04193C1922E07A3C00D5CB91 /* Response+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04193C1822E07A3C00D5CB91 /* Response+Codable.swift */; };
+		04193C1B22E07FDE00D5CB91 /* CodableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04193C1A22E07FDE00D5CB91 /* CodableError.swift */; };
 		043ACF4222DC232F00499653 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4122DC232F00499653 /* PostModel.swift */; };
 		043ACF4422DC23EC00499653 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4322DC23EC00499653 /* PostAPI.swift */; };
 		043ACF4622DC23F700499653 /* PostVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ACF4522DC23F700499653 /* PostVM.swift */; };
@@ -57,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04193C1622E061F100D5CB91 /* MoyaProvider+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Init.swift"; sourceTree = "<group>"; };
+		04193C1822E07A3C00D5CB91 /* Response+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+Codable.swift"; sourceTree = "<group>"; };
+		04193C1A22E07FDE00D5CB91 /* CodableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableError.swift; sourceTree = "<group>"; };
 		043ACF4122DC232F00499653 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		043ACF4322DC23EC00499653 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		043ACF4522DC23F700499653 /* PostVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVM.swift; sourceTree = "<group>"; };
@@ -226,6 +232,9 @@
 				043ACF4722DC542000499653 /* TargetType+Extension.swift */,
 				043ACF4922DC682400499653 /* LZNetworkClient.swift */,
 				043ACF5022DC7B5C00499653 /* DwonloadTargetType.swift */,
+				04193C1622E061F100D5CB91 /* MoyaProvider+Init.swift */,
+				04193C1822E07A3C00D5CB91 /* Response+Codable.swift */,
+				04193C1A22E07FDE00D5CB91 /* CodableError.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -494,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04193C1722E061F100D5CB91 /* MoyaProvider+Init.swift in Sources */,
 				04528AEE22D73AA600D9FD40 /* LZRequestHandlingPlugin.swift in Sources */,
 				043ACF4622DC23F700499653 /* PostVM.swift in Sources */,
 				043ACF4222DC232F00499653 /* PostModel.swift in Sources */,
@@ -514,6 +524,8 @@
 				04528AE022D5DC2A00D9FD40 /* LZVipVM.swift in Sources */,
 				04528AD622D5D10D00D9FD40 /* LZNetworking.swift in Sources */,
 				04528AF522D7401100D9FD40 /* LZNobleAPI.swift in Sources */,
+				04193C1922E07A3C00D5CB91 /* Response+Codable.swift in Sources */,
+				04193C1B22E07FDE00D5CB91 /* CodableError.swift in Sources */,
 				04528AA822D59AFE00D9FD40 /* AppDelegate.swift in Sources */,
 				04528AF122D73FD500D9FD40 /* LZRootModel.swift in Sources */,
 			);
