@@ -14,35 +14,16 @@ import Moya
 
 
 class LZVipVM {
-    
-    init() {
-        
-        
-    }
-    
-//    var request<T:Cancellable> = T()
+    // 主要为了取消一个request: request?.cancel()
+    private var request:Cancellable?
     
     
     func getVipData() {
-//      let request = LZNetworking.default.provider.request(MultiTarget(LZVip.vipList), model: LZVipModel.self) { (model,error) in
-//            print(model?.data?.message)
-//            print(error.debugDescription)
-//        }
-//
-//        request?.cancel()
-//        vip.request(LZVip.vipList, model: LZVipModel.self, success: { (model) in
-//            if let m = model as? LZVipModel {
-//                print(m.data?.message)
-//            } else {
-//                print("数据解析失败")
-//            }
-//        }) { (error) in
-//            print(error.debugDescription)
-//        }
-        LZVip.vipList.request(model: LZVipModel.self, success: { (model) in
+        
+        request = LZVip.vipList.request(model: LZVipModel.self, success: { (model) in
             if let m = model as? LZVipModel {
                     print("vip \n")
-                    print(m.data?.message)
+                    print(m.data?.returnData as Any)
                 } else {
                 print("vip \n")
                 print("数据解析失败")
@@ -50,7 +31,8 @@ class LZVipVM {
         }) { (error) in
             print("vip \n")
             print(error.debugDescription)
-        }
+            }
+        
     }
     
 }
