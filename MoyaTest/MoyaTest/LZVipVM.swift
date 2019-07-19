@@ -23,7 +23,7 @@ class LZVipVM {
         request = LZVip.vipList.request(model: LZVipModel.self, success: { (model) in
             if let m = model as? LZVipModel {
                     print("vip \n")
-                    print(m.data?.returnData as Any)
+                    print(m.data?.returnData?.newVipList?.count as Any)
                 } else {
                 print("vip \n")
                 print("数据解析失败")
