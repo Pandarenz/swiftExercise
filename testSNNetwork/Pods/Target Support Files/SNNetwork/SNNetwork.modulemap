@@ -1,0 +1,6 @@
+framework module SNNetwork {
+  umbrella header "SNNetwork-umbrella.h"
+
+  export *
+  module * { export * }
+}
