@@ -12,40 +12,13 @@ import Moya
 
 extension URLRequest {
     
-    /// 全局公共参数
-    public var commonParams: [String: Any] {
-        return [
-            "device" : "ios"
-        ]
-    }
-    
-    /// 默认请求头
-    public var commonHeaderFields: [String : String] {
-        
-        return [
-            "access_token" : "******11"
-        ]
-    }
-    
-    public mutating func addCommonHeader(header:[String:String],commonParams:[String:Any]) ->URLRequest {
-        
-        let newHeaderFields = (allHTTPHeaderFields ?? [:]).merging(header) { (current, _) in current }
-        allHTTPHeaderFields = newHeaderFields
+    public mutating func appendCommonParams(commonParams:[String:Any]) -> URLRequest {
         let request = try? encoded(parameters: commonParams, parameterEncoding: URLEncoding(destination: .queryString))
-        assert(request != nil, "append common params failed, please check common params value")
+        assert(request != nil, "SNNetwork URLRequest append common params failed, please check common params value")
         return request!
     }
     
-    
-    mutating func appendCommonParams() -> URLRequest {
-        let newHeaderFields = (allHTTPHeaderFields ?? [:]).merging(commonHeaderFields) { (current, _) in current }
-        allHTTPHeaderFields = newHeaderFields
-        let request = try? encoded(parameters: commonParams, parameterEncoding: URLEncoding(destination: .queryString))
-        assert(request != nil, "append common params failed, please check common params value")
-        return request!
-    }
-    
-    func encoded(parameters: [String: Any], parameterEncoding: ParameterEncoding) throws -> URLRequest {
+    private func encoded(parameters: [String: Any], parameterEncoding: ParameterEncoding) throws -> URLRequest {
         do {
             return try parameterEncoding.encode(self, with: parameters)
         } catch {

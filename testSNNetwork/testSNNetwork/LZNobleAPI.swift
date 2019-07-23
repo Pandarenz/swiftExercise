@@ -11,15 +11,7 @@ import Foundation
 import Moya
 
 import SNNetwork
-
-let nobleProvider = MoyaProvider<LZNoble>.init(plugins: [RequestHandlingPlugin]())
-
-class LZNobleAPI {
-    
-   public let provider = MoyaProvider<LZNoble>.init( plugins: [RequestHandlingPlugin()])
-
-}
-
+ 
 enum LZNoble {
     case list( roomid:String, pageIdx:Int )
 }

@@ -7,12 +7,12 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
   - Result (4.1.0)
-  - SNNetwork (0.0.4):
+  - SNNetwork (0.0.5):
     - CleanJSON (~> 0.9.3)
     - Moya (~> 13.0.1)
 
 DEPENDENCIES:
-  - SNNetwork (~> 0.0.4)
+  - SNNetwork (~> 0.0.5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -28,8 +28,8 @@ SPEC CHECKSUMS:
   CleanJSON: e7e3950845b522326790ae0b114bc98102a33456
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  SNNetwork: 8f31332ee63927d047c255512128fe51cbc00ce7
+  SNNetwork: 385562e2dd089f50db601109ed8d1db5d1c33865
 
-PODFILE CHECKSUM: 9ae5e47e21196bace3b2c8dd7a165d7956f79c88
+PODFILE CHECKSUM: fe759fd5202c5fedf3be3eea1fdba2284021cbeb
 
 COCOAPODS: 1.7.5

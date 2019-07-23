@@ -12,11 +12,11 @@ import Moya
 
 extension MoyaProvider {
     
-    convenience init(configuration: Configuration) {
+    convenience init(configuration: SNNetworkConfiguration) {
         
         let endpointClosure = { target -> Endpoint in
             MoyaProvider.defaultEndpointMapping(for: target)
-                .adding(newHTTPHeaderFields: configuration.addingHeaders(target))
+                .adding(newHTTPHeaderFields: configuration.commonHeaders(target))
                 .replacing(task: configuration.replacingTask(target))
         }
         
@@ -24,7 +24,10 @@ extension MoyaProvider {
             do {
                 var request = try endpoint.urlRequest()
                 request.timeoutInterval = configuration.timeoutInterval
+               request = request.appendCommonParams(commonParams: configuration.commonParams)
+                request.cachePolicy = configuration.requestCachePolicy
                 closure(.success(request))
+                
             } catch MoyaError.requestMapping(let url) {
                 closure(.failure(.requestMapping(url)))
             } catch MoyaError.parameterEncoding(let error) {

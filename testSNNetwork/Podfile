@@ -6,7 +6,7 @@ source 'https://github.com/JiWuChao/MyPrivatePodSpec.git' #私有仓库地址
 target 'testSNNetwork' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-   pod 'SNNetwork', '~> 0.0.4'
+   pod 'SNNetwork', '~> 0.0.5'
   # Pods for testSNNetwork
 
   target 'testSNNetworkTests' do

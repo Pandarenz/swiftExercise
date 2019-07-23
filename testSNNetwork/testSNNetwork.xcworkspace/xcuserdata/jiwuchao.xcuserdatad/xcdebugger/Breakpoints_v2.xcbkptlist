@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testSNNetwork/LZNobleVM.swift"
-            timestampString = "585488116.949957"
+            timestampString = "585555553.865737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "getNobleList(roomid:pageIdx:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,28 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testSNNetwork/LZNobleVM.swift"
-            timestampString = "585488116.950029"
+            timestampString = "585555553.865858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "getNobleList(roomid:pageIdx:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testSNNetwork/AddDefaultPlugin.swift"
-            timestampString = "585488390.191624"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "prepare(_:target:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,62 +89,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/SNNetwork/SNNetwork/Classes/MoyaProvider+Init.swift"
-            timestampString = "585488162.747757"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "init(configuration:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/SNNetwork/SNNetwork/Classes/MoyaProvider+Init.swift"
-            timestampString = "585488162.74816"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "init(configuration:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Pods/SNNetwork/SNNetwork/Classes/URLRequest+AddCommon.swift"
             timestampString = "585488390.19197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
-            landmarkName = "commonHeaderFields"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/SNNetwork/SNNetwork/Classes/URLRequest+AddCommon.swift"
-            timestampString = "585488390.192369"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "commonParams"
-            landmarkType = "24">
+            landmarkName = "encoded(parameters:parameterEncoding:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in SNNetwork):Foundation.URLRequest.(encoded in _81FB276BB8AC92D54027501556C7A32A)(parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, parameterEncoding: Alamofire.ParameterEncoding) throws -&gt; Foundation.URLRequest"
+                  moduleName = "SNNetwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiwuchao/Documents/MyGit/Swift/swiftExercise/testSNNetwork/Pods/SNNetwork/SNNetwork/Classes/URLRequest+AddCommon.swift"
+                  timestampString = "585555554.5058399"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in SNNetwork):Foundation.URLRequest.(encoded in _81FB276BB8AC92D54027501556C7A32A)(parameters: Swift.Dictionary&lt;Swift.String, Any&gt;, parameterEncoding: Alamofire.ParameterEncoding) throws -&gt; Foundation.URLRequest"
+                  moduleName = "SNNetwork"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiwuchao/Documents/MyGit/Swift/swiftExercise/testSNNetwork/Pods/SNNetwork/SNNetwork/Classes/URLRequest+AddCommon.swift"
+                  timestampString = "585555554.514961"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "480">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
