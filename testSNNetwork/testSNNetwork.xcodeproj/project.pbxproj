@@ -19,6 +19,7 @@
 		041DC93722E5D65900C36C4F /* LZNobleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041DC93522E5D65400C36C4F /* LZNobleAPI.swift */; };
 		041DC93822E5D65900C36C4F /* LZNobleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041DC93622E5D65900C36C4F /* LZNobleVM.swift */; };
 		041DC93922E5D65900C36C4F /* LZRootModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041DC93422E5D64A00C36C4F /* LZRootModel.swift */; };
+		044A486D22E6E95900E4293F /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044A486C22E6E95900E4293F /* NetworkReachability.swift */; };
 		0860D2EB50A0CABB5C1F9207 /* Pods_testSNNetworkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE655D0B86CF08C52E1A41E4 /* Pods_testSNNetworkTests.framework */; };
 		1546D6773AB4E6857F217F8B /* Pods_testSNNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74119A7EE6F03155F7F6BCE1 /* Pods_testSNNetwork.framework */; };
 		D0977E251BD63447A629BCDB /* Pods_testSNNetworkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20F04AA4A8024A7F290E8D97 /* Pods_testSNNetworkUITests.framework */; };
@@ -60,6 +61,7 @@
 		041DC93422E5D64A00C36C4F /* LZRootModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZRootModel.swift; sourceTree = "<group>"; };
 		041DC93522E5D65400C36C4F /* LZNobleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZNobleAPI.swift; sourceTree = "<group>"; };
 		041DC93622E5D65900C36C4F /* LZNobleVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZNobleVM.swift; sourceTree = "<group>"; };
+		044A486C22E6E95900E4293F /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		0FEDEE7007302370C206EAF6 /* Pods-testSNNetworkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testSNNetworkUITests.debug.xcconfig"; path = "Target Support Files/Pods-testSNNetworkUITests/Pods-testSNNetworkUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		20F04AA4A8024A7F290E8D97 /* Pods_testSNNetworkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testSNNetworkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42429576D1C88D7ECDEA9664 /* Pods-testSNNetworkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testSNNetworkTests.debug.xcconfig"; path = "Target Support Files/Pods-testSNNetworkTests/Pods-testSNNetworkTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				041DC90C22E5CC5600C36C4F /* Info.plist */,
 				041DC92E22E5CE0D00C36C4F /* LZNetClient.swift */,
 				041DC93222E5D31E00C36C4F /* AddDefaultPlugin.swift */,
+				044A486C22E6E95900E4293F /* NetworkReachability.swift */,
 			);
 			path = testSNNetwork;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				041DC93922E5D65900C36C4F /* LZRootModel.swift in Sources */,
 				041DC90122E5CC5400C36C4F /* AppDelegate.swift in Sources */,
 				041DC93722E5D65900C36C4F /* LZNobleAPI.swift in Sources */,
+				044A486D22E6E95900E4293F /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
