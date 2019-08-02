@@ -23,6 +23,9 @@ class RouterManager {
     
     public static let manager = RouterManager.init()
     
+    private let routers = Router<[String:Any]>(scheme: "SNRouter")
+    
+    
     private let router = Router<User>(scheme: "foobar")
     
     func register() {
@@ -40,11 +43,31 @@ class RouterManager {
                 return true
             })
             ])
+        
+        
     }
     
+    func registers()  {
+        routers.register ([
+            ("://fine", { context in
+                let userInfo:[String:Any] = context.userInfo
+                print(userInfo)
+                return true
+            })
+            ])
+    }
+    
+    
     func openTestVC() {
+        
         router.openIfPossible(URL.init(string: "foobar://pokemons")!, userInfo: User.init(name: "ceshi"))
         router.openIfPossible(URL.init(string: "foobar://pokemons/jsjjs?name=zhangsan")!, userInfo: User.init(name: "ceshi"))
+        
+        
+    }
+    
+    func open() {
+        routers.openIfPossible(URL.init(string: "fine")!, userInfo: ["userName":"zhangsan"])
     }
     
 }

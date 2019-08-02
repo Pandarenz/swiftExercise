@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         RouterManager.manager.register()
-        
+        RouterManager.manager.registers()
         
         return true
     }

@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 
     @IBAction func BtnAction(_ sender: Any) {
         RouterManager.manager.openTestVC()
+        RouterManager.manager.open()
     }
 }
 
