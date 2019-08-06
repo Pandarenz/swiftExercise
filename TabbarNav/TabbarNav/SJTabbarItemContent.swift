@@ -18,7 +18,7 @@ public enum SJTabbarItemContentMode : Int {
 
 open class SJTabbarItemContent: UIView {
 
-    // MARK: - PROPERTY SETTING
+    // MARK: -  属性设置
     
     /// 设置contentView的偏移
     open var insets = UIEdgeInsets.zero
@@ -42,35 +42,45 @@ open class SJTabbarItemContent: UIView {
     /// 高亮时文字颜色
     open var highlightTextColor = UIColor(red: 0.0, green: 0.47843137, blue: 1.0, alpha: 1.0) {
         didSet {
-            if selected { titleLabel.textColor = highlightIconColor }
+            if selected {
+                titleLabel.textColor = highlightIconColor
+            }
         }
     }
     
     /// icon颜色
     open var iconColor = UIColor(white: 0.57254902, alpha: 1.0) {
         didSet {
-            if !selected { imageView.tintColor = iconColor }
+            if !selected {
+                imageView.tintColor = iconColor
+            }
         }
     }
     
     /// 高亮时icon颜色
     open var highlightIconColor = UIColor(red: 0.0, green: 0.47843137, blue: 1.0, alpha: 1.0) {
         didSet {
-            if selected { imageView.tintColor = highlightIconColor }
+            if selected {
+                imageView.tintColor = highlightIconColor
+            }
         }
     }
     
     /// 背景颜色
     open var backdropColor = UIColor.clear {
         didSet {
-            if !selected { backgroundColor = backdropColor }
+            if !selected {
+                backgroundColor = backdropColor
+            }
         }
     }
     
     /// 高亮时背景颜色
     open var highlightBackdropColor = UIColor.clear {
         didSet {
-            if selected { backgroundColor = highlightBackdropColor }
+            if selected {
+                backgroundColor = highlightBackdropColor
+            }
         }
     }
     
@@ -98,13 +108,17 @@ open class SJTabbarItemContent: UIView {
     /// Icon imageView's image
     open var image: UIImage? {
         didSet {
-            if !selected { self.updateDisplay() }
+            if !selected {
+                self.updateDisplay()
+            }
         }
     }
     
     open var selectedImage: UIImage? {
         didSet {
-            if selected { self.updateDisplay() }
+            if selected {
+                self.updateDisplay()
+            }
         }
     }
     
@@ -160,6 +174,7 @@ open class SJTabbarItemContent: UIView {
             var f: CGFloat = 0.0 // font
             var isLandscape = false
             if let keyWindow = UIApplication.shared.keyWindow {
+                // 是横屏
                 isLandscape = keyWindow.bounds.width > keyWindow.bounds.height
             }
             let isWide = isLandscape || traitCollection.horizontalSizeClass == .regular // is landscape or regular

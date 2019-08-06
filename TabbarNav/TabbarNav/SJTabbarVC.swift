@@ -8,24 +8,13 @@
 
 import UIKit
 /// 是否需要自定义点击事件回调类型
-public typealias ESTabBarControllerShouldHijackHandler = ((_ tabBarController: UITabBarController, _ viewController: UIViewController, _ index: Int) -> (Bool))
+public typealias SJTabBarVCShouldHijackHandler = ((_ tabBarController: UITabBarController, _ viewController: UIViewController, _ index: Int) -> (Bool))
 /// 自定义点击事件回调类型
-public typealias ESTabBarControllerDidHijackHandler = ((_ tabBarController: UITabBarController, _ viewController: UIViewController, _ index: Int) -> (Void))
+public typealias SJTabBarVCDidHijackHandler = ((_ tabBarController: UITabBarController, _ viewController: UIViewController, _ index: Int) -> (Void))
 
 
 class SJTabbarVC: UITabBarController,SJTabBarDelegate {
   
-    
-    
-    
-    
-     lazy var centerBtn: UIButton = {
-        let btn = UIButton.init()
-            btn.setImage(UIImage.init(named: "photo_verybig"), for: UIControl.State.normal)
-            btn.setImage(UIImage.init(named: "photo_verybig"), for: UIControl.State.selected)
-        return btn
-    }()
-    
     
     lazy var navHome: SJNavVC = {
         let h = SJHomeVC()
@@ -64,9 +53,9 @@ class SJTabbarVC: UITabBarController,SJTabBarDelegate {
     fileprivate var ignoreNextSelection = false
     
     /// Should hijack select action or not.
-    open var shouldHijackHandler: ESTabBarControllerShouldHijackHandler?
+    open var shouldHijackHandler: SJTabBarVCShouldHijackHandler?
     /// Hijack select action.
-    open var didHijackHandler: ESTabBarControllerDidHijackHandler?
+    open var didHijackHandler: SJTabBarVCDidHijackHandler?
     
     /// Observer tabBarController's selectedViewController. change its selection when it will-set.
     open override var selectedViewController: UIViewController? {
@@ -116,31 +105,13 @@ class SJTabbarVC: UITabBarController,SJTabBarDelegate {
         }()
         self.setValue(tabBar, forKey: "tabBar")
         
-//        self.tabBar.shadowImage = UIImage(named: "transparent")
-//        self.tabBar.backgroundImage = UIImage(named: "background_dark")
-//
-//
-//        self.viewControllers = [navHome,navPK,navTemp,navGuanzhu,navMine]
-//        self.tabBar.addSubview(centerBtn)
-//        let count = CGFloat(children.count)
-//        let weight = tabBar.bounds.width / count - 1
-//        //insetBy oc 是 CGRectInset
-//        centerBtn.frame = tabBar.bounds.insetBy(dx: 2 * weight, dy: 0)
-//        centerBtn.addTarget(self, action: #selector(composeBtnAction) , for: .touchUpInside)
     }
     
-   @objc func composeBtnAction()  {
-        print("center clicked")
-    }
+   
     
     // MARK: - UITabBar delegate
     open override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         guard let idx = tabBar.items?.firstIndex(of: item) else {
-            return;
-        }
-        if idx == tabBar.items!.count - 1 {
-            ignoreNextSelection = true
-//            selectedViewController = moreNavigationController
             return;
         }
         if let vc = viewControllers?[idx] {

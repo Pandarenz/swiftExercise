@@ -24,7 +24,7 @@ open class SJTabBarItem: UITabBarItem {
         }
     }
     
-    // MARK: UITabBarItem properties
+     
     open override var selectedImage: UIImage? // default is nil
         {
         didSet {

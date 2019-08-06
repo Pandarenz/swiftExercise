@@ -89,11 +89,7 @@ class SJTabBar: UITabBar {
     internal var containers = [SJTabbarItemContainer]()
     /// 缓存当前tabBarController用来判断是否存在"More"Tab
     internal weak var tabBarController: UITabBarController?
-//    /// 自定义'More'按钮样式，继承自ESTabBarItemContentView
-//    open var moreContentView: SJTabBarItemContentView? = SJTabBarItemMoreContentView.init() {
-//        didSet { self.reload() }
-//    }
-    
+
     open override var items: [UITabBarItem]? {
         didSet {
             self.reload()
@@ -112,16 +108,16 @@ class SJTabBar: UITabBar {
         super.setItems(items, animated: animated)
         self.reload()
     }
-    
-    open override func beginCustomizingItems(_ items: [UITabBarItem]) {
-//        SJTabBarController.printError("beginCustomizingItems(_:) is unsupported in ESTabBar.")
-        super.beginCustomizingItems(items)
-    }
-    
-    open override func endCustomizing(animated: Bool) -> Bool {
-//        ESTabBarController.printError("endCustomizing(_:) is unsupported in ESTabBar.")
-        return super.endCustomizing(animated: animated)
-    }
+//    
+//    open override func beginCustomizingItems(_ items: [UITabBarItem]) {
+////        SJTabBarController.printError("beginCustomizingItems(_:) is unsupported in ESTabBar.")
+//        super.beginCustomizingItems(items)
+//    }
+//    
+//    open override func endCustomizing(animated: Bool) -> Bool {
+////        ESTabBarController.printError("endCustomizing(_:) is unsupported in ESTabBar.")
+//        return super.endCustomizing(animated: animated)
+//    }
     
     open override func layoutSubviews() {
         super.layoutSubviews()
@@ -346,9 +342,6 @@ extension SJTabBar {
                 if let currentItem = items?[currentIndex] as? SJTabBarItem {
                     currentItem.contentView?.deselect(animated: animated, completion: nil)
                 }
-//                else if self.isMoreItem(currentIndex) {
-//                    moreContentView?.deselect(animated: animated, completion: nil)
-//                }
             }
             if let item = item as? SJTabBarItem {
                 item.contentView?.select(animated: animated, completion: nil)
