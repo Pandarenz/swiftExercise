@@ -3,33 +3,47 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05AA1409DFF38D4D5ED16C31C18DEDAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		119DA9A7AA9727C58441459B172EB446 /* Crossroad-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4FB82B2827442297B2311E6129BE41A /* Crossroad-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1FDDF35B365A47672FACE0774899DBA6 /* Extractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0923290486626FB3A1EE4845E4D68C34 /* Extractable.swift */; };
+		05AA1409DFF38D4D5ED16C31C18DEDAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		0CC89B1E2BEE3DE6274634444D79BE95 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A958795771977D96793B887EED9AF09 /* Navigator.swift */; };
+		119DA9A7AA9727C58441459B172EB446 /* Crossroad-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3278824589E2302C97EB718C4E23FBFF /* Crossroad-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FDDF35B365A47672FACE0774899DBA6 /* Extractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36DECB71AE9B6FE8B7C6AB286A75CB3 /* Extractable.swift */; };
+		21D3E8F1914D54F8351FBBCD42307AEA /* URLNavigator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D084CD3E12976365C8FCFE5371244CCE /* URLNavigator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		234CB105C84D0D4657AAF60BA44B1A86 /* Pods-testCrossroadTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4FE6775EA610D5956BD04935444AA2 /* Pods-testCrossroadTests-dummy.m */; };
+		288C6116D1824D2849710B9CECC660D2 /* URLPathComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C8231B1D343ECF2583A3EDB47EA941 /* URLPathComponent.swift */; };
 		364023AE1134B11DF2C89689832BEAE8 /* Pods-testCrossroadUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8110F651806C1544F837F60B0DD0BE /* Pods-testCrossroadUITests-dummy.m */; };
-		3EE873BD7EFEEDE6B17A99D170ECFF8E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942B00850B4FBA640038C543B9065D58 /* Route.swift */; };
-		56043BE25A2705B2151479C23CCC6276 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		5A4CAF3FB4451DD5907D67B261E1D372 /* PatternURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB1A08BD0AFB8289FEED8CA1128E5B /* PatternURL.swift */; };
-		5F837B072E2597D03E957BD1B24E3467 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		602BA482F8B54E4C57C6BA8415612B78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		68C5628060768430B1747C9EA1D470B6 /* Pods-testCrossroad-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA99FA2050A05FB23F9DEB33069734F9 /* Pods-testCrossroad-dummy.m */; };
+		3A701C4688C33BCDC0D6DDABE55F6586 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		3EE873BD7EFEEDE6B17A99D170ECFF8E /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A0C689F4F06D32673ACD34D61DC9EF /* Route.swift */; };
+		427418F1B9A7DE1F87E595F70EFAE9CD /* URLPatchComponentMatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B5E529BA4188966A5B51DE4DE33B78 /* URLPatchComponentMatchResult.swift */; };
+		4AB842DAEF99AE9BD3D2F880DF48B05D /* Pods-testCrossroad-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 022FF6446B41A814171650AFB158D63C /* Pods-testCrossroad-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C10ACC8893F433FBBB0E34A0FB3DB7C /* UIViewController+TopMostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7AD5FB79FCFA21C926EA9C6BEBF3A6 /* UIViewController+TopMostViewController.swift */; };
+		56043BE25A2705B2151479C23CCC6276 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		5A4CAF3FB4451DD5907D67B261E1D372 /* PatternURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85A2574B2BB818C21AE6DB84EB3B2B5 /* PatternURL.swift */; };
+		5F837B072E2597D03E957BD1B24E3467 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		6685EF638C7A58FA190A6DF8EF2994FE /* URLMatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2E8FDB90F137C12242652C198DA5F5 /* URLMatchResult.swift */; };
+		78D2B91309C32FC0EC1E8BECA5A23D20 /* UIViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2B2CD08FB6DF3B4EB0952F2CE50C0D /* UIViewControllerType.swift */; };
 		7EC0B5D213480D0AD2060BB489681288 /* Pods-testCrossroadTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3603C850322D2DFCDB1C7FC4F396F17D /* Pods-testCrossroadTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		87FB19F8B62E33473E605C2687F77864 /* Crossroad.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DA4525FE349FCB11E9DEA5A810DEFDA /* Crossroad.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8A260D8AD28D3E4C1A8F2CD0935AB0DA /* Pods-testCrossroad-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 022FF6446B41A814171650AFB158D63C /* Pods-testCrossroad-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		94A26EA0703DD9A9A641E397EDE93C51 /* OpenURLOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507F30E6AC9979B6E84E882D07E9B531 /* OpenURLOption.swift */; };
-		A0CF97A367E309E930A473C1B1F05D59 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15913D12541BB9CA81B52067FA1ADD1 /* Context.swift */; };
-		A2656807DE164FDC3F73DF58C74DF039 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D69173191D6E34C277000875A72D1F /* Router.swift */; };
+		87FB19F8B62E33473E605C2687F77864 /* Crossroad.h in Headers */ = {isa = PBXBuildFile; fileRef = E26CD8051240B14DA01B57614BAA3AF9 /* Crossroad.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		94A26EA0703DD9A9A641E397EDE93C51 /* OpenURLOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137D8F419DBB859E82E2838FB332ADAE /* OpenURLOption.swift */; };
+		A0CF97A367E309E930A473C1B1F05D59 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDE4594D70400FAFF21614AB2BDF6BB /* Context.swift */; };
+		A2656807DE164FDC3F73DF58C74DF039 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DE90C85D4A5FD61DA6E16138FEBB39 /* Router.swift */; };
+		B17E2A165749A4EBA554FEDE017078DA /* URLMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1526F9AC884DA7907A81F41F30729ACA /* URLMatcher.swift */; };
+		B44D35AB56B86BCCB6DD29A77C4FD7D8 /* NavigatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF79E4A380A3C31461630F88C9E22B34 /* NavigatorDelegate.swift */; };
+		B99AC1976B55FA861F93A2B2944A9D07 /* NavigatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068C3F5D909B0706CFDD4DB24101EA12 /* NavigatorType.swift */; };
 		C44CC024DAACB830FFD80DA8505DE995 /* Pods-testCrossroadUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4BD8B479FB0545B23CEBC127B8452D /* Pods-testCrossroadUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D77D03021E32EC4B75D984B9157C3B58 /* Crossroad-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1033E436529062D5D3D0E561C93F4401 /* Crossroad-dummy.m */; };
+		CD72063395DFA8720BFD4ACC3B591498 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		D77D03021E32EC4B75D984B9157C3B58 /* Crossroad-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E9FB0D8B131F928CE14B5C6620489C /* Crossroad-dummy.m */; };
+		E740BF65609E3CB8D0FF0DB7FB87BF35 /* URLNavigator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A56F41586B00DFC00EC81B830935DD3C /* URLNavigator-dummy.m */; };
+		F2B3ADD8729D84219932C2EBDA6D87FE /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F0874CB65981ADE020184C5CD21FA2 /* URLConvertible.swift */; };
+		F48EC85F5939955109165723E2210A5A /* Pods-testCrossroad-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA99FA2050A05FB23F9DEB33069734F9 /* Pods-testCrossroad-dummy.m */; };
+		FEAB7251EA6363C90829295C31B20C5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50CA69B996F1D8157EB8041400BF92C7 /* PBXContainerItemProxy */ = {
+		1FA79ACC7FF6523A4DB915B3EDF5C42C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -42,6 +56,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = F7C8755ACF9D8B0F6B6185E2DB7AAF5F;
 			remoteInfo = "Pods-testCrossroad";
+		};
+		A8C133F411553A58A870219D8B87C9B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AEB4A97CEAE5A782BA5E5D6A468A913;
+			remoteInfo = URLNavigator;
 		};
 		FA65BA97939E604B36AD913463E0DC31 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -56,47 +77,65 @@
 		009699F6B5C2AC3EF4BEDE0CF4FBBB15 /* Crossroad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Crossroad.framework; path = Crossroad.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		022FF6446B41A814171650AFB158D63C /* Pods-testCrossroad-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-testCrossroad-umbrella.h"; sourceTree = "<group>"; };
 		0346261AF52AB3EBF8D71C2258597CCA /* Pods-testCrossroadUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-testCrossroadUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0923290486626FB3A1EE4845E4D68C34 /* Extractable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extractable.swift; path = Sources/Crossroad/Extractable.swift; sourceTree = "<group>"; };
+		068C3F5D909B0706CFDD4DB24101EA12 /* NavigatorType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigatorType.swift; path = Sources/URLNavigator/NavigatorType.swift; sourceTree = "<group>"; };
+		06CB43E5656D97910CF4264E766E48C3 /* Crossroad-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Crossroad-Info.plist"; sourceTree = "<group>"; };
 		09EED43284B416F54DCAD87EF6283830 /* Pods-testCrossroadTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-testCrossroadTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1033E436529062D5D3D0E561C93F4401 /* Crossroad-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Crossroad-dummy.m"; sourceTree = "<group>"; };
-		114254E7AD6F2C4967F646F577212ABC /* Crossroad.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Crossroad.modulemap; sourceTree = "<group>"; };
-		13C2863038A21A9E41607FCCA02E4D42 /* Crossroad-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Crossroad-prefix.pch"; sourceTree = "<group>"; };
+		137D8F419DBB859E82E2838FB332ADAE /* OpenURLOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OpenURLOption.swift; path = Sources/Crossroad/OpenURLOption.swift; sourceTree = "<group>"; };
+		1526F9AC884DA7907A81F41F30729ACA /* URLMatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLMatcher.swift; path = Sources/URLMatcher/URLMatcher.swift; sourceTree = "<group>"; };
 		16CC45519B140B25BB92191730D00780 /* Pods-testCrossroad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testCrossroad.debug.xcconfig"; sourceTree = "<group>"; };
+		19DE90C85D4A5FD61DA6E16138FEBB39 /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Sources/Crossroad/Router.swift; sourceTree = "<group>"; };
+		1D946730AF47B1EAABFB4ED189D71CDE /* URLNavigator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URLNavigator.xcconfig; sourceTree = "<group>"; };
 		2B8110F651806C1544F837F60B0DD0BE /* Pods-testCrossroadUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-testCrossroadUITests-dummy.m"; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3278824589E2302C97EB718C4E23FBFF /* Crossroad-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Crossroad-umbrella.h"; sourceTree = "<group>"; };
+		32E9FB0D8B131F928CE14B5C6620489C /* Crossroad-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Crossroad-dummy.m"; sourceTree = "<group>"; };
 		3603C850322D2DFCDB1C7FC4F396F17D /* Pods-testCrossroadTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-testCrossroadTests-umbrella.h"; sourceTree = "<group>"; };
 		3B4FE6775EA610D5956BD04935444AA2 /* Pods-testCrossroadTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-testCrossroadTests-dummy.m"; sourceTree = "<group>"; };
 		3E1FD608171712DA65081D63F83E3262 /* Pods-testCrossroad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testCrossroad.release.xcconfig"; sourceTree = "<group>"; };
+		4173C63C9C2260C59FD9E0AD257A1200 /* URLNavigator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URLNavigator.framework; path = URLNavigator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		45AA0B8E45233B5B4CC22FC2793B518A /* Pods-testCrossroad-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-testCrossroad-acknowledgements.markdown"; sourceTree = "<group>"; };
+		475D8E1B34FE774E6301205DCDB71BEA /* URLNavigator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = URLNavigator.modulemap; sourceTree = "<group>"; };
+		4C7AD5FB79FCFA21C926EA9C6BEBF3A6 /* UIViewController+TopMostViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+TopMostViewController.swift"; path = "Sources/URLNavigator/UIViewController+TopMostViewController.swift"; sourceTree = "<group>"; };
 		4D4BD8B479FB0545B23CEBC127B8452D /* Pods-testCrossroadUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-testCrossroadUITests-umbrella.h"; sourceTree = "<group>"; };
-		4FD5D05CE1361378306C258724AB9F16 /* Crossroad-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Crossroad-Info.plist"; sourceTree = "<group>"; };
-		507F30E6AC9979B6E84E882D07E9B531 /* OpenURLOption.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OpenURLOption.swift; path = Sources/Crossroad/OpenURLOption.swift; sourceTree = "<group>"; };
 		53B0D786415500BEE5B108AA16F486DC /* Pods-testCrossroadUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-testCrossroadUITests-Info.plist"; sourceTree = "<group>"; };
 		57535FD1CCF86A604EA940E8AF31E6A7 /* Pods-testCrossroadUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testCrossroadUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		58D21155EB7CC4E545B229B864F31A43 /* Pods-testCrossroadUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-testCrossroadUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		5C4E5B3ED4D38BC777C3319F031E6B92 /* Pods_testCrossroad.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_testCrossroad.framework; path = "Pods-testCrossroad.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E5AAD53C1B34DCF8349107065976D8F /* Crossroad.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Crossroad.xcconfig; sourceTree = "<group>"; };
+		5FDE4594D70400FAFF21614AB2BDF6BB /* Context.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Context.swift; path = Sources/Crossroad/Context.swift; sourceTree = "<group>"; };
 		653E76D013D75FEFE7911929C038C392 /* Pods-testCrossroadTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-testCrossroadTests-Info.plist"; sourceTree = "<group>"; };
 		656D110FEEE9DEFE195F6085E45F89AB /* Pods-testCrossroadTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testCrossroadTests.debug.xcconfig"; sourceTree = "<group>"; };
-		65D69173191D6E34C277000875A72D1F /* Router.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Router.swift; path = Sources/Crossroad/Router.swift; sourceTree = "<group>"; };
 		6AFFEDB09474934105C9C9CAC82BAC1C /* Pods-testCrossroadTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-testCrossroadTests.modulemap"; sourceTree = "<group>"; };
 		6BD082529163D46440714A43F3CD5568 /* Pods-testCrossroad.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-testCrossroad.modulemap"; sourceTree = "<group>"; };
+		6D7FF8D6826E17358C5FCD4129EC554D /* URLNavigator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URLNavigator-prefix.pch"; sourceTree = "<group>"; };
 		7845BB2529C30912DBFD9434F3384844 /* Pods_testCrossroadUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_testCrossroadUITests.framework; path = "Pods-testCrossroadUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		85357B75E6B80DD6618CA7E4B3CE2797 /* Crossroad-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Crossroad-prefix.pch"; sourceTree = "<group>"; };
+		8A958795771977D96793B887EED9AF09 /* Navigator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Navigator.swift; path = Sources/URLNavigator/Navigator.swift; sourceTree = "<group>"; };
+		8D49CE070FE3EB4BC09A1B5A6FC85174 /* Crossroad.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Crossroad.modulemap; sourceTree = "<group>"; };
 		8FBECC4254773A93E5E1457C1267B013 /* Pods-testCrossroadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testCrossroadTests.release.xcconfig"; sourceTree = "<group>"; };
+		90A0C689F4F06D32673ACD34D61DC9EF /* Route.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Sources/Crossroad/Route.swift; sourceTree = "<group>"; };
 		9258F5B464E4BBD4061E9AEFAB1F4791 /* Pods-testCrossroadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-testCrossroadUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9359613D6FA8D91473E4B2AAC91943B9 /* Pods-testCrossroad-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-testCrossroad-Info.plist"; sourceTree = "<group>"; };
-		942B00850B4FBA640038C543B9065D58 /* Route.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Sources/Crossroad/Route.swift; sourceTree = "<group>"; };
+		9B2E8FDB90F137C12242652C198DA5F5 /* URLMatchResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLMatchResult.swift; path = Sources/URLMatcher/URLMatchResult.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DA4525FE349FCB11E9DEA5A810DEFDA /* Crossroad.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crossroad.h; path = Sources/Crossroad/Crossroad.h; sourceTree = "<group>"; };
-		A15913D12541BB9CA81B52067FA1ADD1 /* Context.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Context.swift; path = Sources/Crossroad/Context.swift; sourceTree = "<group>"; };
-		A4FB82B2827442297B2311E6129BE41A /* Crossroad-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Crossroad-umbrella.h"; sourceTree = "<group>"; };
+		A56F41586B00DFC00EC81B830935DD3C /* URLNavigator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URLNavigator-dummy.m"; sourceTree = "<group>"; };
+		A68B8C49789E318D49864F2FDDC8B66A /* URLNavigator-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "URLNavigator-Info.plist"; sourceTree = "<group>"; };
+		B3B5E529BA4188966A5B51DE4DE33B78 /* URLPatchComponentMatchResult.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLPatchComponentMatchResult.swift; path = Sources/URLMatcher/URLPatchComponentMatchResult.swift; sourceTree = "<group>"; };
 		B96B3BD1394FDB6B2D2CC2914A189D82 /* Pods-testCrossroad-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-testCrossroad-acknowledgements.plist"; sourceTree = "<group>"; };
+		B9C8231B1D343ECF2583A3EDB47EA941 /* URLPathComponent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLPathComponent.swift; path = Sources/URLMatcher/URLPathComponent.swift; sourceTree = "<group>"; };
 		C3A5D0968C90430BCF9C185BF928BEAC /* Pods-testCrossroad-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-testCrossroad-frameworks.sh"; sourceTree = "<group>"; };
 		CA99FA2050A05FB23F9DEB33069734F9 /* Pods-testCrossroad-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-testCrossroad-dummy.m"; sourceTree = "<group>"; };
+		CC2B2CD08FB6DF3B4EB0952F2CE50C0D /* UIViewControllerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewControllerType.swift; path = Sources/URLNavigator/UIViewControllerType.swift; sourceTree = "<group>"; };
+		D084CD3E12976365C8FCFE5371244CCE /* URLNavigator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URLNavigator-umbrella.h"; sourceTree = "<group>"; };
 		D0976C0A418C1EFB8730883BB0AB4C0A /* Pods_testCrossroadTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_testCrossroadTests.framework; path = "Pods-testCrossroadTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D2EC9A788E789A1FFD3FBBB1C79F5C19 /* Crossroad.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Crossroad.xcconfig; sourceTree = "<group>"; };
+		D3F0874CB65981ADE020184C5CD21FA2 /* URLConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLConvertible.swift; path = Sources/URLMatcher/URLConvertible.swift; sourceTree = "<group>"; };
 		D5797A97F0FAB8523C7E0DCA9B0F2A4D /* Pods-testCrossroadUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-testCrossroadUITests.modulemap"; sourceTree = "<group>"; };
+		E26CD8051240B14DA01B57614BAA3AF9 /* Crossroad.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crossroad.h; path = Sources/Crossroad/Crossroad.h; sourceTree = "<group>"; };
 		E3C8DDC282D4535124D3F8E28C319714 /* Pods-testCrossroadTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-testCrossroadTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		F4DB1A08BD0AFB8289FEED8CA1128E5B /* PatternURL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PatternURL.swift; path = Sources/Crossroad/PatternURL.swift; sourceTree = "<group>"; };
+		E85A2574B2BB818C21AE6DB84EB3B2B5 /* PatternURL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PatternURL.swift; path = Sources/Crossroad/PatternURL.swift; sourceTree = "<group>"; };
+		EF79E4A380A3C31461630F88C9E22B34 /* NavigatorDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NavigatorDelegate.swift; path = Sources/URLNavigator/NavigatorDelegate.swift; sourceTree = "<group>"; };
+		F36DECB71AE9B6FE8B7C6AB286A75CB3 /* Extractable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extractable.swift; path = Sources/Crossroad/Extractable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,11 +163,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F5A63BAAD7CA1572DFBE7C62C3A885F4 /* Frameworks */ = {
+		BDF8D92EF54DF8DEDE5E302CF33A36A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				602BA482F8B54E4C57C6BA8415612B78 /* Foundation.framework in Frameworks */,
+				3A701C4688C33BCDC0D6DDABE55F6586 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E780B5A694196FEDC1F6D818618B8A9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FEAB7251EA6363C90829295C31B20C5F /* Foundation.framework in Frameworks */,
+				CD72063395DFA8720BFD4ACC3B591498 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,26 +199,43 @@
 			path = "Target Support Files/Pods-testCrossroadUITests";
 			sourceTree = "<group>";
 		};
-		266993A609AB24D19E4E52B52197CA1A /* Pods */ = {
+		147C7A7E4A226AC120994ED3E5A7EEB7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A30AFE8FA35EC38D0C9D1F335D1A68BB /* Crossroad */,
+				009699F6B5C2AC3EF4BEDE0CF4FBBB15 /* Crossroad.framework */,
+				5C4E5B3ED4D38BC777C3319F031E6B92 /* Pods_testCrossroad.framework */,
+				D0976C0A418C1EFB8730883BB0AB4C0A /* Pods_testCrossroadTests.framework */,
+				7845BB2529C30912DBFD9434F3384844 /* Pods_testCrossroadUITests.framework */,
+				4173C63C9C2260C59FD9E0AD257A1200 /* URLNavigator.framework */,
 			);
-			name = Pods;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		481476D90284B76A079AF6FB3C7F6A82 /* Support Files */ = {
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				114254E7AD6F2C4967F646F577212ABC /* Crossroad.modulemap */,
-				D2EC9A788E789A1FFD3FBBB1C79F5C19 /* Crossroad.xcconfig */,
-				1033E436529062D5D3D0E561C93F4401 /* Crossroad-dummy.m */,
-				4FD5D05CE1361378306C258724AB9F16 /* Crossroad-Info.plist */,
-				13C2863038A21A9E41607FCCA02E4D42 /* Crossroad-prefix.pch */,
-				A4FB82B2827442297B2311E6129BE41A /* Crossroad-umbrella.h */,
+				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/Crossroad";
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D69E380D12B0202FA50E9C36F4703D3 /* URLNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				8A958795771977D96793B887EED9AF09 /* Navigator.swift */,
+				EF79E4A380A3C31461630F88C9E22B34 /* NavigatorDelegate.swift */,
+				068C3F5D909B0706CFDD4DB24101EA12 /* NavigatorType.swift */,
+				4C7AD5FB79FCFA21C926EA9C6BEBF3A6 /* UIViewController+TopMostViewController.swift */,
+				CC2B2CD08FB6DF3B4EB0952F2CE50C0D /* UIViewControllerType.swift */,
+				D3F0874CB65981ADE020184C5CD21FA2 /* URLConvertible.swift */,
+				1526F9AC884DA7907A81F41F30729ACA /* URLMatcher.swift */,
+				9B2E8FDB90F137C12242652C198DA5F5 /* URLMatchResult.swift */,
+				B3B5E529BA4188966A5B51DE4DE33B78 /* URLPatchComponentMatchResult.swift */,
+				B9C8231B1D343ECF2583A3EDB47EA941 /* URLPathComponent.swift */,
+				FC9AB264CF3D9B6BA2A99042C770BD2B /* Support Files */,
+			);
+			name = URLNavigator;
+			path = URLNavigator;
 			sourceTree = "<group>";
 		};
 		53AE15D0219D473487D34FE2B6710EBA /* Pods-testCrossroad */ = {
@@ -190,20 +255,27 @@
 			path = "Target Support Files/Pods-testCrossroad";
 			sourceTree = "<group>";
 		};
-		A30AFE8FA35EC38D0C9D1F335D1A68BB /* Crossroad */ = {
+		9C176D0EAE22D940B7E33A9F2C09AEC8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A15913D12541BB9CA81B52067FA1ADD1 /* Context.swift */,
-				9DA4525FE349FCB11E9DEA5A810DEFDA /* Crossroad.h */,
-				0923290486626FB3A1EE4845E4D68C34 /* Extractable.swift */,
-				507F30E6AC9979B6E84E882D07E9B531 /* OpenURLOption.swift */,
-				F4DB1A08BD0AFB8289FEED8CA1128E5B /* PatternURL.swift */,
-				942B00850B4FBA640038C543B9065D58 /* Route.swift */,
-				65D69173191D6E34C277000875A72D1F /* Router.swift */,
-				481476D90284B76A079AF6FB3C7F6A82 /* Support Files */,
+				8D49CE070FE3EB4BC09A1B5A6FC85174 /* Crossroad.modulemap */,
+				5E5AAD53C1B34DCF8349107065976D8F /* Crossroad.xcconfig */,
+				32E9FB0D8B131F928CE14B5C6620489C /* Crossroad-dummy.m */,
+				06CB43E5656D97910CF4264E766E48C3 /* Crossroad-Info.plist */,
+				85357B75E6B80DD6618CA7E4B3CE2797 /* Crossroad-prefix.pch */,
+				3278824589E2302C97EB718C4E23FBFF /* Crossroad-umbrella.h */,
 			);
-			name = Crossroad;
-			path = Crossroad;
+			name = "Support Files";
+			path = "../Target Support Files/Crossroad";
+			sourceTree = "<group>";
+		};
+		A41BDDF53404548FAF18BDBA5FABEB37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0104B80083DE68DF28706E1D43F80E2 /* Crossroad */,
+				1D69E380D12B0202FA50E9C36F4703D3 /* URLNavigator */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		AF1388EBAC5C472908A44078EE241C4C /* Pods-testCrossroadTests */ = {
@@ -222,31 +294,31 @@
 			path = "Target Support Files/Pods-testCrossroadTests";
 			sourceTree = "<group>";
 		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+		B0104B80083DE68DF28706E1D43F80E2 /* Crossroad */ = {
 			isa = PBXGroup;
 			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+				5FDE4594D70400FAFF21614AB2BDF6BB /* Context.swift */,
+				E26CD8051240B14DA01B57614BAA3AF9 /* Crossroad.h */,
+				F36DECB71AE9B6FE8B7C6AB286A75CB3 /* Extractable.swift */,
+				137D8F419DBB859E82E2838FB332ADAE /* OpenURLOption.swift */,
+				E85A2574B2BB818C21AE6DB84EB3B2B5 /* PatternURL.swift */,
+				90A0C689F4F06D32673ACD34D61DC9EF /* Route.swift */,
+				19DE90C85D4A5FD61DA6E16138FEBB39 /* Router.swift */,
+				9C176D0EAE22D940B7E33A9F2C09AEC8 /* Support Files */,
 			);
-			name = iOS;
+			name = Crossroad;
+			path = Crossroad;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				266993A609AB24D19E4E52B52197CA1A /* Pods */,
-				DC0AD8ED3C477005FD1899954AF891F2 /* Products */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				A41BDDF53404548FAF18BDBA5FABEB37 /* Pods */,
+				147C7A7E4A226AC120994ED3E5A7EEB7 /* Products */,
 				DAB591B8485856C7E6802A79CB03AD72 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DAB591B8485856C7E6802A79CB03AD72 /* Targets Support Files */ = {
@@ -259,15 +331,27 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		DC0AD8ED3C477005FD1899954AF891F2 /* Products */ = {
+		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				009699F6B5C2AC3EF4BEDE0CF4FBBB15 /* Crossroad.framework */,
-				5C4E5B3ED4D38BC777C3319F031E6B92 /* Pods_testCrossroad.framework */,
-				D0976C0A418C1EFB8730883BB0AB4C0A /* Pods_testCrossroadTests.framework */,
-				7845BB2529C30912DBFD9434F3384844 /* Pods_testCrossroadUITests.framework */,
+				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
+				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
 			);
-			name = Products;
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FC9AB264CF3D9B6BA2A99042C770BD2B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				475D8E1B34FE774E6301205DCDB71BEA /* URLNavigator.modulemap */,
+				1D946730AF47B1EAABFB4ED189D71CDE /* URLNavigator.xcconfig */,
+				A56F41586B00DFC00EC81B830935DD3C /* URLNavigator-dummy.m */,
+				A68B8C49789E318D49864F2FDDC8B66A /* URLNavigator-Info.plist */,
+				6D7FF8D6826E17358C5FCD4129EC554D /* URLNavigator-prefix.pch */,
+				D084CD3E12976365C8FCFE5371244CCE /* URLNavigator-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/URLNavigator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,11 +366,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7286F2F232E3E08597C343771AA1FDCE /* Headers */ = {
+		925DB0A5E195ADE6570B32D47723CCAB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A260D8AD28D3E4C1A8F2CD0935AB0DA /* Pods-testCrossroad-umbrella.h in Headers */,
+				21D3E8F1914D54F8351FBBCD42307AEA /* URLNavigator-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +387,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EC0B5D213480D0AD2060BB489681288 /* Pods-testCrossroadTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2ECC2FDBC1D4E733F52ADCD35DD5063 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AB842DAEF99AE9BD3D2F880DF48B05D /* Pods-testCrossroad-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +439,24 @@
 			productReference = D0976C0A418C1EFB8730883BB0AB4C0A /* Pods_testCrossroadTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		3AEB4A97CEAE5A782BA5E5D6A468A913 /* URLNavigator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 514D8F138CC2A4FD064CB42F9FC4F522 /* Build configuration list for PBXNativeTarget "URLNavigator" */;
+			buildPhases = (
+				925DB0A5E195ADE6570B32D47723CCAB /* Headers */,
+				0C583E9165E3CF888DEE501D718A42AE /* Sources */,
+				E780B5A694196FEDC1F6D818618B8A9A /* Frameworks */,
+				38D19291B316156913A611606B109F16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = URLNavigator;
+			productName = URLNavigator;
+			productReference = 4173C63C9C2260C59FD9E0AD257A1200 /* URLNavigator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		691F459B116A063755789DE6A65472FB /* Crossroad */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87BAE2D711E218DDC8A4FC96390DC9C7 /* Build configuration list for PBXNativeTarget "Crossroad" */;
@@ -367,17 +477,18 @@
 		};
 		F7C8755ACF9D8B0F6B6185E2DB7AAF5F /* Pods-testCrossroad */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E4649108E910321F8E389EB5C574F74 /* Build configuration list for PBXNativeTarget "Pods-testCrossroad" */;
+			buildConfigurationList = B49FB1A5F1D498382994783FF92E7FD1 /* Build configuration list for PBXNativeTarget "Pods-testCrossroad" */;
 			buildPhases = (
-				7286F2F232E3E08597C343771AA1FDCE /* Headers */,
-				585E4656C06108C6897374E3D6513B54 /* Sources */,
-				F5A63BAAD7CA1572DFBE7C62C3A885F4 /* Frameworks */,
-				72AF6BC7B1AD6D4E51F784471F59DA9E /* Resources */,
+				C2ECC2FDBC1D4E733F52ADCD35DD5063 /* Headers */,
+				09201FB85BCE7F4D1310ED5F46568A25 /* Sources */,
+				BDF8D92EF54DF8DEDE5E302CF33A36A4 /* Frameworks */,
+				99558FA5D9DAE2B89B8539A2C730FC01 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9F511DC544E7A69E6DDBA7A410601C19 /* PBXTargetDependency */,
+				2574634A29268075EB774EC6499E9B5F /* PBXTargetDependency */,
+				2F0BA63953B3E666B697C8F11AE459FF /* PBXTargetDependency */,
 			);
 			name = "Pods-testCrossroad";
 			productName = "Pods-testCrossroad";
@@ -394,14 +505,14 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = DC0AD8ED3C477005FD1899954AF891F2 /* Products */;
+			productRefGroup = 147C7A7E4A226AC120994ED3E5A7EEB7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -409,11 +520,19 @@
 				F7C8755ACF9D8B0F6B6185E2DB7AAF5F /* Pods-testCrossroad */,
 				23E483790FD90266E09D927BA2BD42B4 /* Pods-testCrossroadTests */,
 				148417F24E446650FB9CDE39CF17B486 /* Pods-testCrossroadUITests */,
+				3AEB4A97CEAE5A782BA5E5D6A468A913 /* URLNavigator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		38D19291B316156913A611606B109F16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		43CFD18CECAEA4ACB4BD7B809B868CCA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -428,7 +547,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		72AF6BC7B1AD6D4E51F784471F59DA9E /* Resources */ = {
+		99558FA5D9DAE2B89B8539A2C730FC01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -445,11 +564,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		585E4656C06108C6897374E3D6513B54 /* Sources */ = {
+		09201FB85BCE7F4D1310ED5F46568A25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68C5628060768430B1747C9EA1D470B6 /* Pods-testCrossroad-dummy.m in Sources */,
+				F48EC85F5939955109165723E2210A5A /* Pods-testCrossroad-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C583E9165E3CF888DEE501D718A42AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CC89B1E2BEE3DE6274634444D79BE95 /* Navigator.swift in Sources */,
+				B44D35AB56B86BCCB6DD29A77C4FD7D8 /* NavigatorDelegate.swift in Sources */,
+				B99AC1976B55FA861F93A2B2944A9D07 /* NavigatorType.swift in Sources */,
+				4C10ACC8893F433FBBB0E34A0FB3DB7C /* UIViewController+TopMostViewController.swift in Sources */,
+				78D2B91309C32FC0EC1E8BECA5A23D20 /* UIViewControllerType.swift in Sources */,
+				F2B3ADD8729D84219932C2EBDA6D87FE /* URLConvertible.swift in Sources */,
+				B17E2A165749A4EBA554FEDE017078DA /* URLMatcher.swift in Sources */,
+				6685EF638C7A58FA190A6DF8EF2994FE /* URLMatchResult.swift in Sources */,
+				E740BF65609E3CB8D0FF0DB7FB87BF35 /* URLNavigator-dummy.m in Sources */,
+				427418F1B9A7DE1F87E595F70EFAE9CD /* URLPatchComponentMatchResult.swift in Sources */,
+				288C6116D1824D2849710B9CECC660D2 /* URLPathComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,17 +623,23 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2574634A29268075EB774EC6499E9B5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Crossroad;
+			target = 691F459B116A063755789DE6A65472FB /* Crossroad */;
+			targetProxy = 1FA79ACC7FF6523A4DB915B3EDF5C42C /* PBXContainerItemProxy */;
+		};
+		2F0BA63953B3E666B697C8F11AE459FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = URLNavigator;
+			target = 3AEB4A97CEAE5A782BA5E5D6A468A913 /* URLNavigator */;
+			targetProxy = A8C133F411553A58A870219D8B87C9B2 /* PBXContainerItemProxy */;
+		};
 		342B57BBF569CABB91E108BE62451C57 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-testCrossroad";
 			target = F7C8755ACF9D8B0F6B6185E2DB7AAF5F /* Pods-testCrossroad */;
 			targetProxy = 9B24A04DAD5B23EA182F9D888CA66187 /* PBXContainerItemProxy */;
-		};
-		9F511DC544E7A69E6DDBA7A410601C19 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Crossroad;
-			target = 691F459B116A063755789DE6A65472FB /* Crossroad */;
-			targetProxy = 50CA69B996F1D8157EB8041400BF92C7 /* PBXContainerItemProxy */;
 		};
 		BC392910766B6DE5580CC8B5F2F2CF4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -509,7 +652,7 @@
 /* Begin XCBuildConfiguration section */
 		12534208E38F9669E5BB23104E3D9334 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2EC9A788E789A1FFD3FBBB1C79F5C19 /* Crossroad.xcconfig */;
+			baseConfigurationReference = 5E5AAD53C1B34DCF8349107065976D8F /* Crossroad.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -542,12 +685,10 @@
 			};
 			name = Debug;
 		};
-		1BF4D2EEDA6335342C58248A55D34CBE /* Debug */ = {
+		1B98C8CC951C35A06DB2C9575DB76E3E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16CC45519B140B25BB92191730D00780 /* Pods-testCrossroad.debug.xcconfig */;
+			baseConfigurationReference = 1D946730AF47B1EAABFB4ED189D71CDE /* URLNavigator.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -557,28 +698,28 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-testCrossroad/Pods-testCrossroad-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/URLNavigator/URLNavigator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/URLNavigator/URLNavigator-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-testCrossroad/Pods-testCrossroad.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/URLNavigator/URLNavigator.modulemap";
+				PRODUCT_MODULE_NAME = URLNavigator;
+				PRODUCT_NAME = URLNavigator;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		1E3359E2361DA947C1BCE3DFBB6A848D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -682,9 +823,47 @@
 			};
 			name = Debug;
 		};
+		2EB5104950DC864E2121A68D1C75AFC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16CC45519B140B25BB92191730D00780 /* Pods-testCrossroad.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-testCrossroad/Pods-testCrossroad-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-testCrossroad/Pods-testCrossroad.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		2EFDEBF2D1715C9F1D69B1BE675F54C3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2EC9A788E789A1FFD3FBBB1C79F5C19 /* Crossroad.xcconfig */;
+			baseConfigurationReference = 5E5AAD53C1B34DCF8349107065976D8F /* Crossroad.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -894,7 +1073,7 @@
 			};
 			name = Release;
 		};
-		F8E45C68817371C416F392CD7581E750 /* Release */ = {
+		87FD4F21A51D8AEFEA6E770CA89780D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E1FD608171712DA65081D63F83E3262 /* Pods-testCrossroad.release.xcconfig */;
 			buildSettings = {
@@ -933,6 +1112,41 @@
 			};
 			name = Release;
 		};
+		E56FA2C138BBE6A4397D4B74C518E49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D946730AF47B1EAABFB4ED189D71CDE /* URLNavigator.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/URLNavigator/URLNavigator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/URLNavigator/URLNavigator-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/URLNavigator/URLNavigator.modulemap";
+				PRODUCT_MODULE_NAME = URLNavigator;
+				PRODUCT_NAME = URLNavigator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -945,20 +1159,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		514D8F138CC2A4FD064CB42F9FC4F522 /* Build configuration list for PBXNativeTarget "URLNavigator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E56FA2C138BBE6A4397D4B74C518E49D /* Debug */,
+				1B98C8CC951C35A06DB2C9575DB76E3E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		54B3181917DDEDF2C0DD9C535ADF37B7 /* Build configuration list for PBXNativeTarget "Pods-testCrossroadTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1E3359E2361DA947C1BCE3DFBB6A848D /* Debug */,
 				45EBD67E98EEE67DED130E1C3647D439 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5E4649108E910321F8E389EB5C574F74 /* Build configuration list for PBXNativeTarget "Pods-testCrossroad" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1BF4D2EEDA6335342C58248A55D34CBE /* Debug */,
-				F8E45C68817371C416F392CD7581E750 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -977,6 +1191,15 @@
 			buildConfigurations = (
 				750A0DA762EB6AD204302B9C9B5CCB2C /* Debug */,
 				7C1F22F439A9C28EF3C988489E665559 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B49FB1A5F1D498382994783FF92E7FD1 /* Build configuration list for PBXNativeTarget "Pods-testCrossroad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EB5104950DC864E2121A68D1C75AFC8 /* Debug */,
+				87FD4F21A51D8AEFEA6E770CA89780D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

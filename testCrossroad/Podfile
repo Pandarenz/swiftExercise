@@ -5,6 +5,7 @@ target 'testCrossroad' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 pod 'Crossroad'
+pod 'URLNavigator'
   # Pods for testCrossroad
 
   target 'testCrossroadTests' do
