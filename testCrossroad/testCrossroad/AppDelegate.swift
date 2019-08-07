@@ -8,8 +8,7 @@
 
 import UIKit
 import Crossroad
-
-
+import URLNavigator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        RouterManager.manager.register()
-        RouterManager.manager.registers()
-        
+//        RouterManager.manager.register()
+//        RouterManager.manager.registers()
+        NavigatorRouter.default.register()
         return true
     }
 

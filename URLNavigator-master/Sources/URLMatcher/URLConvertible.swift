@@ -45,10 +45,10 @@ extension String: URLConvertible {
       return url
     }
     var set = CharacterSet()
-    set.formUnion(.urlHostAllowed)
-    set.formUnion(.urlPathAllowed)
-    set.formUnion(.urlQueryAllowed)
-    set.formUnion(.urlFragmentAllowed)
+    set.formUnion(.urlHostAllowed)//URL 中Host子模块中允许的字符集.
+    set.formUnion(.urlPathAllowed)// URL 中domain后面的路径子模块中允许的字符集.
+    set.formUnion(.urlQueryAllowed)// URL中请求信息子模块中允许的字符集.
+    set.formUnion(.urlFragmentAllowed)// 片段URL子模块中允许的字符集.
     return self.addingPercentEncoding(withAllowedCharacters: set).flatMap { URL(string: $0) }
   }
 

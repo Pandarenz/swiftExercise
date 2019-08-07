@@ -14,6 +14,11 @@
 		04230DE522F293BF00DE3BDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04230DE322F293BF00DE3BDC /* LaunchScreen.storyboard */; };
 		04230DF022F293BF00DE3BDC /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04230DEF22F293BF00DE3BDC /* RouterTests.swift */; };
 		04230DFB22F293BF00DE3BDC /* RouterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04230DFA22F293BF00DE3BDC /* RouterUITests.swift */; };
+		04AD6DED22FAA43500A08124 /* SJRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD6DEC22FAA43500A08124 /* SJRoute.swift */; };
+		04AD6DEF22FAC7DE00A08124 /* SJURLContvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD6DEE22FAC7DE00A08124 /* SJURLContvertible.swift */; };
+		04E35D1322FA67AF0057E133 /* SJRouterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E35D1222FA67AF0057E133 /* SJRouterRequest.swift */; };
+		04E35D1622FA69110057E133 /* SJRouterURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E35D1522FA69110057E133 /* SJRouterURL.swift */; };
+		04E35D1822FA698E0057E133 /* SJRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E35D1722FA698E0057E133 /* SJRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		04230DF622F293BF00DE3BDC /* RouterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04230DFA22F293BF00DE3BDC /* RouterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterUITests.swift; sourceTree = "<group>"; };
 		04230DFC22F293BF00DE3BDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04AD6DEC22FAA43500A08124 /* SJRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJRoute.swift; sourceTree = "<group>"; };
+		04AD6DEE22FAC7DE00A08124 /* SJURLContvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJURLContvertible.swift; sourceTree = "<group>"; };
+		04E35D1222FA67AF0057E133 /* SJRouterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJRouterRequest.swift; sourceTree = "<group>"; };
+		04E35D1522FA69110057E133 /* SJRouterURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJRouterURL.swift; sourceTree = "<group>"; };
+		04E35D1722FA698E0057E133 /* SJRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +107,7 @@
 		04230DD922F293BE00DE3BDC /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				04E35D1422FA67B90057E133 /* Router */,
 				04230DDA22F293BE00DE3BDC /* AppDelegate.swift */,
 				04230DDC22F293BE00DE3BDC /* ViewController.swift */,
 				04230DDE22F293BE00DE3BDC /* Main.storyboard */,
@@ -123,6 +134,18 @@
 				04230DFC22F293BF00DE3BDC /* Info.plist */,
 			);
 			path = RouterUITests;
+			sourceTree = "<group>";
+		};
+		04E35D1422FA67B90057E133 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				04E35D1222FA67AF0057E133 /* SJRouterRequest.swift */,
+				04E35D1522FA69110057E133 /* SJRouterURL.swift */,
+				04E35D1722FA698E0057E133 /* SJRouter.swift */,
+				04AD6DEC22FAA43500A08124 /* SJRoute.swift */,
+				04AD6DEE22FAC7DE00A08124 /* SJURLContvertible.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +280,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04230DDD22F293BE00DE3BDC /* ViewController.swift in Sources */,
+				04E35D1622FA69110057E133 /* SJRouterURL.swift in Sources */,
 				04230DDB22F293BE00DE3BDC /* AppDelegate.swift in Sources */,
+				04E35D1822FA698E0057E133 /* SJRouter.swift in Sources */,
+				04AD6DED22FAA43500A08124 /* SJRoute.swift in Sources */,
+				04AD6DEF22FAC7DE00A08124 /* SJURLContvertible.swift in Sources */,
+				04E35D1322FA67AF0057E133 /* SJRouterRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

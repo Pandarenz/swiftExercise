@@ -16,6 +16,8 @@
 		04230E3522F2967700DE3BDC /* testCrossroadUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04230E3422F2967700DE3BDC /* testCrossroadUITests.swift */; };
 		04230E4322F2980600DE3BDC /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04230E4222F2980600DE3BDC /* RouterManager.swift */; };
 		04230E4722F299A100DE3BDC /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04230E4622F299A100DE3BDC /* TestViewController.swift */; };
+		04AD6DE922FA81A000A08124 /* NavigatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD6DE822FA81A000A08124 /* NavigatorRouter.swift */; };
+		04AD6DEB22FA853300A08124 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD6DEA22FA853300A08124 /* UserViewController.swift */; };
 		4B2B34D2753BC84880536C03 /* Pods_testCrossroadTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D868D81E4C71DF947337A7 /* Pods_testCrossroadTests.framework */; };
 		5DB0632F7C0820F442F0166C /* Pods_testCrossroad.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69533117F027DF929BE51BB4 /* Pods_testCrossroad.framework */; };
 		9E8D26E75B250163BA4D20B3 /* Pods_testCrossroadUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16551C4D24908009F7387596 /* Pods_testCrossroadUITests.framework */; };
@@ -54,6 +56,8 @@
 		04230E3622F2967700DE3BDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04230E4222F2980600DE3BDC /* RouterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
 		04230E4622F299A100DE3BDC /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		04AD6DE822FA81A000A08124 /* NavigatorRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorRouter.swift; sourceTree = "<group>"; };
+		04AD6DEA22FA853300A08124 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		09EEC5E54923E46BE43D35BD /* Pods-testCrossroad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCrossroad.release.xcconfig"; path = "Target Support Files/Pods-testCrossroad/Pods-testCrossroad.release.xcconfig"; sourceTree = "<group>"; };
 		0F295381C2ABAD4BA679C1F3 /* Pods-testCrossroadUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCrossroadUITests.release.xcconfig"; path = "Target Support Files/Pods-testCrossroadUITests/Pods-testCrossroadUITests.release.xcconfig"; sourceTree = "<group>"; };
 		104460E6DF9A41DEE6533CF2 /* Pods-testCrossroadTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testCrossroadTests.release.xcconfig"; path = "Target Support Files/Pods-testCrossroadTests/Pods-testCrossroadTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				04230E1D22F2967700DE3BDC /* LaunchScreen.storyboard */,
 				04230E2022F2967700DE3BDC /* Info.plist */,
 				04230E4622F299A100DE3BDC /* TestViewController.swift */,
+				04AD6DE822FA81A000A08124 /* NavigatorRouter.swift */,
+				04AD6DEA22FA853300A08124 /* UserViewController.swift */,
 			);
 			path = testCrossroad;
 			sourceTree = "<group>";
@@ -393,9 +399,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04230E1722F2967600DE3BDC /* ViewController.swift in Sources */,
+				04AD6DEB22FA853300A08124 /* UserViewController.swift in Sources */,
 				04230E4322F2980600DE3BDC /* RouterManager.swift in Sources */,
 				04230E4722F299A100DE3BDC /* TestViewController.swift in Sources */,
 				04230E1522F2967600DE3BDC /* AppDelegate.swift in Sources */,
+				04AD6DE922FA81A000A08124 /* NavigatorRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

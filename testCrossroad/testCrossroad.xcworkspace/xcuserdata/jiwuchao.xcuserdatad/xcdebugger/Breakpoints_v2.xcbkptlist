@@ -10,92 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testCrossroad/RouterManager.swift"
-            timestampString = "586430856.422803"
+            timestampString = "586843930.77934"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
             landmarkName = "registers()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Crossroad/Sources/Crossroad/Router.swift"
-            timestampString = "586430856.42353"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "isValidURLPattern(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Crossroad/Sources/Crossroad/Router.swift"
-            timestampString = "586430856.423756"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "isValidURLPattern(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Crossroad/Sources/Crossroad/Router.swift"
-            timestampString = "586430856.4239759"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "register(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Crossroad/Sources/Crossroad/Router.swift"
-            timestampString = "586430856.424194"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "register(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testCrossroad/ViewController.swift"
-            timestampString = "586430881.738826"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "BtnAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -265,30 +185,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/Crossroad/Sources/Crossroad/Router.swift"
-            timestampString = "586430942.43621"
+            filePath = "Pods/URLNavigator/Sources/URLNavigator/Navigator.swift"
+            timestampString = "586855216.8183891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "canRespond(to:)"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "handler(for:context:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/Crossroad/Sources/Crossroad/Router.swift"
-            timestampString = "586430944.964343"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "canRespond(to:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "URLNavigator.Navigator.handler(for: URLNavigator.URLConvertible, context: Swift.Optional&lt;Any&gt;) -&gt; Swift.Optional&lt;() -&gt; Swift.Bool&gt;"
+                  moduleName = "URLNavigator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiwuchao/Documents/MyGit/Swift/swiftExercise/testCrossroad/Pods/URLNavigator/Sources/URLNavigator/Navigator.swift"
+                  timestampString = "586862528.4916739"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "1516">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; Swift.Bool in URLNavigator.Navigator.handler(for: URLNavigator.URLConvertible, context: Swift.Optional&lt;Any&gt;) -&gt; Swift.Optional&lt;() -&gt; Swift.Bool&gt;"
+                  moduleName = "URLNavigator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiwuchao/Documents/MyGit/Swift/swiftExercise/testCrossroad/Pods/URLNavigator/Sources/URLNavigator/Navigator.swift"
+                  timestampString = "586862528.494203"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
