@@ -72,12 +72,14 @@ open class URLMatcher {
     print("normalizedCandidate=>\n",normalizedCandidate)
     print("candidatePathComponents=>\n",candidatePathComponents)
     
+    // 先匹配path的个数
     guard self.ensurePathComponentsCount(stringPathComponents, candidatePathComponents) else {
       return nil
     }
 
     var urlValues: [String: Any] = [:]
-
+    
+    // 取出长度最小的一个
     let pairCount = min(stringPathComponents.count, candidatePathComponents.count)
     for index in 0..<pairCount {
       let result = self.matchStringPathComponent( at: index, from: stringPathComponents, with: candidatePathComponents )
@@ -111,17 +113,26 @@ open class URLMatcher {
     let range = NSMakeRange(0, string.count)
     return regex.stringByReplacingMatches(in: string, options: [], range: range, withTemplate: repl)
   }
-
+    
+  // 先匹配path的个数是否合适 （是合适不是相等）
   func ensurePathComponentsCount(  _ stringPathComponents: [String], _ candidatePathComponents: [URLPathComponent]
   ) -> Bool {
+    
+//    1. http://<path:_>
+//    placeholder(type: "path", key: "_")
+//
+//    2. navigator://user/<username>
+//    placeholder(type: nil, key: "username")
+    
     let hasSameNumberOfComponents = (stringPathComponents.count == candidatePathComponents.count)
     let containsPathPlaceholderComponent = candidatePathComponents.contains {
       if case let URLPathComponent.placeholder(type, _) = $0, type == "path" {
-        return true
+        return true // 是 http://<path:_>
       } else {
-        return false
+        return false//navigator://user/<username>
       }
     }
+    // （如果当前的url String 和 候选的 url String path的个数一样 ）或者 （是 http://<path:_> 且 当前的 path个数 比 候选的path个数大 ） 则为匹配成功
     return hasSameNumberOfComponents || (containsPathPlaceholderComponent && stringPathComponents.count > candidatePathComponents.count)
   }
 
