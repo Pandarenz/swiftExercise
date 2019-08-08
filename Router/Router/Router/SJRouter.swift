@@ -20,8 +20,8 @@ public class SJRouter {
     
     private var routes:[String:SJRoute]
     
-    private lazy var urlParser: LZRouterURLParser = {
-        let parser = LZRouterURLParser.init()
+    private lazy var urlParser: LZURLParser = {
+        let parser = LZURLParser.init()
         return parser
     }()
     

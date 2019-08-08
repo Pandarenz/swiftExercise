@@ -8,28 +8,9 @@
 
 import Foundation
 
-/// 解析出错
-public enum LZURLParserError:String {
-    case NoScheme // 没有scheme
-    case NoHost   // 没有host
-    case NoValue // 为空
-    case UnKonw // 错误未知
-}
-
-/// 解析结果
-public enum LZURLParserResult {
-    /// 失败
-    case failure(LZURLParserError)
-    
-    /// eg: LZModule://home/find?name=zhangsan&age=12
-    ///parameters 为url中的参数对 eg: ["name":"zhangsan","age":"12"]
-    ///keyValue 在路由字典中当做key eg: LZModule://home/find
-    
-    case success(parameters:[String:String]?,keyValue:String)
-}
 
 
-public class LZRouterURLParser {
+public class LZURLParser {
     
     
     init() {
@@ -37,17 +18,17 @@ public class LZRouterURLParser {
     }
     
     
-   public func isValid(address:String) -> LZURLParserResult {
+    public func isValid(address:String) -> LZURLParser.Result {
         
-        return LZURLParserResult.failure(LZURLParserError.UnKonw)
+        return LZURLParser.Result.Failure(LZURLParser.Error.UnKonw)
     }
     
     
-    func parserURL(url:SJURLConvertible) -> LZURLParserResult {
+    func parserURL(url:SJURLConvertible) -> LZURLParser.Result {
         
         
         
-        return LZURLParserResult.failure(LZURLParserError.UnKonw)
+        return LZURLParser.Result.Failure(LZURLParser.Error.UnKonw)
     }
     
     
@@ -62,3 +43,25 @@ public class LZRouterURLParser {
     
 }
 
+extension LZURLParser {
+    /// 解析出错
+    public enum Error:Swift.Error {
+        case NoScheme // 没有scheme
+        case NoHost   // 没有host
+        case NoValue // 为空
+        case UnKonw // 错误未知
+    }
+    
+    /// 解析结果
+    public enum Result {
+        /// 失败
+        case Failure(LZURLParser.Error)
+        
+        /// eg: LZModule://home/find?name=zhangsan&age=12
+        /// parameters 为url中的参数对 eg: ["name":"zhangsan","age":"12"]
+        /// keyValue 在路由字典中当做key eg: LZModule://home/find
+        
+        case Success(parameters:[String:String]?,keyValue:String)
+    }
+
+}
