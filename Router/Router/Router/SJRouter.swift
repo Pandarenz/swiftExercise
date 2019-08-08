@@ -8,17 +8,19 @@
 
 import Foundation
 
-public typealias Handle = ( _ Context:[String:Any], _ comparate:Complate?)-> Void
+public typealias Handle = ( _ Context:[String:Any]?, _ comparate:Complate?)-> Void
 
 public typealias Complate = (_ success:Bool,_ failure:Error?) -> Void
 
 public typealias Parameters = [String:Any]
 
+
+//TODO:线程安全问题
 public class SJRouter {
     
     public static let `default` = SJRouter.init()
     
-    private var routes:[String:SJRoute]
+    private var routes:[String:LZURLOperation]
     
     private lazy var urlParser: LZURLParser = {
         let parser = LZURLParser.init()
@@ -27,31 +29,55 @@ public class SJRouter {
     
     
     init() {
-        self.routes = [String:SJRoute]()
+        self.routes = [String:LZURLOperation]()
     }
     
-    public func register(URL url:SJURLConvertible,Handle handle: @escaping Handle)  {
+    public func register(URL url:LZURLConvertible,Handle handle: @escaping Handle)  {
         
-        let routerURL = SJRouterURL.init(url: url.stringValue)
-        let routeRequest = SJRouterRequest.init(url: routerURL, parameters: nil)
+        let result = urlParser.parserURL(urlString: url)
         
-        let route = SJRoute.init(url: routerURL, request: routeRequest, handle: handle, complate: nil)
+        switch result {
+            
+        case .Failure(let error):
+            assert(true, error.localizedDescription)
+        case .Success(let parameters, let keyValue):
+            let operation = LZURLOperation.init(routerUrl: url, parameters: parameters, handle: handle, complate: nil)
+            addRouter(keyPath: keyValue, operation: operation)
+        }
         
-        self.routes[url.stringValue] = route
         
     }
  
     
-    func openUrl(fromURL url:SJURLConvertible,parameters:Parameters?,compalate:@escaping Complate) {
-        let request = SJRouterURL.init(url: url.stringValue)
+    func openUrl(fromURL url:LZURLConvertible,parameters:Parameters?,compalate:@escaping Complate) {
         
-        let route = self.routes[url.stringValue]
+        var operation:LZURLOperation?
         
-        let handle = route?.handle
+        let result = urlParser.parserURL(urlString: url)
         
-        handle?(parameters!,compalate)
+        switch result {
+            
+        case .Failure(let error):
+            compalate(false,error)
+        case .Success(let para, let key):
+            operation = getOperation(keyPath: key)
+            guard var op = operation else {
+                return compalate(false,LZURLOperation.Error.noMatch)
+            }
+            op.addParameters(dic: para)
+            op.addParameters(dic: parameters)
+            op.handle?(op.parameters,compalate)
+        }
+    }
+    
+    private func addRouter(keyPath:String,operation:LZURLOperation) {
+        self.routes[keyPath] = operation
+    }
+    
+    
+    private func getOperation(keyPath:String) -> LZURLOperation? {
         
-        
+        return self.routes[keyPath]
     }
     
 }

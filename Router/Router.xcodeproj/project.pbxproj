@@ -14,13 +14,9 @@
 		04230DE522F293BF00DE3BDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04230DE322F293BF00DE3BDC /* LaunchScreen.storyboard */; };
 		04230DF022F293BF00DE3BDC /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04230DEF22F293BF00DE3BDC /* RouterTests.swift */; };
 		04230DFB22F293BF00DE3BDC /* RouterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04230DFA22F293BF00DE3BDC /* RouterUITests.swift */; };
-		0472BBFA22FBF5DA003030D2 /* SJURLMatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472BBF922FBF5DA003030D2 /* SJURLMatchResult.swift */; };
 		0472BC0422FC186D003030D2 /* LZURLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472BC0322FC186D003030D2 /* LZURLParser.swift */; };
 		0472BC0622FC1CB3003030D2 /* LZURLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472BC0522FC1CB3003030D2 /* LZURLOperation.swift */; };
-		04AD6DED22FAA43500A08124 /* SJRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD6DEC22FAA43500A08124 /* SJRoute.swift */; };
-		04AD6DEF22FAC7DE00A08124 /* SJURLContvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD6DEE22FAC7DE00A08124 /* SJURLContvertible.swift */; };
-		04E35D1322FA67AF0057E133 /* SJRouterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E35D1222FA67AF0057E133 /* SJRouterRequest.swift */; };
-		04E35D1622FA69110057E133 /* SJRouterURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E35D1522FA69110057E133 /* SJRouterURL.swift */; };
+		0472BC0822FC21D0003030D2 /* LZURLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472BC0722FC21D0003030D2 /* LZURLConvertible.swift */; };
 		04E35D1822FA698E0057E133 /* SJRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E35D1722FA698E0057E133 /* SJRouter.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,13 +51,9 @@
 		04230DF622F293BF00DE3BDC /* RouterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RouterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04230DFA22F293BF00DE3BDC /* RouterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterUITests.swift; sourceTree = "<group>"; };
 		04230DFC22F293BF00DE3BDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0472BBF922FBF5DA003030D2 /* SJURLMatchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJURLMatchResult.swift; sourceTree = "<group>"; };
 		0472BC0322FC186D003030D2 /* LZURLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LZURLParser.swift; sourceTree = "<group>"; };
 		0472BC0522FC1CB3003030D2 /* LZURLOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZURLOperation.swift; sourceTree = "<group>"; };
-		04AD6DEC22FAA43500A08124 /* SJRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJRoute.swift; sourceTree = "<group>"; };
-		04AD6DEE22FAC7DE00A08124 /* SJURLContvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJURLContvertible.swift; sourceTree = "<group>"; };
-		04E35D1222FA67AF0057E133 /* SJRouterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJRouterRequest.swift; sourceTree = "<group>"; };
-		04E35D1522FA69110057E133 /* SJRouterURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJRouterURL.swift; sourceTree = "<group>"; };
+		0472BC0722FC21D0003030D2 /* LZURLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZURLConvertible.swift; sourceTree = "<group>"; };
 		04E35D1722FA698E0057E133 /* SJRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,12 +137,8 @@
 		04E35D1422FA67B90057E133 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				04E35D1222FA67AF0057E133 /* SJRouterRequest.swift */,
-				04E35D1522FA69110057E133 /* SJRouterURL.swift */,
 				04E35D1722FA698E0057E133 /* SJRouter.swift */,
-				04AD6DEC22FAA43500A08124 /* SJRoute.swift */,
-				04AD6DEE22FAC7DE00A08124 /* SJURLContvertible.swift */,
-				0472BBF922FBF5DA003030D2 /* SJURLMatchResult.swift */,
+				0472BC0722FC21D0003030D2 /* LZURLConvertible.swift */,
 				0472BC0322FC186D003030D2 /* LZURLParser.swift */,
 				0472BC0522FC1CB3003030D2 /* LZURLOperation.swift */,
 			);
@@ -288,16 +276,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0472BC0822FC21D0003030D2 /* LZURLConvertible.swift in Sources */,
 				0472BC0422FC186D003030D2 /* LZURLParser.swift in Sources */,
 				04230DDD22F293BE00DE3BDC /* ViewController.swift in Sources */,
-				04E35D1622FA69110057E133 /* SJRouterURL.swift in Sources */,
 				0472BC0622FC1CB3003030D2 /* LZURLOperation.swift in Sources */,
 				04230DDB22F293BE00DE3BDC /* AppDelegate.swift in Sources */,
 				04E35D1822FA698E0057E133 /* SJRouter.swift in Sources */,
-				04AD6DED22FAA43500A08124 /* SJRoute.swift in Sources */,
-				0472BBFA22FBF5DA003030D2 /* SJURLMatchResult.swift in Sources */,
-				04AD6DEF22FAC7DE00A08124 /* SJURLContvertible.swift in Sources */,
-				04E35D1322FA67AF0057E133 /* SJRouterRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

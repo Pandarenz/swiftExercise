@@ -8,7 +8,14 @@
 
 import Foundation
 
-public struct LZURLOperation {
+// 没注册一个就会产生一个 operation
+struct LZURLOperation {
+    
+    enum Error:Swift.Error {
+        case noMatch //没有匹配到
+    }
+    
+    
     /// register 的时候的处理类
     var handle:Handle?
     /// open时的处理类
@@ -19,5 +26,29 @@ public struct LZURLOperation {
     /// 则 此时的parameters 为 ["name":"zhangsan","age":12,"like":"apple","page":122,"roomid":12323,"userid":88888]
     var parameters:Parameters?
     
+    // open 或者 register 的url
+    var routerUrl :LZURLConvertible = ""
+    
+    
+    init(routerUrl url:LZURLConvertible,parameters:Parameters?,handle:Handle?,complate:Complate?) {
+//        self.init()
+        self.routerUrl = url
+        self.parameters = parameters
+        self.handle = handle
+        self.complate = complate
+    }
+}
+
+
+extension LZURLOperation {
+    
+    mutating func addParameters(dic:[String:Any]?) {
+        guard let d = dic else {
+            return
+        }
+        for (key,value) in d {
+            parameters?[key] = value
+        }
+    }
     
 }

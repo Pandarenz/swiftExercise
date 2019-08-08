@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
        
-        router.openUrl(fromURL: "SJModule://home/find", parameters: ["userName":"zhangsan","age":12]) { (success, error) in
+        router.openUrl(fromURL: "SJModule://home/find?roomid=12323&userid=时", parameters: ["userName":"zhangsan","age":12]) { (success, error) in
             print(success)
             print(error)
         }

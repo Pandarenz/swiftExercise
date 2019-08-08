@@ -1,14 +1,14 @@
 //
-//  SJURLContvertible.swift
+//  LZURLConvertible.swift
 //  Router
 //
-//  Created by JiWuChao on 2019/8/7.
+//  Created by JiWuChao on 2019/8/8.
 //  Copyright © 2019 JiWuChao. All rights reserved.
 //
 
 import Foundation
 
-public protocol SJURLConvertible {
+public protocol LZURLConvertible {
     // string 转化成URL
     var urlValue: URL? { get }
     
@@ -16,18 +16,18 @@ public protocol SJURLConvertible {
     
     
     /// 返回Url中的 query 参数 返回的参数不会为nil 加入没有query 参数则返回 [:]
-     
+    
     /// eg: SJModule://home/search?keyworld=zhangsan&startindex = 12
-     
+    
     /// return ["keyworld":"zhangsan","startindex"="12"]
-  
+    
     
     var queryParameters: [String: String] { get }
     
     
 }
 
-extension SJURLConvertible {
+extension LZURLConvertible {
     
     public var queryParameters: [String: String] {
         var parameters = [String:String]()
@@ -47,7 +47,7 @@ extension SJURLConvertible {
 }
 
 
-extension String:SJURLConvertible{
+extension String:LZURLConvertible {
     public var urlValue: URL? {
         if let url = URL.init(string: self) {
             return url
@@ -60,13 +60,14 @@ extension String:SJURLConvertible{
         return self.addingPercentEncoding(withAllowedCharacters: set).flatMap { URL(string: $0) }
     }
     
+    //TODO: 去除空格
     public var stringValue: String {
         return self
     }
 }
 
 
-extension URL:SJURLConvertible {
+extension URL:LZURLConvertible {
     
     public var urlValue: URL? {
         return self
