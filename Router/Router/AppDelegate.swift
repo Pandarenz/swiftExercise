@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        router.register(URL: "SJModule://home/find") { (dic, complate) in
+            print(dic)
+            complate?(true,nil)
+        }
+
         return true
     }
 

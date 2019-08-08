@@ -20,26 +20,32 @@ public class SJRouter {
     
     private var routes:[String:SJRoute]
     
+    private lazy var urlParser: LZRouterURLParser = {
+        let parser = LZRouterURLParser.init()
+        return parser
+    }()
+    
+    
     init() {
         self.routes = [String:SJRoute]()
     }
     
-    public func register(URL url:String,Handle handle: @escaping Handle)  {
+    public func register(URL url:SJURLConvertible,Handle handle: @escaping Handle)  {
         
-        let routerURL = SJRouterURL.init(url: url)
+        let routerURL = SJRouterURL.init(url: url.stringValue)
         let routeRequest = SJRouterRequest.init(url: routerURL, parameters: nil)
         
         let route = SJRoute.init(url: routerURL, request: routeRequest, handle: handle, complate: nil)
         
-        self.routes[url] = route
+        self.routes[url.stringValue] = route
         
     }
  
     
-    func openUrl(fromURL url:String,parameters:Parameters?,compalate:@escaping Complate) {
-        let request = SJRouterURL.init(url: url)
+    func openUrl(fromURL url:SJURLConvertible,parameters:Parameters?,compalate:@escaping Complate) {
+        let request = SJRouterURL.init(url: url.stringValue)
         
-        let route = self.routes[url]
+        let route = self.routes[url.stringValue]
         
         let handle = route?.handle
         

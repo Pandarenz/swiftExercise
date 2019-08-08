@@ -23,14 +23,16 @@ public struct SJRouterURL {
      */
     var parameters:[String:Any]?
     
-    init(url:String) {
+    init(url:SJURLConvertible) {
         
-        let tempURL = URL.init(string: url)
+        let tempURL = URL.init(string: url.stringValue)
         self.scheme = tempURL?.scheme
         self.host = tempURL?.host
         self.parameters = [String:Any]()
         self.pathComponents = [String]()
         self.pattern = tempURL?.absoluteString ?? ""
+//        pathComponents?.sort(by: <#T##(String, String) throws -> Bool#>)
+//        pathComponents.map(<#T##transform: ([String]) throws -> U##([String]) throws -> U#>)
     }
     
 }

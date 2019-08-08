@@ -53,6 +53,8 @@ open class URLMatcher {
     let stringPathComponents = self.stringPathComponents(from :url)
     // candidates: 字典handlerFactories的keys 就是当时注册的 url
     for candidate in candidates {
+        // 如果当前的scheme 和候选的scheme一样则继续比较 如果不一样则进行下一个候选的url
+        //1 先比较scheme
       guard scheme == candidate.urlValue?.scheme else { continue }
       if let result = self.match(stringPathComponents, with: candidate) {
         return result
@@ -62,6 +64,7 @@ open class URLMatcher {
     return nil
   }
   // stringPathComponents 要打开的url的path 如 navigator://user/devxoul 为：[user,devxoul]
+    // 2 比较path
   func match(_ stringPathComponents: [String], with candidate: URLPattern) -> URLMatchResult? {
     print("stringPathComponents=>\n",stringPathComponents)
     print("candidate=>\n",candidate)
@@ -145,7 +148,7 @@ open class URLMatcher {
   func pathComponents(from url: URLPattern) -> [URLPathComponent] {
     return self.stringPathComponents(from: url).map(URLPathComponent.init)
   }
-
+  //stringPathComponents 要打开的url的path 如 navigator://user/devxoul 为：[user,devxoul]
   func matchStringPathComponent( at index: Int, from stringPathComponents: [String], with candidatePathComponents: [URLPathComponent]
   ) -> URLPathComponentMatchResult {
     let stringPathComponent = stringPathComponents[index]

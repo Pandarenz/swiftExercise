@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol SJURLConvertible{
+public protocol SJURLConvertible {
     // string 转化成URL
     var urlValue: URL? { get }
     
@@ -48,7 +48,7 @@ extension SJURLConvertible {
 
 
 extension String:SJURLConvertible{
-    var urlValue: URL? {
+    public var urlValue: URL? {
         if let url = URL.init(string: self) {
             return url
         }
@@ -60,7 +60,7 @@ extension String:SJURLConvertible{
         return self.addingPercentEncoding(withAllowedCharacters: set).flatMap { URL(string: $0) }
     }
     
-    var stringValue: String {
+    public var stringValue: String {
         return self
     }
 }
