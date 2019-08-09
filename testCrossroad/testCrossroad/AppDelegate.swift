@@ -20,9 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-//        RouterManager.manager.register()
+        RouterManager.manager.register()
 //        RouterManager.manager.registers()
-        NavigatorRouter.default.register()
+//        NavigatorRouter.default.register()
         return true
     }
 

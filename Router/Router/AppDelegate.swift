@@ -15,11 +15,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        router.register(URL: "SJModule://home/find") { (dic, complate) in
-            print(dic)
+//        router.register(URL: "SJModule://home/find/?jjj=www&sss=123") { (dic, complate) in
+//            print("参数是1:\n",dic)
+//            complate?(true,nil)
+//        }
+        router.register(URL: "SJModule://home/find/?jjj=www&sss=123") { (dic, error, complate) in
+            print("参数是1:\n",dic)
+            
+            print(error?.localizedDescription)
+            
             complate?(true,nil)
         }
-
+        
+        router.register(URL: "sss/sssdw/") { (dic, error, complate) in
+            print("参数是1:\n",dic)
+            
+            print(error?.localizedDescription)
+            
+            complate?(true,nil)
+        }
+        
+//        router.register(URL: "SJHome://home/find/?jjj=www&sss=123") { (dic, complate) in
+//            print("参数是2:\n",dic)
+//            complate?(true,nil)
+//        }
+//        router.register(URL: "SJPK://home/find/?jjj=www&sss=123") { (dic, complate) in
+//            print("参数是3:\n",dic)
+//            complate?(true,nil)
+//        }
         return true
     }
 

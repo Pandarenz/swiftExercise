@@ -40,6 +40,7 @@ public final class Router<UserInfo> {
     internal func register(_ route: Route<UserInfo>) {
         if isValidURLPattern(route.patternURL) {
             routes.append(route)
+            print("routes:",routes)
         } else {
             assertionFailure("Unexpected URL Pattern")
         }

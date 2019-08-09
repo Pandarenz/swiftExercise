@@ -23,20 +23,27 @@ class RouterManager {
     
     public static let manager = RouterManager.init()
     
-    private let routers = Router<[String:Any]>(scheme: "SNRouter")
+    private let routers = Router<User>(scheme: "SNRouter")
     
     
     private let router = Router<User>(scheme: "foobar")
     
     func register() {
-        router.register([
+        routers.register([
             ("foobar://pokemons", { context in
                 let userInfo: User = context.userInfo
                 print(userInfo)
                 return true
             })
             ])
-        router.register([
+        routers.register([
+            ("sjrouter://pokemons", { context in
+                let userInfo: User = context.userInfo
+                print(userInfo)
+                return true
+            })
+            ])
+        routers.register([
             ("foobar://pokemons/jsjjs?name=zhangsan", { context in
                 let userInfo: User = context.userInfo
                 print(userInfo)
@@ -48,13 +55,13 @@ class RouterManager {
     }
     
     func registers()  {
-        routers.register ([
-            ("://fine", { context in
-                let userInfo:[String:Any] = context.userInfo
-                print(userInfo)
-                return true
-            })
-            ])
+//        routers.register ([
+//            ("://fine", { context in
+//                let userInfo:[String:Any] = context.userInfo
+//                print(userInfo)
+//                return true
+//            })
+//            ])
     }
     
     
@@ -67,7 +74,7 @@ class RouterManager {
     }
     
     func open() {
-        routers.openIfPossible(URL.init(string: "fine")!, userInfo: ["userName":"zhangsan"])
+//        routers.openIfPossible(URL.init(string: "fine")!, userInfo: ["userName":"zhangsan"])
     }
     
 }

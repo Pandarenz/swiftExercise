@@ -17,9 +17,9 @@ struct LZURLOperation {
     }
     
     /// register 的时候的处理类
-    var handle:RouterHandle?
+    var handle:RegisterHandle?
     /// open时的处理类
-    var complate:RouterComplate?
+    var complate:OpenComplate?
     /// 1.register 时url中参数 LZModule://home/find?name=zhangsan&age=12
     /// 2 open时 url中的参数 LZModule://home/find?like=apple&page=122
     /// 3 open时的 parameters 的参数 ["roomid":12323,"userid":88888]
@@ -29,19 +29,30 @@ struct LZURLOperation {
     // open 或者 register 的url
     var routerUrl :LZURLConvertible = ""
     
-    private lazy var urlParser: LZURLParser = {
-        let parser = LZURLParser.init()
-        return parser
-    }()
+    var component:LZURLComponent
     
-    init(routerUrl url:LZURLConvertible,parameters:Parameters?,handle:RouterHandle?,complate:RouterComplate?) {
+    
+//    private lazy var urlParser: LZURLParser = {
+//        let parser = LZURLParser.init()
+//        return parser
+//    }()
+//
+    init(routerUrl url:LZURLConvertible,parameters:Parameters?,handle:RegisterHandle?,complate:OpenComplate?) {
 //        self.init()
         self.routerUrl = url
         self.parameters = parameters
         self.handle = handle
         self.complate = complate
+        self.component = LZURLComponent(convertibleString: self.routerUrl)!
     }
-    
+    init(parameters:Parameters?,component:LZURLComponent,handle:RegisterHandle?,complate:OpenComplate?) {
+        //        self.init()
+        
+        self.parameters = parameters
+        self.handle = handle
+        self.complate = complate
+        self.component = component
+    }
 
     
 }
@@ -49,13 +60,21 @@ struct LZURLOperation {
 
 extension LZURLOperation {
     
-    mutating func addParameters(dic:[String:Any]?) {
+    mutating func addParameters(dic:[String:Any]?) -> [String:Any]? {
+        
+        if var _ = parameters {
+            
+        } else {
+            parameters = [String:Any]()
+        }
+        
         guard let d = dic else {
-            return
+            return parameters
         }
         for (key,value) in d {
             parameters?[key] = value
         }
+        return parameters
     }
     
 }
