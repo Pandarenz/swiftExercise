@@ -49,7 +49,7 @@ extension LZURLConvertible {
 
 extension String:LZURLConvertible {
     public var urlValue: URL? {
-        if let url = URL.init(string: self) {
+        if let url = URL.init(string: self.stringValue) {
             return url
         }
         var set = CharacterSet()
@@ -57,12 +57,16 @@ extension String:LZURLConvertible {
         set.formUnion(.urlPathAllowed)// URL 中domain后面的路径子模块中允许的字符集.
         set.formUnion(.urlQueryAllowed)// URL中请求信息子模块中允许的字符集.
         set.formUnion(.urlFragmentAllowed)// 片段URL子模块中允许的字符集.
-        return self.addingPercentEncoding(withAllowedCharacters: set).flatMap { URL(string: $0) }
+        set.formUnion(.whitespacesAndNewlines)
+        return self.addingPercentEncoding(withAllowedCharacters: set).flatMap({ (url) -> URL? in
+            return URL.init(string: url.stringValue)
+        })
+        
     }
     
     //TODO: 去除空格
     public var stringValue: String {
-        return self
+        return self.replacingOccurrences(of: " ", with: "")
     }
 }
 

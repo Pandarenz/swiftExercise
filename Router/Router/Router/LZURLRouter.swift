@@ -1,24 +1,27 @@
 //
-//  SJRouter.swift
+//  LZURLRouter.swift
 //  Router
 //
-//  Created by JiWuChao on 2019/8/7.
+//  Created by JiWuChao on 2019/8/9.
 //  Copyright © 2019 JiWuChao. All rights reserved.
 //
 
 import Foundation
 
-public typealias Handle = ( _ Context:[String:Any]?, _ comparate:Complate?)-> Void
 
-public typealias Complate = (_ success:Bool,_ failure:Error?) -> Void
+import Foundation
+
+public typealias RouterHandle = ( _ Context:[String:Any]?, _ comparate:RouterComplate?)-> Void
+
+public typealias RouterComplate = (_ success:Bool,_ failure:Error?) -> Void
 
 public typealias Parameters = [String:Any]
 
 
 //TODO:线程安全问题
-public class SJRouter {
+public class LZURLRouter {
     
-    public static let `default` = SJRouter.init()
+    public static let `default` = LZURLRouter.init()
     
     private var routes:[String:LZURLOperation]
     
@@ -32,7 +35,7 @@ public class SJRouter {
         self.routes = [String:LZURLOperation]()
     }
     
-    public func register(URL url:LZURLConvertible,Handle handle: @escaping Handle)  {
+    public func register(URL url:LZURLConvertible,Handle handle: @escaping RouterHandle)  {
         
         let result = urlParser.parserURL(urlString: url)
         
@@ -47,9 +50,9 @@ public class SJRouter {
         
         
     }
- 
     
-    func openUrl(fromURL url:LZURLConvertible,parameters:Parameters?,compalate:@escaping Complate) {
+    
+    func openUrl(fromURL url:LZURLConvertible,parameters:Parameters?,compalate:@escaping RouterComplate) {
         
         var operation:LZURLOperation?
         

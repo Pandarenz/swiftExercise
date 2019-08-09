@@ -7,15 +7,15 @@
 //
 
 import UIKit
-let router:SJRouter = SJRouter()
+let router:LZURLRouter = LZURLRouter()
 class ViewController: UIViewController {
  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-       
-        router.openUrl(fromURL: "SJModule://home/find?roomid=12323&userid=时", parameters: ["userName":"zhangsan","age":12]) { (success, error) in
+        
+        router.openUrl(fromURL: "SJModule: // home/find?roomid=测试&userid=时", parameters: ["userName":"姬武超","age":12]) { (success, error) in
             print(success)
             print(error)
         }
