@@ -8,13 +8,13 @@
 
 import Foundation
 
-// 没注册一个就会产生一个 operation
+/// 每注册一个就会产生一个 operation
+
 struct LZURLOperation {
     
     enum Error:Swift.Error {
         case noMatch //没有匹配到
     }
-    
     
     /// register 的时候的处理类
     var handle:RouterHandle?
@@ -29,6 +29,10 @@ struct LZURLOperation {
     // open 或者 register 的url
     var routerUrl :LZURLConvertible = ""
     
+    private lazy var urlParser: LZURLParser = {
+        let parser = LZURLParser.init()
+        return parser
+    }()
     
     init(routerUrl url:LZURLConvertible,parameters:Parameters?,handle:RouterHandle?,complate:RouterComplate?) {
 //        self.init()
@@ -37,6 +41,9 @@ struct LZURLOperation {
         self.handle = handle
         self.complate = complate
     }
+    
+
+    
 }
 
 

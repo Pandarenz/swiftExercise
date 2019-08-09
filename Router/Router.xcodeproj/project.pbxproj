@@ -18,6 +18,7 @@
 		0472BC0622FC1CB3003030D2 /* LZURLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472BC0522FC1CB3003030D2 /* LZURLOperation.swift */; };
 		0472BC0822FC21D0003030D2 /* LZURLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472BC0722FC21D0003030D2 /* LZURLConvertible.swift */; };
 		0472BC0A22FD07D0003030D2 /* LZURLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472BC0922FD07D0003030D2 /* LZURLRouter.swift */; };
+		0472BC0C22FD2466003030D2 /* LZURLComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0472BC0B22FD2466003030D2 /* LZURLComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		0472BC0522FC1CB3003030D2 /* LZURLOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZURLOperation.swift; sourceTree = "<group>"; };
 		0472BC0722FC21D0003030D2 /* LZURLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZURLConvertible.swift; sourceTree = "<group>"; };
 		0472BC0922FD07D0003030D2 /* LZURLRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZURLRouter.swift; sourceTree = "<group>"; };
+		0472BC0B22FD2466003030D2 /* LZURLComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LZURLComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				0472BC0322FC186D003030D2 /* LZURLParser.swift */,
 				0472BC0522FC1CB3003030D2 /* LZURLOperation.swift */,
 				0472BC0922FD07D0003030D2 /* LZURLRouter.swift */,
+				0472BC0B22FD2466003030D2 /* LZURLComponent.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				0472BC0622FC1CB3003030D2 /* LZURLOperation.swift in Sources */,
 				04230DDB22F293BE00DE3BDC /* AppDelegate.swift in Sources */,
 				0472BC0A22FD07D0003030D2 /* LZURLRouter.swift in Sources */,
+				0472BC0C22FD2466003030D2 /* LZURLComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

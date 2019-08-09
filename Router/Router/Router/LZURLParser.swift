@@ -33,8 +33,7 @@ public class LZURLParser {
         return LZURLParser.Result.Success(parameters: url.queryParameters, absoluteString: url.stringValue)
     }
     
-    
-    /// 验证urlstring是否有效
+     /// 验证urlstring是否有效
     ///
     /// - Parameter urlString: <#urlString description#>
     /// - Returns: Bool
@@ -52,6 +51,10 @@ public class LZURLParser {
     
     
     
+   /// 判断uurl是否合法 并提取keyValue
+   ///
+   /// - Parameter urlString: <#urlString description#>
+   /// - Returns: <#return value description#>
    public func parserURL(urlString:LZURLConvertible) -> LZURLParser.Result {
         
         let result = isValidURLString(address: urlString)
@@ -106,7 +109,7 @@ extension LZURLParser {
         
         /// eg: LZModule://home/find?name=zhangsan&age=12
         /// parameters 为url中的参数对 eg: ["name":"zhangsan","age":"12"]
-        /// absoluteString 在路由字典中当做key eg:  LZModule://home/find?name=zhangsan&age=12
+        /// absoluteString  eg:  LZModule://home/find?name=zhangsan&age=12
         
         case Success(parameters:[String:String]?,absoluteString:String)
     }
