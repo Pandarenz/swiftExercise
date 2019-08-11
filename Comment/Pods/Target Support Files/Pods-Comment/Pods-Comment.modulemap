@@ -1,0 +1,6 @@
+framework module Pods_Comment {
+  umbrella header "Pods-Comment-umbrella.h"
+
+  export *
+  module * { export * }
+}
